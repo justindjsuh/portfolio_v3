@@ -20,27 +20,33 @@
     --text-fontweight-semibold: 600;
     --text-fontweight-bold: 700;
     /* Utilizing CSS Variables */
-  }
-  
-  * {
+}
+
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-  }
-  
-  html,
-  body {
+}
+
+html,
+body {
     max-width: 100vw;
     overflow-x: hidden;
     font-family: "Jost", sans-serif;
-  }
-  
-  a {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(97,97,97);
+    background: radial-gradient(circle at 67% 25%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
+}
+
+a {
     color: inherit;
     text-decoration: none;
-  }
-  
-  .noScroll {
-      height: 100vh;
-      overflow: hidden;
-  }
+}
+
+.noScroll {
+    height: 100vh;
+    overflow: hidden;
+}

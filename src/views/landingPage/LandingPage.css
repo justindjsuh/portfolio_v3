@@ -1,0 +1,62 @@
+.landingContainer {
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    position: relative;
+}
+
+.landingContentContainer {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    width: 100%;
+    transform: translateX(-40%) translateY(30%);
+}
+
+.landingContent {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-family: inherit;
+    color: white;
+    max-width: min-content;
+    gap: .2rem;
+}
+
+.landingContent h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin-left: .3rem;
+    padding-bottom: .4rem;
+    white-space: nowrap;
+}
+
+.position {
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.summary {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    word-wrap: break-word;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    color: #A7A7A7;
+    font-weight: 400;
+    letter-spacing: .05rem;
+}
