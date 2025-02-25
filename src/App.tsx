@@ -1,14 +1,11 @@
-import { useState } from "react";
 import "./App.css";
 import LandingPage from "./views/landingPage/LandingPage";
 import Loader from "./components/loader";
 
 const App = () => {
-    const [loading, setLoading] = useState(true);
-
     return (
         <>
-            {loading && <Loader />}
+            <Loader />
             <LandingPage />
         </>
     );
