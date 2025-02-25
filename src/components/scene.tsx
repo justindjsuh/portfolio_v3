@@ -33,11 +33,16 @@ export const Scene = () => {
             />
             <pointLight
                 position={[-5, 3, 0]}
-                intensity={650}
-                decay={3} // Controls how fast light diminishes
+                intensity={850}
+                decay={3.2} // Controls how fast light diminishes
                 castShadow
             />
-
+            <pointLight
+                position={[0, -5, 0]}
+                intensity={250}
+                decay={4} // Controls how fast light diminishes
+                castShadow
+            />
             <Text
                 font="/fonts/Poppins-Medium.ttf"
                 position={textPosition}
@@ -89,9 +94,9 @@ export const Scene = () => {
             <Cube
                 position={[10, -8, -5]}
                 size={12}
-                hRotation={3.4}
-                vRotation={1.3}
-                xRotation={1.6}
+                hRotation={3.5}
+                vRotation={1.2}
+                xRotation={1.5}
                 xPosFloat={0.1}
                 yPosFloat={0.1}
             />
