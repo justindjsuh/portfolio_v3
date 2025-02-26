@@ -1,29 +1,30 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "../../components/scene";
 import "./LandingPage.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Transition from "../../components/transition";
 import AboutView from "../../components/about/AboutView";
 
 const LandingPage: React.FunctionComponent = () => {
-    const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
+    // const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 300) {
-                setIsBackToTopVisible(true);
-            } else {
-                setIsBackToTopVisible(false);
-            }
-        };
+    // useEffect(() => {
+    //     const toggleVisibility = () => {
+    //         console.log(window.scrollY);
+    //         if (window.scrollY > 300) {
+    //             setIsBackToTopVisible(true);
+    //         } else {
+    //             setIsBackToTopVisible(false);
+    //         }
+    //     };
 
-        window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
+    //     window.addEventListener("scroll", toggleVisibility);
+    //     return () => window.removeEventListener("scroll", toggleVisibility);
+    // }, []);
 
     const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -88,7 +89,12 @@ const LandingPage: React.FunctionComponent = () => {
             <div ref={experienceRef}></div>
             <div ref={projectsRef}></div>
             <div ref={contactRef}></div>
-            <div></div>
+            {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>
+                <img
+                    src={IMAGES.backToTopCube}
+                    alt="A cube used to scroll back to top"
+                />
+            </button> */}
         </div>
     );
 };

@@ -103,9 +103,40 @@
     color: black;
 }
 
+/* .backToTop {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.backToTop:hover {
+    background-color: black;
+} */
+
 @media (max-width: 1199px) {
     .landingContentContainer {
-        transform: translateX(-40%) translateY(250%);
+        transform: translateX(-40%) translateY(200%);
     }
 }
 

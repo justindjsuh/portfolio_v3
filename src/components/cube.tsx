@@ -6,8 +6,8 @@ import { useFrame, useLoader } from "@react-three/fiber";
 interface ICubeProps {
     position: [number, number, number];
     size?: number;
-    hRotation: number;
-    vRotation: number;
+    hRotation?: number;
+    vRotation?: number;
     xRotation?: number;
     color?: string;
     xPosFloat?: number;
@@ -21,8 +21,8 @@ interface ICubeProps {
 export const Cube: React.FunctionComponent<ICubeProps> = ({
     position,
     size,
-    hRotation,
-    vRotation,
+    hRotation = 0,
+    vRotation = 0,
     xRotation = 3,
     xPosFloat = 0.06,
     yPosFloat = 0.06,

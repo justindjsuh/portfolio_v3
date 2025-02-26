@@ -38,9 +38,7 @@ export const Scene = () => {
                 font="/fonts/Poppins-Medium.ttf"
                 position={[x, y, 0]}
                 rotation={[0, 0, Math.PI * 1.5]}
-                fontSize={
-                    size.width < 1199 ? 1.5 : size.width < 768 ? 1.8 : 2.5
-                }
+                fontSize={size.width < 768 ? 1.8 : size.width < 1199 ? 2 : 2.5}
                 color="white"
                 anchorX="center"
                 anchorY="middle"

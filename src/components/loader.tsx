@@ -79,7 +79,7 @@ const Loader: React.FunctionComponent = () => {
     // };
 
     return (
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
             {/* Top overlay panel */}
             <motion.div
                 className="loader-top"
