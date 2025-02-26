@@ -12,6 +12,8 @@ interface ICubeProps {
     color?: string;
     xPosFloat?: number;
     yPosFloat?: number;
+    rotationMultiplier?: number;
+    rotationTimeMultiplier?: number;
 }
 
 // A reusable Cube component that renders a 3D cube.
@@ -23,17 +25,27 @@ export const Cube: React.FunctionComponent<ICubeProps> = ({
     xRotation = 3,
     xPosFloat = 0.06,
     yPosFloat = 0.06,
+    rotationMultiplier = 0.05,
+    rotationTimeMultiplier = 0.1,
     color = "#505050",
 }) => {
     const ref = useRef<THREE.Mesh>(null);
 
     useFrame(({ clock }) => {
+        const time = clock.getElapsedTime();
         if (ref.current) {
             // Create a floating effect using sine wave
-            ref.current.position.x =
-                position[0] + Math.sin(clock.elapsedTime) * xPosFloat;
-            ref.current.position.y =
-                position[1] + Math.sin(clock.elapsedTime) * yPosFloat;
+            ref.current.position.x = position[0] + Math.sin(time) * xPosFloat;
+            ref.current.position.y = position[1] + Math.sin(time) * yPosFloat;
+
+            // Add a subtle rotation effect on the X and Y axes.
+            // Adjust the multiplier (0.1) and frequency (0.5) to get the desired effect.
+            ref.current.rotation.x =
+                hRotation +
+                Math.sin(time * rotationTimeMultiplier) * rotationMultiplier;
+            ref.current.rotation.y =
+                vRotation +
+                Math.cos(time * rotationTimeMultiplier) * rotationMultiplier;
         }
     });
 

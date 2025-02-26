@@ -1,8 +1,18 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "../../components/scene";
 import "./LandingPage.css";
+import { useRef } from "react";
 
 export default function LandingPage() {
+    const aboutRef = useRef<HTMLDivElement | null>(null);
+    const experienceRef = useRef<HTMLDivElement | null>(null);
+    const projectsRef = useRef<HTMLDivElement | null>(null);
+    const contactRef = useRef<HTMLDivElement | null>(null);
+
+    const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+        ref.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
         <div className="landingContainer">
             <Canvas
@@ -33,6 +43,13 @@ export default function LandingPage() {
                     </div>
                 </div>
             </div>
+            <div className="nav-container">
+                <button onClick={() => scrollToSection(aboutRef)}>about</button>
+            </div>
+            <div ref={aboutRef}></div>
+            <div ref={experienceRef}></div>
+            <div ref={projectsRef}></div>
+            <div ref={contactRef}></div>
         </div>
     );
 }

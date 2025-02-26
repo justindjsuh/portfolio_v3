@@ -14,7 +14,9 @@ export const Scene = () => {
     // useHelper(lightRef, PointLightHelper, 1);
 
     useEffect(() => {
-        if (size.width < 768) {
+        if (size.width < 1199) {
+            setTextPosition([2.7, 2.7, 0]);
+        } else if (size.width < 768) {
             setTextPosition([1.5, 2.5, 0]);
         } else {
             setTextPosition([5.5, 2.5, 0]);
@@ -33,12 +35,12 @@ export const Scene = () => {
             />
             <pointLight
                 position={[-5, 3, 0]}
-                intensity={850}
+                intensity={550}
                 decay={3.2} // Controls how fast light diminishes
                 castShadow
             />
             <pointLight
-                position={[0, -5, 0]}
+                position={[-2, -5, 0]}
                 intensity={250}
                 decay={4} // Controls how fast light diminishes
                 castShadow
@@ -47,7 +49,9 @@ export const Scene = () => {
                 font="/fonts/Poppins-Medium.ttf"
                 position={textPosition}
                 rotation={[0, 0, Math.PI * 1.5]}
-                fontSize={size.width < 768 ? 1.8 : 2.5}
+                fontSize={
+                    size.width < 1199 ? 1.5 : size.width < 768 ? 1.8 : 2.5
+                }
                 color="white"
                 anchorX="center"
                 anchorY="middle"
@@ -87,8 +91,8 @@ export const Scene = () => {
                 size={12}
                 hRotation={10}
                 vRotation={8.3}
-                xPosFloat={0.2}
-                yPosFloat={0.2}
+                xPosFloat={0.1}
+                yPosFloat={0.1}
             />
             {/* Bottom Right */}
             <Cube
@@ -97,8 +101,8 @@ export const Scene = () => {
                 hRotation={3.5}
                 vRotation={1.2}
                 xRotation={1.5}
-                xPosFloat={0.1}
-                yPosFloat={0.1}
+                xPosFloat={0.05}
+                yPosFloat={0.05}
             />
 
             {/* Four small cubes placed in between */}
@@ -110,6 +114,8 @@ export const Scene = () => {
                 vRotation={6}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
+                rotationTimeMultiplier={0.3}
+                rotationMultiplier={0.1}
             />
             {/* Right */}
             <Cube
@@ -119,6 +125,8 @@ export const Scene = () => {
                 vRotation={2}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
+                rotationTimeMultiplier={0.3}
+                rotationMultiplier={0.1}
             />
             {/* Left */}
             <Cube
@@ -128,6 +136,8 @@ export const Scene = () => {
                 vRotation={6}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
+                rotationMultiplier={0.1}
+                rotationTimeMultiplier={0.3}
             />
             {/* Bottom Middle */}
             <Cube
@@ -137,6 +147,8 @@ export const Scene = () => {
                 vRotation={5.5}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
+                rotationTimeMultiplier={0.3}
+                rotationMultiplier={0.1}
             />
             {/* <TexturedCube /> */}
         </>

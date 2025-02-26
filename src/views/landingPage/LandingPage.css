@@ -60,3 +60,16 @@
     font-weight: 400;
     letter-spacing: .05rem;
 }
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 575px) {
+    .position {
+        white-space: unset;
+    }
+    .landingContentContainer {
+        transform: translateX(-40%) translateY(55%);
+    }
+}

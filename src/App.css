@@ -38,7 +38,7 @@ body {
 
 body {
     background: rgb(97,97,97);
-    background: radial-gradient(circle at 67% 25%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle at 67% 35%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
 }
 
 a {

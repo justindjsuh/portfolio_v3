@@ -9,17 +9,13 @@ const App = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 6000);
+        }, 9000);
         return () => clearTimeout(timeout);
     });
 
     return (
         <>
             {loading && <Loader />}
-            {/* <div className="loading_container">
-                <p>justin suh</p>
-                <div className="loading_bar"></div>
-            </div> */}
             <LandingPage />
         </>
     );
