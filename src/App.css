@@ -1,20 +1,16 @@
 :root {
     /* Utilizing CSS Variables */
-    --background-primary: #fff;
-    --background-secondary: #F8F8F8;
-    --background-tertiary: #F7EDE2;
-    /* --background-quaternary: #69847d; */
-    --background-quaternary: #84A59D;
-    --divider-primary: #E3E3E3;
-    --text-primary-dark: #000;
-    --text-primary-light: #fff;
-    --btn-primary-light: #fff;
-    --btn-accent: #F28482;
-    --primary-gradient-dark: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    --background-primary: #000;
+    --background-secondary: #1A191D;
+    --text-primary: #fff;
+    --disabled-default: #B0B0B0;
+    --subtext-default: rgba(247, 246, 248, 0.75);
+    --subtext-dark: #A7A7A7;
+
   
     --text-fontsize-default: 0.875rem;
     --text-fontsize-large: 1rem;
-    --text-fontsize-headers: 2rem;
+    --text-fontsize-headers: 1.5rem;
     --text-fontweight-default: 400;
     --text-fontweight-medium: 500;
     --text-fontweight-semibold: 600;

@@ -8,6 +8,7 @@ import AboutView from "../../components/about/AboutView";
 const LandingPage: React.FunctionComponent = () => {
     // const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
+    const skillsRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
@@ -86,6 +87,7 @@ const LandingPage: React.FunctionComponent = () => {
             <div ref={aboutRef}>
                 <AboutView />
             </div>
+            <div ref={skillsRef}></div>
             <div ref={experienceRef}></div>
             <div ref={projectsRef}></div>
             <div ref={contactRef}></div>

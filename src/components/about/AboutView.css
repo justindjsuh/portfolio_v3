@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 60vh;
     width: 100vw;
     background-color: #1A191D;
 }
@@ -18,4 +18,26 @@
 
 .aboutContent p:not(:last-child) {
     margin-bottom: 1rem;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.highlight::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.5rem;
+    height: 1.5rem;
+    background: #222E9C;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.word-highlight {
+    color: #6d7bf9;
 }
