@@ -2,6 +2,7 @@ import "./App.css";
 import LandingPage from "./views/landingPage/LandingPage";
 import Loader from "./components/loader";
 import { useEffect, useState } from "react";
+import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ const App = () => {
         <>
             {loading && <Loader />}
             <LandingPage />
+            <StickyCursor />
         </>
     );
 };

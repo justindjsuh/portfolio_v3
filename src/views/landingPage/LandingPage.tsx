@@ -1,13 +1,29 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "../../components/scene";
 import "./LandingPage.css";
-import { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Transition from "../../components/transition";
+import AboutView from "../../components/about/AboutView";
 
-export default function LandingPage() {
+const LandingPage: React.FunctionComponent = () => {
+    const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const toggleVisibility = () => {
+            if (window.scrollY > 300) {
+                setIsBackToTopVisible(true);
+            } else {
+                setIsBackToTopVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", toggleVisibility);
+        return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
 
     const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -38,8 +54,18 @@ export default function LandingPage() {
                         seamless, elevating user experience.
                     </p>
                     <div className="socials">
-                        <a>LinkedIn</a>
-                        <a>GitHub</a>
+                        <a
+                            href="https://www.linkedin.com/in/justin-suh98/"
+                            target="_blank"
+                        >
+                            LinkedIn
+                        </a>
+                        <a
+                            href="https://github.com/justindjsuh"
+                            target="_blank"
+                        >
+                            GitHub
+                        </a>
                     </div>
                 </div>
             </div>
@@ -55,10 +81,16 @@ export default function LandingPage() {
                     contact
                 </button>
             </div>
-            <div ref={aboutRef}></div>
+            <Transition />
+            <div ref={aboutRef}>
+                <AboutView />
+            </div>
             <div ref={experienceRef}></div>
             <div ref={projectsRef}></div>
             <div ref={contactRef}></div>
+            <div></div>
         </div>
     );
-}
+};
+
+export default LandingPage;

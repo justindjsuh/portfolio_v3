@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Loader: React.FunctionComponent = () => {
     const [finalPhase, setFinalPhase] = useState(false);
+    const [fadeName, setFadeName] = useState(false);
     const [expanding, setExpanding] = useState(false);
 
     useEffect(() => {
@@ -19,9 +20,14 @@ const Loader: React.FunctionComponent = () => {
         if (expanding) {
             const expandTimer = setTimeout(() => {
                 setFinalPhase(true);
-            }, 500); // Matches the duration of the expansion animation
-
-            return () => clearTimeout(expandTimer);
+            }, 2000); // Matches the duration of the expansion animation
+            const nameTimer = setTimeout(() => {
+                setFadeName(true);
+            }, 1000);
+            return () => {
+                clearTimeout(expandTimer);
+                clearTimeout(nameTimer);
+            };
         }
     }, [expanding]);
 
@@ -44,48 +50,70 @@ const Loader: React.FunctionComponent = () => {
         },
     };
 
-    // Overlay fade-out animation: Waits for expansion to finish before fading
-    const overlayVariants = {
+    // Panel variants for the wipe effect.
+    const topVariants = {
+        initial: { y: "0%" },
+        final: { y: "-100%", transition: { duration: 1, ease: "easeInOut" } },
+    };
+
+    const bottomVariants = {
+        initial: { y: "0%" },
+        final: { y: "100%", transition: { duration: 1, ease: "easeInOut" } },
+    };
+
+    const textVariants = {
         initial: { opacity: 1 },
         final: {
             opacity: 0,
-            transition: { delay: 1, duration: 0.5, ease: "easeInOut" }, // Wait for expansion
+            transition: { delay: 1, duration: 0.5, ease: "easeOut" },
         },
     };
 
+    // Overlay fade-out animation: Waits for expansion to finish before fading
+    // const overlayVariants = {
+    //     initial: { opacity: 1 },
+    //     final: {
+    //         opacity: 0,
+    //         transition: { delay: 1, duration: 0.5, ease: "easeInOut" }, // Wait for expansion
+    //     },
+    // };
+
     return (
         <AnimatePresence mode="wait">
+            {/* Top overlay panel */}
             <motion.div
-                layout
-                className="loader-overlay"
-                variants={overlayVariants}
+                className="loader-top"
+                variants={topVariants}
+                initial="initial"
                 animate={finalPhase ? "final" : "initial"}
                 style={{
-                    position: "fixed",
+                    position: "absolute",
                     top: 0,
                     left: 0,
                     width: "100vw",
-                    height: "100vh",
+                    height: "50vh",
                     background: "black",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
+                    justifyContent: "flex-end",
                     zIndex: 9999,
                 }}
             >
                 {/* Your Name */}
-                <h1
+                <motion.h1
+                    variants={textVariants}
+                    animate={fadeName ? "final" : "initial"}
                     style={{
                         color: "white",
-                        marginBottom: "1rem",
+                        marginBottom: "2rem",
                         fontSize: "2rem",
                         fontWeight: "500",
                         fontFamily: "EB Garamond",
                     }}
                 >
                     justin suh
-                </h1>
+                </motion.h1>
                 {/* Loading bar container */}
                 <div
                     style={{
@@ -112,6 +140,80 @@ const Loader: React.FunctionComponent = () => {
                     />
                 </div>
             </motion.div>
+            {/* Bottom overlay panel */}
+            <motion.div
+                className="loader-bottom"
+                variants={bottomVariants}
+                initial="initial"
+                animate={finalPhase ? "final" : "initial"}
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "50vh",
+                    background: "black",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 9999,
+                }}
+            />
+            {/* <motion.div
+                layout
+                className="loader-overlay"
+                variants={overlayVariants}
+                animate={finalPhase ? "final" : "initial"}
+                style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    background: "black",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 9999,
+                }}
+            >
+                <h1
+                    style={{
+                        color: "white",
+                        marginBottom: "1rem",
+                        fontSize: "2rem",
+                        fontWeight: "500",
+                        fontFamily: "EB Garamond",
+                    }}
+                >
+                    justin suh
+                </h1>
+                <div
+                    style={{
+                        position: "relative",
+                        width: expanding ? "100%" : "200px",
+                        height: "1px",
+                        overflow: expanding ? "visible" : "hidden",
+                        backgroundColor: "black",
+                    }}
+                >
+                    <motion.div
+                        layout
+                        className="loading-bar"
+                        variants={barVariants}
+                        animate={expanding ? "final" : "loop"}
+                        style={{
+                            height: "100%",
+                            background: expanding
+                                ? "white"
+                                : "linear-gradient(to right, rgba(255,255,255,0) 0%, white 10%, white 90%, rgba(255,255,255,0) 100%)",
+                            transformOrigin: expanding ? "center" : "left",
+                        }}
+                    />
+                </div>
+            </motion.div> */}
         </AnimatePresence>
     );
 };

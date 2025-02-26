@@ -3,6 +3,7 @@
     height: 100vh;
     background: transparent;
     position: relative;
+    background: radial-gradient(circle at 67% 35%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
 }
 
 .landingContentContainer {
@@ -42,7 +43,7 @@
 }
 
 .summary {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 400;
     letter-spacing: .05rem;
     word-wrap: break-word;
@@ -70,14 +71,42 @@
 
 .nav-container button {
     all: unset;
+    position: relative;
     cursor: pointer;
     font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: .1rem;
+    z-index: 1;
+    /* mix-blend-mode: difference; */
+    width: fit-content;
+    transition: color 0.3s ease-in-out;
+    padding: 0 .1rem
+}
+
+.nav-container button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-container button:hover::before {
+    width: 100%;
+}
+
+.nav-container button:hover {
+    color: black;
 }
 
 @media (max-width: 1199px) {
-
+    .landingContentContainer {
+        transform: translateX(-40%) translateY(250%);
+    }
 }
 
 @media (max-width: 575px) {
@@ -86,5 +115,9 @@
     }
     .landingContentContainer {
         transform: translateX(-40%) translateY(170%);
+    }
+    /* Need to implement a hamburger menu for mobile */
+    .nav-container {
+        display: none;
     }
 }
