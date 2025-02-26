@@ -45,6 +45,15 @@ export default function LandingPage() {
             </div>
             <div className="nav-container">
                 <button onClick={() => scrollToSection(aboutRef)}>about</button>
+                <button onClick={() => scrollToSection(experienceRef)}>
+                    experience
+                </button>
+                <button onClick={() => scrollToSection(projectsRef)}>
+                    projects
+                </button>
+                <button onClick={() => scrollToSection(contactRef)}>
+                    contact
+                </button>
             </div>
             <div ref={aboutRef}></div>
             <div ref={experienceRef}></div>
