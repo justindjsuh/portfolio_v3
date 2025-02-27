@@ -3,7 +3,6 @@
 
 .expertiseContainer {
     display: flex;
-    flex-direction: column;
     width: min-content;
     gap: 1rem;
     margin: 0 auto;
@@ -12,7 +11,7 @@
 }
 
 .skillCard {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: #212024;
     padding: 1rem 2rem;
     width: 10rem;
     height: 10rem;
@@ -32,16 +31,3 @@
     color: #5968FB;
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 0.2s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}

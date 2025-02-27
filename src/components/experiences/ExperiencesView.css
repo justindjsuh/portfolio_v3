@@ -29,7 +29,6 @@
     padding: 1.5rem 2rem;
     border-radius: 5px;
     border: 1px solid transparent;
-    transition: all 0.3s ease-in-out;
 }
 
 .jobCard.hover {
@@ -37,14 +36,27 @@
     border: 1px solid #3e51f8;
 }
 
-/* .jobLeftSide {
-    flex: 1;
-} */
+.jobCard.unselected {
+    border: 1px solid #2f2f2f;
+}
+
+.jobLeftSide {
+    transition: all 0.3s ease-in;
+}
 
 .jobRightSide {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    transition: all 0.3s ease-in;
+}
+
+.jobLeftSide.fadedDesc {
+    opacity: .5;
+}
+
+.jobRightSide.fadedDesc {
+    opacity: .5;
 }
 
 .title {
@@ -79,16 +91,12 @@
     background-color: rgba(205, 209, 244, 0.25);
     border-radius: 25px;
     padding: .25rem .75rem;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in;
 }
 
 .skillChip.selected {
     background: transparent;
     animation: colorIn 0.2s ease-in forwards;
-}
-
-.fade-in {
-
 }
 
 @keyframes colorIn {

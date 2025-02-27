@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import "./AboutView.css";
 
 // ADD A FADE UP FOR THE CONTENT
@@ -5,7 +6,13 @@ import "./AboutView.css";
 const AboutView: React.FunctionComponent = () => {
     return (
         <div className="aboutContainer">
-            <div className="aboutContent">
+            <motion.div
+                className="aboutContent"
+                initial={{ opacity: 0, y: 100 }} // Start invisible and 50px lower
+                whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+            >
                 <h2>
                     Hey there, I'm <span className="highlight">Justin.</span>
                 </h2>
@@ -30,7 +37,7 @@ const AboutView: React.FunctionComponent = () => {
                     <span className="word-highlight">serve the community.</span>
                 </p>
                 <p>I hope you enjoy your stay.</p>
-            </div>
+            </motion.div>
         </div>
     );
 };

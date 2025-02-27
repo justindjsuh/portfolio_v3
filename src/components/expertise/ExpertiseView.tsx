@@ -2,8 +2,6 @@ import IMAGES from "../../assets/images/Images";
 import { IJobDetailsProps } from "../experiences/experiencesHelper";
 import "./ExpertiseView.css";
 
-// ADD A FADE UP FOR THE CONTENT
-
 const ExpertiseView: React.FunctionComponent<IJobDetailsProps> = ({
     topLeft,
     topRight,

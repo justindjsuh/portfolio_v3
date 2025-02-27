@@ -1,6 +1,9 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
+import { motion } from "framer-motion";
+import ExpertiseView from "../../expertise/ExpertiseView";
+import { sigObj } from "../experiencesHelper";
 
 interface ISIGProps {
     selectedJob: IJobType;
@@ -12,14 +15,29 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
     handleHoverSelection,
 }) => {
     return (
-        <div
-            className={`jobCard sig ${selectedJob.sig ? "hover" : ""}`}
+        <motion.div
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+            className={`jobCard comcast ${selectedJob.sig ? "hover" : ""} ${
+                selectedJob.unselected ? "unselected" : ""
+            }`}
             onMouseEnter={() => handleHoverSelection("sig")}
+            onMouseLeave={() => handleHoverSelection("unselected")}
         >
-            <div className="jobLeftSide">
+            <div
+                className={`jobLeftSide ${
+                    selectedJob.sig || selectedJob.unselected ? "" : "fadedDesc"
+                }`}
+            >
+                {" "}
                 <p>2018 — 2019</p>
             </div>
-            <div className="jobRightSide">
+            <div
+                className={`jobRightSide ${
+                    selectedJob.sig || selectedJob.unselected ? "" : "fadedDesc"
+                }`}
+            >
                 <div className="title">
                     <p className="jobPosition">
                         Full-Stack Web Developer @ SIG
@@ -64,7 +82,37 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                     </p>
                 </div>
             </div>
-        </div>
+            {/* DISPLAY NONE FOR MOBILE??? */}
+            <motion.div
+                variants={{
+                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
+                    hover: {
+                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
+                        transition: {
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        },
+                    },
+                }}
+                style={{
+                    position: "fixed",
+                    bottom: "2rem",
+                    left: "25%",
+                    transform: "translateX(-50%)",
+                    display: "flex",
+                    gap: "1rem",
+                    zIndex: 10,
+                }}
+            >
+                <ExpertiseView
+                    topLeft={sigObj.topLeft}
+                    topRight={sigObj.topRight}
+                    bottomLeft={sigObj.bottomLeft}
+                    bottomRight={sigObj.bottomRight}
+                />
+            </motion.div>
+        </motion.div>
     );
 };
 

@@ -1,6 +1,9 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
+import { motion } from "framer-motion";
+import ExpertiseView from "../../expertise/ExpertiseView";
+import { bloombergObj } from "../experiencesHelper";
 
 interface IBloombergProps {
     selectedJob: IJobType;
@@ -12,16 +15,32 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
     handleHoverSelection,
 }) => {
     return (
-        <div
-            className={`jobCard bloomberg ${
+        <motion.div
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+            className={`jobCard comcast ${
                 selectedJob.bloomberg ? "hover" : ""
-            }`}
+            } ${selectedJob.unselected ? "unselected" : ""}`}
             onMouseEnter={() => handleHoverSelection("bloomberg")}
+            onMouseLeave={() => handleHoverSelection("unselected")}
         >
-            <div className="jobLeftSide">
+            <div
+                className={`jobLeftSide ${
+                    selectedJob.bloomberg || selectedJob.unselected
+                        ? ""
+                        : "fadedDesc"
+                }`}
+            >
                 <p>2019 — 2020</p>
             </div>
-            <div className="jobRightSide">
+            <div
+                className={`jobRightSide ${
+                    selectedJob.bloomberg || selectedJob.unselected
+                        ? ""
+                        : "fadedDesc"
+                }`}
+            >
                 <div className="title">
                     <p className="jobPosition">
                         Data Engineer Co-op @ Bloomberg
@@ -74,7 +93,38 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                     </p>
                 </div>
             </div>
-        </div>
+            {/* DISPLAY NONE FOR MOBILE??? */}
+            <motion.div
+                variants={{
+                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
+                    hover: {
+                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
+                        transition: {
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        },
+                    },
+                }}
+                style={{
+                    position: "fixed",
+                    bottom: "2rem",
+                    left: "25%",
+                    transform: "translateX(-50%)",
+                    display: "flex",
+                    gap: "1rem",
+                    opacity: "1",
+                    zIndex: 10,
+                }}
+            >
+                <ExpertiseView
+                    topLeft={bloombergObj.topLeft}
+                    topRight={bloombergObj.topRight}
+                    bottomLeft={bloombergObj.bottomLeft}
+                    bottomRight={bloombergObj.bottomRight}
+                />
+            </motion.div>
+        </motion.div>
     );
 };
 

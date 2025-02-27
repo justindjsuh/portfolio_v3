@@ -1,6 +1,9 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
+import ExpertiseView from "../../expertise/ExpertiseView";
+import { fsaObj } from "../experiencesHelper";
+import { motion } from "framer-motion";
 
 interface IFSAProps {
     selectedJob: IJobType;
@@ -12,14 +15,29 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
     handleHoverSelection,
 }) => {
     return (
-        <div
-            className={`jobCard fsa ${selectedJob.fsa ? "hover" : ""}`}
+        <motion.div
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+            className={`jobCard comcast ${selectedJob.fsa ? "hover" : ""} ${
+                selectedJob.unselected ? "unselected" : ""
+            }`}
             onMouseEnter={() => handleHoverSelection("fsa")}
+            onMouseLeave={() => handleHoverSelection("unselected")}
         >
-            <div className="jobLeftSide">
+            <div
+                className={`jobLeftSide ${
+                    selectedJob.fsa || selectedJob.unselected ? "" : "fadedDesc"
+                }`}
+            >
+                {" "}
                 <p>2022 — 2023</p>
             </div>
-            <div className="jobRightSide">
+            <div
+                className={`jobRightSide ${
+                    selectedJob.fsa || selectedJob.unselected ? "" : "fadedDesc"
+                }`}
+            >
                 <div className="title">
                     <p className="jobPosition">
                         Fullstack Academy Bootcamp @ FSA
@@ -78,7 +96,37 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                     </p>
                 </div>
             </div>
-        </div>
+            {/* DISPLAY NONE FOR MOBILE??? */}
+            <motion.div
+                variants={{
+                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
+                    hover: {
+                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
+                        transition: {
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        },
+                    },
+                }}
+                style={{
+                    position: "fixed",
+                    bottom: "2rem",
+                    left: "25%",
+                    transform: "translateX(-50%)",
+                    display: "flex",
+                    gap: "1rem",
+                    zIndex: 10,
+                }}
+            >
+                <ExpertiseView
+                    topLeft={fsaObj.topLeft}
+                    topRight={fsaObj.topRight}
+                    bottomLeft={fsaObj.bottomLeft}
+                    bottomRight={fsaObj.bottomRight}
+                />
+            </motion.div>
+        </motion.div>
     );
 };
 

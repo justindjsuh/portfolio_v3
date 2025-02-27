@@ -1,11 +1,10 @@
 import { useState } from "react";
-import ExpertiseView from "../expertise/ExpertiseView";
 import "./ExperiencesView.css";
-import { bloombergObj, comcastObj, fsaObj, sigObj } from "./experiencesHelper";
 import Comcast from "./jobs/comcast";
 import FSA from "./jobs/fsa";
 import Bloomberg from "./jobs/bloomberg";
 import SIG from "./jobs/sig";
+import { motion } from "framer-motion";
 
 // ADD A FADE UP FOR THE CONTENT
 
@@ -14,14 +13,16 @@ export interface IJobType {
     fsa: boolean;
     bloomberg: boolean;
     sig: boolean;
+    unselected: boolean;
 }
 
 const ExperiencesView: React.FunctionComponent = () => {
     const [selectedJob, setSelectedJob] = useState<IJobType>({
-        comcast: true,
+        comcast: false,
         fsa: false,
         bloomberg: false,
         sig: false,
+        unselected: true,
     });
 
     const handleHoverSelection = (selectedJob: keyof IJobType) => {
@@ -37,7 +38,13 @@ const ExperiencesView: React.FunctionComponent = () => {
 
     return (
         <div className="experiencesBg">
-            <div className="experiencesContainer">
+            <motion.div
+                className="experiencesContainer"
+                // initial={{ backgroundColor: , y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+            >
                 <div className="experiencesContent">
                     <p className="experienceHeader">EXPERIENCE</p>
                     <Comcast
@@ -57,40 +64,7 @@ const ExperiencesView: React.FunctionComponent = () => {
                         handleHoverSelection={handleHoverSelection}
                     />
                 </div>
-                {/* DISPLAY NONE FOR MOBILE? */}
-                {selectedJob.comcast && (
-                    <ExpertiseView
-                        topLeft={comcastObj.topLeft}
-                        topRight={comcastObj.topRight}
-                        bottomLeft={comcastObj.bottomLeft}
-                        bottomRight={comcastObj.bottomRight}
-                    />
-                )}
-                {selectedJob.fsa && (
-                    <ExpertiseView
-                        topLeft={fsaObj.topLeft}
-                        topRight={fsaObj.topRight}
-                        bottomLeft={fsaObj.bottomLeft}
-                        bottomRight={fsaObj.bottomRight}
-                    />
-                )}
-                {selectedJob.bloomberg && (
-                    <ExpertiseView
-                        topLeft={bloombergObj.topLeft}
-                        topRight={bloombergObj.topRight}
-                        bottomLeft={bloombergObj.bottomLeft}
-                        bottomRight={bloombergObj.bottomRight}
-                    />
-                )}
-                {selectedJob.sig && (
-                    <ExpertiseView
-                        topLeft={sigObj.topLeft}
-                        topRight={sigObj.topRight}
-                        bottomLeft={sigObj.bottomLeft}
-                        bottomRight={sigObj.bottomRight}
-                    />
-                )}
-            </div>
+            </motion.div>
         </div>
     );
 };
