@@ -1,17 +1,35 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "../../components/scene";
 import "./LandingPage.css";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Transition from "../../components/transition";
 import AboutView from "../../components/about/AboutView";
+import ExperiencesView from "../../components/experiences/ExperiencesView";
 
 const LandingPage: React.FunctionComponent = () => {
     // const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
+    const [isInView, setIsInView] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
-    const skillsRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
+
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            {
+                rootMargin: "2000px", // start rendering a bit before it fully enters the viewport
+            }
+        );
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+        return () => observer.disconnect();
+    }, []);
 
     // useEffect(() => {
     //     const toggleVisibility = () => {
@@ -32,16 +50,18 @@ const LandingPage: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="landingContainer">
+        <div className="landingContainer" ref={containerRef}>
             <Canvas
                 style={{
                     width: "100vw",
                     height: "100vh",
                     background: "transparent",
                     position: "relative",
+                    willChange: "transform",
                 }}
                 camera={{ position: [0, 0, 20], fov: 50 }}
                 shadows
+                frameloop={isInView ? "always" : "demand"}
             >
                 <Scene />
             </Canvas>
@@ -87,8 +107,9 @@ const LandingPage: React.FunctionComponent = () => {
             <div ref={aboutRef}>
                 <AboutView />
             </div>
-            <div ref={skillsRef}></div>
-            <div ref={experienceRef}></div>
+            <div ref={experienceRef}>
+                <ExperiencesView />
+            </div>
             <div ref={projectsRef}></div>
             <div ref={contactRef}></div>
             {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>

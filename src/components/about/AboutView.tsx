@@ -29,7 +29,7 @@ const AboutView: React.FunctionComponent = () => {
                     churches, combining my technical expertise with my desire to{" "}
                     <span className="word-highlight">serve the community.</span>
                 </p>
-                <p>I hope you enjoy your stay :&#x29;</p>
+                <p>I hope you enjoy your stay.</p>
             </div>
         </div>
     );

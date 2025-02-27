@@ -1,0 +1,47 @@
+/* Give job cards a fade out and fade in */
+/* Follow user scroll up to the top of the container and bottom of the container */
+
+.expertiseContainer {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    gap: 1rem;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillCard {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 1rem 2rem;
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skillCard img {
+    height: auto;
+    width: 100%;
+}
+
+.skillLabel {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #5968FB;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
