@@ -42,3 +42,24 @@
 .word-highlight {
     color: #6d7bf9;
 }
+
+@media (max-width: 1199px) {
+    .jobCard {
+        grid-template-columns: 20% 80%;
+    }
+    .experiencesContainer {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 575px) {
+    .aboutContainer {
+        height: 80vh;
+    }
+    .aboutContent {
+        width: 90%;
+    }
+    .aboutContent h2 {
+        font-size: 2rem;
+    }
+}

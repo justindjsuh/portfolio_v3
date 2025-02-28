@@ -7,6 +7,7 @@
 }
 
 .landingContentContainer {
+    font-family: 'Jost', sans-serif;
     display: flex;
     position: absolute;
     top: 0;
@@ -135,7 +136,7 @@
 
 @media (max-width: 1199px) {
     .landingContentContainer {
-        transform: translateX(-40%) translateY(200%);
+        transform: translateX(-30%) translateY(200%);
     }
 }
 
@@ -144,7 +145,7 @@
         white-space: unset;
     }
     .landingContentContainer {
-        transform: translateX(-40%) translateY(170%);
+        transform: translateX(-30%) translateY(250%);
     }
     /* Need to implement a hamburger menu for mobile */
     .nav-container {

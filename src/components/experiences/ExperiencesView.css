@@ -25,6 +25,7 @@
 .experienceHeader {
     font-size: 3rem;
     font-weight: 500;
+    margin-bottom: .5rem;
 }
 
 .experiencesContent {
@@ -100,6 +101,7 @@
     display: flex;
     gap: .5rem;
     margin-top: .5rem;
+    flex-wrap: wrap;
 }
 
 .skillChip {
@@ -128,5 +130,27 @@
 }
 
 @media (max-width: 575px) {
-
+    .experiencesContent {
+        width: 90%;
+    }
+    .experienceHeaderContainer {
+        font-size: .875rem;
+    }
+    .experienceHeader {
+        font-size: 2rem;
+    }
+    .jobCard {
+        display: flex;
+        flex-direction: column;
+    }
+    .title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .jobPosition {
+        font-size: 1rem;
+    }
+    .jobDescription {
+        font-size: .875rem;
+    }
 }

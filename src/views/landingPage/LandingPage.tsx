@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Transition from "../../components/transition";
 import AboutView from "../../components/about/AboutView";
 import ExperiencesView from "../../components/experiences/ExperiencesView";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const LandingPage: React.FunctionComponent = () => {
     // const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
@@ -13,8 +14,10 @@ const LandingPage: React.FunctionComponent = () => {
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
-
     const containerRef = useRef<HTMLDivElement | null>(null);
+
+    const { scrollYProgress } = useScroll();
+    const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -66,7 +69,7 @@ const LandingPage: React.FunctionComponent = () => {
                 <Scene />
             </Canvas>
             <div className="landingContentContainer">
-                <div className="landingContent">
+                <motion.div className="landingContent" style={{ y }}>
                     <h1>JUSTIN SUH</h1>
                     <p className="position">
                         SOFTWARE ENGINEER, FULL-STACK WEB DEVELOPER.
@@ -89,7 +92,7 @@ const LandingPage: React.FunctionComponent = () => {
                             GitHub
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </div>
             <div className="nav-container">
                 <button onClick={() => scrollToSection(aboutRef)}>about</button>
