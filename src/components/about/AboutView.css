@@ -1,9 +1,10 @@
 .aboutContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 60vh;
     width: 100vw;
+    padding-top: 5rem;
     background-color: #1A191D;
 }
 

@@ -11,7 +11,9 @@
 }
 
 .skillCard {
-    background-color: #212024;
+    background: linear-gradient(145deg, #eeeeee, #c8c8c8);
+    box-shadow:  14px 14px 28px #595959,
+                 -14px -14px 28px #ffffff; 
     padding: 1rem 2rem;
     width: 10rem;
     height: 10rem;

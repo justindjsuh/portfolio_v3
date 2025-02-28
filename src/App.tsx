@@ -8,11 +8,26 @@ const App = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        if (loading) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [loading]);
+
+    useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 9000);
+        }, 7000);
         return () => clearTimeout(timeout);
     });
+
+    useEffect(() => {
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>

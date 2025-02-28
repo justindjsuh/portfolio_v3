@@ -111,7 +111,7 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                         transition: {
                             type: "spring",
                             stiffness: 300,
-                            damping: 20,
+                            damping: 25,
                         },
                     },
                 }}

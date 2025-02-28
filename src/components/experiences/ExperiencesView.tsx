@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./ExperiencesView.css";
 import Comcast from "./jobs/comcast";
 import FSA from "./jobs/fsa";
 import Bloomberg from "./jobs/bloomberg";
 import SIG from "./jobs/sig";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // ADD A FADE UP FOR THE CONTENT
 
@@ -24,6 +24,18 @@ const ExperiencesView: React.FunctionComponent = () => {
         sig: false,
         unselected: true,
     });
+    const experienceContainerRef = useRef<HTMLDivElement>(null);
+    const { scrollY } = useScroll();
+
+    const width = useTransform(scrollY, [1050, 1450], [65, 100]);
+    const widthStyle = useTransform(width, (v) => `${v}%`);
+
+    const borderRadiusCalc = useTransform(scrollY, [1000, 1400], [15, 0]);
+
+    const borderRadius = useTransform(
+        borderRadiusCalc,
+        (value) => `${value}px`
+    );
 
     const handleHoverSelection = (selectedJob: keyof IJobType) => {
         setSelectedJob((prev) =>
@@ -34,19 +46,23 @@ const ExperiencesView: React.FunctionComponent = () => {
         );
     };
 
-    console.log(selectedJob);
-
     return (
         <div className="experiencesBg">
             <motion.div
+                ref={experienceContainerRef}
                 className="experiencesContainer"
-                // initial={{ backgroundColor: , y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                style={{
+                    width: widthStyle,
+                    position: "relative",
+                    bottom: "2rem",
+                    borderRadius: borderRadius,
+                }}
             >
                 <div className="experiencesContent">
-                    <p className="experienceHeader">EXPERIENCE</p>
+                    <div className="experienceHeaderContainer">
+                        <p className="experienceHeader">Experience</p>
+                        <p>See where I&apos;ve made my impact.</p>
+                    </div>
                     <Comcast
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}

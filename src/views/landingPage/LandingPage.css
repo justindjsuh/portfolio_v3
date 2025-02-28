@@ -10,8 +10,7 @@
     display: flex;
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 100%;
+    left: 30%;
     transform: translateX(-40%) translateY(150%);
 }
 

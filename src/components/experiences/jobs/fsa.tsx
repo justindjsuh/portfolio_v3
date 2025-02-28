@@ -105,7 +105,7 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                         transition: {
                             type: "spring",
                             stiffness: 300,
-                            damping: 20,
+                            damping: 25,
                         },
                     },
                 }}
