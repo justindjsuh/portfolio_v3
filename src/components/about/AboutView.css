@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100vw;
     padding-top: 15rem;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(2,3,5,1) 50%, var(--background-accent) 100%);
+    background: var(--bg-gradient-blue);
 }
 
 .aboutContent {
@@ -39,13 +39,13 @@
     right: 0;
     bottom: 0.5rem;
     height: 1rem;
-    background: #222E9C;
+    background: var(--accent-secondary);
     z-index: -1;
     border-radius: 1px;
 }
 
 .word-highlight {
-    color: #6d7bf9;
+    color: var(--accent-tertiary);
 }
 
 @media (max-width: 1199px) {

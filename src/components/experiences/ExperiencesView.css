@@ -4,7 +4,7 @@
     align-items: center;
     height: 150vh;
     width: 100vw;
-    background-color: var(--background-accent);
+    background-color: var(--bg-secondary);
 }
 
 .experiencesContainer {
@@ -14,36 +14,35 @@
     padding: 4rem 0;
     justify-content: center;
     border-radius: 25px;
-    background: white;
-    box-shadow:  0px 0px 28px rgba(235, 235, 235, 0.8);
+    background: var( --bg-primary-light-mode);
+    box-shadow:  var(--glow-large-light-mode);
     transition: background-color .3s ease-in-out;
 }
 
 .experiencesContainer.darkMode {
-    background: #101010;
-    box-shadow:  0px 0px 50px #060606;
+    background: var(--bg-primary-dark-mode);
+    box-shadow: var(--glow-large-dark-mode);
 }
 
 .experienceHeaderContainer {
     text-align: center;
     margin-bottom: 10rem;
-    color: #1A191D;
+    color: var(--text-primary-light-mode);
 }
 
 .experienceHeaderContainer {
-    color: #101010;
+    color: var(--text-primary-light-mode);
 }
 
 .experienceHeaderContainer.darkMode {
-    color: #d8d8d8;
+    color: var(--subtext-default-light-mode);
 }
 
 .experienceHeader {
     font-size: 4rem;
     font-weight: 600;
     margin-bottom: .5rem;
-    background: linear-gradient(90deg, #ff007f, #a033ff, #2b65ff, #00d4ff, #ff00f6);
-    /* background: linear-gradient(90deg, #ff5f57, #ffbd2e, #28c840, #1abcfe, #8854d0); */
+    background: var(--text-gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -57,26 +56,26 @@
 }
 
 .jobCard {
-    color: #101010;
-    background: #fff;
+    color: var(--text-primary-light-mode);
+    background: var(--bg-primary-light-mode);
     border-radius: 25px;
-    background: linear-gradient(145deg, #f3f3f3, #ffffff);
+    background: var(--card-bg-gradient-light-mode);
     display: grid;
     grid-template-columns: 20% 80%;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     border: 1px solid transparent;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--glow-small-light-mode);
     transition: all .3s ease-in-out;
 }
 
 .jobCard.darkMode {
-    color: #fff;
-    background: rgba(24, 24, 24, 1);
+    color: var(--text-primary-dark-mode);
+    background: var(--card-bg-dark-mode);
 }
 
 .jobCard.hover {
-    border: 1px solid #2b65ff;
+    border: 1px solid var(--accent-primary);
 }
 
 .jobCard p {

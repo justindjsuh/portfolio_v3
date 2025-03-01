@@ -1,21 +1,32 @@
 :root {
-    /* Utilizing CSS Variables */
-    --background-primary: #000;
-    --background-secondary: #1A191D;
-    --background-accent: #5259A6;
-    --text-primary: #fff;
-    --disabled-default: #B0B0B0;
-    --subtext-default: rgba(247, 246, 248, 0.75);
-    --subtext-dark: #A7A7A7;
-  
-    --text-fontsize-default: 0.875rem;
-    --text-fontsize-large: 1rem;
-    --text-fontsize-headers: 1.5rem;
-    --text-fontweight-default: 400;
-    --text-fontweight-medium: 500;
-    --text-fontweight-semibold: 600;
-    --text-fontweight-bold: 700;
-    /* Utilizing CSS Variables */
+    /* Background Variables */
+    --bg-primary-light-mode: #fff;
+    --bg-primary-dark-mode: #101010;
+    --bg-secondary: #5259A6;
+    --card-bg-dark-mode: rgba(24, 24, 24, 1);
+
+    /* Gradient Variables */
+    --text-gradient-primary: linear-gradient(90deg, #ff007f, #a033ff, #2b65ff, #00d4ff, #ff00f6);
+    --text-gradient-secondary: linear-gradient(90deg, #ff5f57, #ffbd2e, #28c840, #1abcfe, #8854d0);
+    --card-bg-gradient-light-mode: linear-gradient(145deg, #f3f3f3, #ffffff);
+    --bg-gradient-blue: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(2,3,5,1) 50%, var(--bg-secondary) 100%);
+
+    /* Glow/Box Shadow Variables */
+    --glow-large-light-mode: 0px 0px 28px rgba(235, 235, 235, 0.8);
+    --glow-large-dark-mode:0px 0px 50px #060606;
+    --glow-small-light-mode: 0px 2px 15px rgba(0, 0, 0, 0.1);
+
+    /* Font Color Variables */
+    --text-primary-dark-mode: #fff;
+    --text-primary-light-mode: #101010;
+    --subtext-default-dark-mode: rgba(247, 246, 248, 0.75);
+    --subtext-default-light-mode: #d8d8d8;
+    --subtext-hovered-light: #cbcbcb;
+
+    /* Misc Variables */
+    --accent-primary: #2b65ff;
+    --accent-secondary: #222E9C;
+    --accent-tertiary: #6d7bf9;
 }
 
 * {
