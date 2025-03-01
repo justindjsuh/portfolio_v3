@@ -8,11 +8,13 @@ import { sigObj } from "../experiencesHelper";
 interface ISIGProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
+    darkMode?: boolean;
 }
 
 const SIG: React.FunctionComponent<ISIGProps> = ({
     selectedJob,
     handleHoverSelection,
+    darkMode = false,
 }) => {
     return (
         <motion.div
@@ -21,7 +23,7 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
             animate="rest"
             className={`jobCard comcast ${selectedJob.sig ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
-            }`}
+            } ${darkMode ? "darkMode" : ""}`}
             onMouseEnter={() => handleHoverSelection("sig")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -42,9 +44,11 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                     <p className="jobPosition">
                         Full-Stack Web Developer @ SIG
                     </p>
-                    <p className="jobLocation">Bala Cynwyd, PA</p>
+                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
+                        Bala Cynwyd, PA
+                    </p>
                 </div>
-                <div className="jobDescription">
+                <div className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
                     Provided technical consultation for troubleshooting
                     hardware, software, and network issues, assembled and
                     configured production workstations, and created clear
@@ -55,28 +59,28 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                     <p
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Bash
                     </p>
                     <p
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Markdown
                     </p>
                     <p
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Jira
                     </p>
                     <p
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Confluence
                     </p>
@@ -98,10 +102,13 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                 style={{
                     position: "fixed",
                     bottom: "2rem",
-                    left: "25%",
-                    transform: "translateX(-50%)",
+                    left: "0",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
                     display: "flex",
                     gap: "1rem",
+                    opacity: "1",
                     zIndex: 10,
                 }}
             >
@@ -110,6 +117,7 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                     topRight={sigObj.topRight}
                     bottomLeft={sigObj.bottomLeft}
                     bottomRight={sigObj.bottomRight}
+                    darkMode={darkMode}
                 />
             </motion.div>
         </motion.div>

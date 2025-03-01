@@ -11,7 +11,12 @@ export type IconNames =
     | "nodejsIcon"
     | "pythonIcon"
     | "reactIcon"
-    | "typescriptIcon";
+    | "typescriptIcon"
+    | "bashIconDark"
+    | "cssIconDark"
+    | "htmlIconDark"
+    | "javascriptIconDark"
+    | "typescriptIconDark";
 
 export interface IJobDetailsProps {
     topLeft: {
@@ -31,6 +36,7 @@ export interface IJobDetailsProps {
         imgSrc: IconNames;
     };
     hidden?: boolean;
+    darkMode?: boolean;
 }
 
 export const comcastObj: IJobDetailsProps = {
@@ -107,4 +113,27 @@ export const sigObj: IJobDetailsProps = {
         imgSrc: "markdownIcon",
         label: "Markdown",
     },
+};
+
+type IDarkModeMap = Record<IconNames, IconNames>;
+
+export const darkModeMap: IDarkModeMap = {
+    bashIcon: "bashIconDark",
+    cssIcon: "cssIconDark",
+    htmlIcon: "htmlIconDark",
+    javascriptIcon: "javascriptIconDark",
+    typescriptIcon: "typescriptIconDark",
+    nodejsIcon: "nodejsIcon",
+    reactIcon: "reactIcon",
+    confluenceIcon: "confluenceIcon",
+    expressIcon: "expressIcon",
+    jiraIcon: "jiraIcon",
+    markdownIcon: "markdownIcon",
+    mongodbIcon: "mongodbIcon",
+    pythonIcon: "pythonIcon",
+    bashIconDark: "bashIconDark",
+    cssIconDark: "cssIconDark",
+    javascriptIconDark: "javascriptIconDark",
+    typescriptIconDark: "typescriptIconDark",
+    htmlIconDark: "htmlIconDark",
 };

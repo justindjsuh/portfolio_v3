@@ -2,11 +2,11 @@
     /* Utilizing CSS Variables */
     --background-primary: #000;
     --background-secondary: #1A191D;
+    --background-accent: #5259A6;
     --text-primary: #fff;
     --disabled-default: #B0B0B0;
     --subtext-default: rgba(247, 246, 248, 0.75);
     --subtext-dark: #A7A7A7;
-
   
     --text-fontsize-default: 0.875rem;
     --text-fontsize-large: 1rem;

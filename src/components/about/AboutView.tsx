@@ -11,7 +11,7 @@ const AboutView: React.FunctionComponent = () => {
                 initial={{ opacity: 0, y: 100 }} // Start invisible and 50px lower
                 whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.75, ease: "easeOut" }}
             >
                 <h2>
                     Hey there, I'm <span className="highlight">Justin.</span>

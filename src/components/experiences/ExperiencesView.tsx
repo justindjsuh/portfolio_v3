@@ -21,17 +21,18 @@ const getScrollTransformValues = () => {
 
     if (width <= 480) {
         // Mobile
-        return { start: 900, end: 1300, min: 60, max: 100 };
-    } else if (width <= 1024) {
+        return { start: 1000, end: 1350, min: 70, max: 100 };
+    } else if (width <= 1300) {
         // Tablet
-        return { start: 1300, end: 1600, min: 62, max: 100 };
+        return { start: 1050, end: 1450, min: 70, max: 100 };
     } else {
         // Desktop
-        return { start: 1050, end: 1450, min: 65, max: 100 };
+        return { start: 1100, end: 1500, min: 70, max: 100 };
     }
 };
 
 const ExperiencesView: React.FunctionComponent = () => {
+    const [darkMode, setDarkMode] = useState(true);
     const [selectedJob, setSelectedJob] = useState<IJobType>({
         comcast: false,
         fsa: false,
@@ -66,7 +67,7 @@ const ExperiencesView: React.FunctionComponent = () => {
         <div className="experiencesBg">
             <motion.div
                 ref={experienceContainerRef}
-                className="experiencesContainer"
+                className={`experiencesContainer ${darkMode ? "darkMode" : ""}`}
                 style={{
                     width: widthStyle,
                     position: "relative",
@@ -74,26 +75,56 @@ const ExperiencesView: React.FunctionComponent = () => {
                     borderRadius: borderRadius,
                 }}
             >
-                <div className="experiencesContent">
-                    <div className="experienceHeaderContainer">
+                <div
+                    className={`experiencesContent ${
+                        darkMode ? "darkMode" : ""
+                    }`}
+                >
+                    <div
+                        className={`experienceHeaderContainer ${
+                            darkMode ? "darkMode" : ""
+                        }`}
+                    >
                         <p className="experienceHeader">Experience</p>
                         <p>See where I&apos;ve made my impact.</p>
+                        <div className="darkModeToggle">
+                            <button
+                                className={`darkBtn ${
+                                    darkMode ? "darkMode" : ""
+                                }`}
+                                onClick={() => setDarkMode(true)}
+                            >
+                                Dark Mode
+                            </button>
+                            <button
+                                className={`lightBtn ${
+                                    darkMode ? "darkMode" : ""
+                                }`}
+                                onClick={() => setDarkMode(false)}
+                            >
+                                Light Mode
+                            </button>
+                        </div>
                     </div>
                     <Comcast
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
+                        darkMode={darkMode}
                     />
                     <FSA
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
+                        darkMode={darkMode}
                     />
                     <Bloomberg
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
+                        darkMode={darkMode}
                     />
                     <SIG
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
+                        darkMode={darkMode}
                     />
                 </div>
             </motion.div>

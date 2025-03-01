@@ -2,7 +2,6 @@ import { Canvas } from "@react-three/fiber";
 import { Scene } from "../../components/scene";
 import "./LandingPage.css";
 import React, { useEffect, useRef, useState } from "react";
-import Transition from "../../components/transition";
 import AboutView from "../../components/about/AboutView";
 import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -106,7 +105,6 @@ const LandingPage: React.FunctionComponent = () => {
                     contact
                 </button>
             </div>
-            <Transition />
             <div ref={aboutRef}>
                 <AboutView />
             </div>

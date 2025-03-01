@@ -5,8 +5,7 @@ const Transition: React.FunctionComponent = () => {
             style={{
                 height: "30vh",
                 width: "100vw",
-                background:
-                    "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(26,25,29,1) 100%)",
+                background: "black",
             }}
         ></div>
     );

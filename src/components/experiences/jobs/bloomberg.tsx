@@ -8,11 +8,13 @@ import { bloombergObj } from "../experiencesHelper";
 interface IBloombergProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
+    darkMode?: boolean;
 }
 
 const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
     selectedJob,
     handleHoverSelection,
+    darkMode = false,
 }) => {
     return (
         <motion.div
@@ -21,7 +23,9 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
             animate="rest"
             className={`jobCard comcast ${
                 selectedJob.bloomberg ? "hover" : ""
-            } ${selectedJob.unselected ? "unselected" : ""}`}
+            } ${selectedJob.unselected ? "unselected" : ""} ${
+                darkMode ? "darkMode" : ""
+            }`}
             onMouseEnter={() => handleHoverSelection("bloomberg")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -109,8 +113,10 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                 style={{
                     position: "fixed",
                     bottom: "2rem",
-                    left: "25%",
-                    transform: "translateX(-50%)",
+                    left: "0",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
                     display: "flex",
                     gap: "1rem",
                     opacity: "1",
@@ -122,6 +128,7 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                     topRight={bloombergObj.topRight}
                     bottomLeft={bloombergObj.bottomLeft}
                     bottomRight={bloombergObj.bottomRight}
+                    darkMode={darkMode}
                 />
             </motion.div>
         </motion.div>

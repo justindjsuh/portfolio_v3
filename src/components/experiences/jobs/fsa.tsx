@@ -8,11 +8,13 @@ import { motion } from "framer-motion";
 interface IFSAProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
+    darkMode?: boolean;
 }
 
 const FSA: React.FunctionComponent<IFSAProps> = ({
     selectedJob,
     handleHoverSelection,
+    darkMode = false,
 }) => {
     return (
         <motion.div
@@ -21,7 +23,7 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
             animate="rest"
             className={`jobCard comcast ${selectedJob.fsa ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
-            }`}
+            } ${darkMode ? "darkMode" : ""}`}
             onMouseEnter={() => handleHoverSelection("fsa")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -112,10 +114,13 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                 style={{
                     position: "fixed",
                     bottom: "2rem",
-                    left: "25%",
-                    transform: "translateX(-50%)",
+                    left: "0",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
                     display: "flex",
                     gap: "1rem",
+                    opacity: "1",
                     zIndex: 10,
                 }}
             >
@@ -124,6 +129,7 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                     topRight={fsaObj.topRight}
                     bottomLeft={fsaObj.bottomLeft}
                     bottomRight={fsaObj.bottomRight}
+                    darkMode={darkMode}
                 />
             </motion.div>
         </motion.div>

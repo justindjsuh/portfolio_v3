@@ -8,11 +8,13 @@ import { comcastObj } from "../experiencesHelper";
 interface IComcastProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
+    darkMode?: boolean;
 }
 
 const Comcast: React.FunctionComponent<IComcastProps> = ({
     selectedJob,
     handleHoverSelection,
+    darkMode = false,
 }) => {
     return (
         <motion.div
@@ -21,7 +23,7 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
             animate="rest"
             className={`jobCard comcast ${selectedJob.comcast ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
-            }`}
+            } ${darkMode ? "darkMode" : ""}`}
             onMouseEnter={() => handleHoverSelection("comcast")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -44,7 +46,7 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
             >
                 <div className="title">
                     <p className="jobPosition">
-                        Full-Stack Web Developer @ Comcast
+                        Full-Stack Developer @ Comcast
                     </p>
                     <p className="jobLocation">Philadelphia, PA</p>
                 </div>
@@ -118,8 +120,10 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                 style={{
                     position: "fixed",
                     bottom: "2rem",
-                    left: "25%",
-                    transform: "translateX(-50%)",
+                    left: "0",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
                     display: "flex",
                     gap: "1rem",
                     opacity: "1",
@@ -131,6 +135,7 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                     topRight={comcastObj.topRight}
                     bottomLeft={comcastObj.bottomLeft}
                     bottomRight={comcastObj.bottomRight}
+                    darkMode={darkMode}
                 />
             </motion.div>
         </motion.div>
