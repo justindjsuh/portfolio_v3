@@ -218,10 +218,22 @@
 
 @media (max-width: 1199px) {
     .experiencesContent {
-        width: 750px;
+        width: 700px;
+    }
+    .experienceHeaderContainer {
+        font-size: 1.5rem;
+    }
+    .experienceHeader {
+        font-size: 4rem;
     }
     .jobCard {
-        grid-template-columns: 20% 80%;
+        /* grid-template-columns: 20% 80%; */
+        display: flex;
+        flex-direction: column;
+    }
+    .title {
+        flex-direction: column;
+        align-items: flex-start;
     }
     .experiencesContainer {
         width: 90vw;
@@ -229,6 +241,9 @@
 }
 
 @media (max-width: 575px) {
+    .experiencesBg {
+        height: auto;
+    }
     .experiencesContent {
         width: 90%;
     }
@@ -251,5 +266,12 @@
     }
     .jobDescription {
         font-size: .875rem;
+    }
+    .darkModeToggle button {
+        font-size: .875rem;
+        background-color: transparent;
+        color: #101010;
+        transition: all .3s ease-in-out;
+        border: 1px solid #d8d8d8;
     }
 }

@@ -49,6 +49,9 @@
 }
 
 @media (max-width: 1199px) {
+    .aboutContainer {
+        height: 50vh;
+    }
     .jobCard {
         grid-template-columns: 20% 80%;
     }
@@ -61,11 +64,16 @@
     .aboutContainer {
         align-items: center;
         height: 100vh;
+        padding-top: 5rem;
     }
     .aboutContent {
         width: 90%;
     }
     .aboutContent h2 {
         font-size: 2rem;
+    }
+    .aboutMe {
+        font-size: 2rem;
+        line-height: 2.5rem;
     }
 }
