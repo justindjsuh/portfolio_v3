@@ -1,9 +1,6 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
-import { motion } from "framer-motion";
-import ExpertiseView from "../../expertise/ExpertiseView";
-import { bloombergObj } from "../experiencesHelper";
 
 interface IBloombergProps {
     selectedJob: IJobType;
@@ -17,10 +14,7 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
     darkMode = false,
 }) => {
     return (
-        <motion.div
-            whileHover="hover"
-            initial="rest"
-            animate="rest"
+        <div
             className={`jobCard comcast ${
                 selectedJob.bloomberg ? "hover" : ""
             } ${selectedJob.unselected ? "unselected" : ""} ${
@@ -46,92 +40,60 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                 }`}
             >
                 <div className="title">
-                    <p className="jobPosition">
+                    <h3 className="jobPosition">
                         Data Engineer Co-op @ Bloomberg
+                    </h3>
+                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
+                        Princeton, NJ
                     </p>
-                    <p className="jobLocation">Princeton, NJ</p>
                 </div>
-                <div className="jobDescription">
+                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
                     Designed and tested advanced web crawlers for seamless
                     Bloomberg Terminal integration and automated Jira role
                     access processes, significantly enhancing workflow
                     efficiency and supporting the analysis of over 1M+ financial
                     data points daily using Python, JavaScript, and Jupyter
                     Notebook.
-                </div>
+                </p>
                 <div className="skillChipContainer">
-                    <p
+                    <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
                         }`}
                     >
                         JavaScript
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
                         }`}
                     >
                         HTML
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
                         }`}
                     >
                         CSS
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
                         }`}
                     >
                         Python
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
                         }`}
                     >
                         Regex
-                    </p>
+                    </span>
                 </div>
             </div>
-            {/* DISPLAY NONE FOR MOBILE??? */}
-            <motion.div
-                variants={{
-                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
-                    hover: {
-                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
-                        transition: {
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 25,
-                        },
-                    },
-                }}
-                style={{
-                    position: "fixed",
-                    bottom: "2rem",
-                    left: "0",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    gap: "1rem",
-                    opacity: "1",
-                    zIndex: 10,
-                }}
-            >
-                <ExpertiseView
-                    topLeft={bloombergObj.topLeft}
-                    topRight={bloombergObj.topRight}
-                    bottomLeft={bloombergObj.bottomLeft}
-                    bottomRight={bloombergObj.bottomRight}
-                    darkMode={darkMode}
-                />
-            </motion.div>
-        </motion.div>
+        </div>
     );
 };
 

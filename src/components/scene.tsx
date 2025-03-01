@@ -60,8 +60,10 @@ export const Scene = () => {
                 size={8}
                 hRotation={6}
                 vRotation={4}
-                xPosFloat={0.2}
-                yPosFloat={0.2}
+                xPosFloat={0.1}
+                yPosFloat={0.1}
+                rotationTimeMultiplier={0.3}
+                rotationMultiplier={0.05}
             />
             {/* Top Right */}
             <Cube
@@ -69,8 +71,9 @@ export const Scene = () => {
                 size={8}
                 hRotation={3}
                 vRotation={4}
-                xPosFloat={0.06}
-                yPosFloat={0.06}
+                xPosFloat={0.04}
+                yPosFloat={0.04}
+                rotationMultiplier={0.05}
             />
             {/* Bottom Left */}
             <Cube
@@ -78,8 +81,9 @@ export const Scene = () => {
                 size={12}
                 hRotation={10}
                 vRotation={8.3}
-                xPosFloat={0.1}
-                yPosFloat={0.1}
+                xPosFloat={0.08}
+                yPosFloat={0.08}
+                rotationMultiplier={0.05}
                 reverse
             />
             {/* Bottom Right */}
@@ -91,6 +95,7 @@ export const Scene = () => {
                 xRotation={1.5}
                 xPosFloat={0.05}
                 yPosFloat={0.05}
+                rotationMultiplier={0.05}
                 reverse
             />
 
@@ -101,10 +106,10 @@ export const Scene = () => {
                 size={1}
                 hRotation={3}
                 vRotation={6}
-                xPosFloat={0.04}
-                yPosFloat={0.04}
-                rotationTimeMultiplier={0.3}
-                rotationMultiplier={0.1}
+                xPosFloat={0.08}
+                yPosFloat={0.08}
+                rotationTimeMultiplier={0.5}
+                rotationMultiplier={0.2}
             />
             {/* Right */}
             <Cube
@@ -115,8 +120,8 @@ export const Scene = () => {
                 xRotation={2}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
-                rotationTimeMultiplier={0.3}
-                rotationMultiplier={0.1}
+                rotationTimeMultiplier={0.5}
+                rotationMultiplier={0.2}
                 reverse
             />
             {/* Left */}
@@ -127,7 +132,7 @@ export const Scene = () => {
                 vRotation={6}
                 xPosFloat={0.04}
                 yPosFloat={0.04}
-                rotationMultiplier={0.1}
+                rotationMultiplier={0.2}
                 rotationTimeMultiplier={0.3}
                 reverse
             />
@@ -140,7 +145,7 @@ export const Scene = () => {
                 xPosFloat={0.04}
                 yPosFloat={0.04}
                 rotationTimeMultiplier={0.3}
-                rotationMultiplier={0.1}
+                rotationMultiplier={0.2}
             />
             {/* <TexturedCube /> */}
         </>

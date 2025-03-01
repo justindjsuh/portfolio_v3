@@ -16,7 +16,7 @@ const AboutView: React.FunctionComponent = () => {
                 <h2>
                     Hey there, I'm <span className="highlight">Justin.</span>
                 </h2>
-                <p>
+                {/* <p>
                     I'm a{" "}
                     <span className="word-highlight">
                         full-stack software engineer
@@ -35,8 +35,20 @@ const AboutView: React.FunctionComponent = () => {
                     opportunity to give back by building websites for local
                     churches, combining my technical expertise with my desire to{" "}
                     <span className="word-highlight">serve the community.</span>
+                </p> */}
+                {/* <p className="aboutMe">
+                    I blend design, code, and creativity to craft seamless
+                    digital experiences.
+                </p> */}
+                <p className="aboutMe">
+                    I bridge the gap between{" "}
+                    <span className="word-highlight">creativity</span> and{" "}
+                    <span className="word-highlight">code</span> to build{" "}
+                    <span className="word-highlight">
+                        unforgettable experiences.
+                    </span>
                 </p>
-                <p>I hope you enjoy your stay.</p>
+                <p>Thanks for stopping by, and I hope you enjoy your stay.</p>
             </motion.div>
         </div>
     );

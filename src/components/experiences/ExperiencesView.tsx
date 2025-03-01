@@ -27,7 +27,7 @@ const getScrollTransformValues = () => {
         return { start: 1050, end: 1450, min: 70, max: 100 };
     } else {
         // Desktop
-        return { start: 1100, end: 1500, min: 70, max: 100 };
+        return { start: 1100, end: 1500, min: 65, max: 100 };
     }
 };
 

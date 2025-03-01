@@ -7,7 +7,6 @@ import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const LandingPage: React.FunctionComponent = () => {
-    // const [isBackToTopVisible, setIsBackToTopVisible] = useState(false);
     const [isInView, setIsInView] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
@@ -32,20 +31,6 @@ const LandingPage: React.FunctionComponent = () => {
         }
         return () => observer.disconnect();
     }, []);
-
-    // useEffect(() => {
-    //     const toggleVisibility = () => {
-    //         console.log(window.scrollY);
-    //         if (window.scrollY > 300) {
-    //             setIsBackToTopVisible(true);
-    //         } else {
-    //             setIsBackToTopVisible(false);
-    //         }
-    //     };
-
-    //     window.addEventListener("scroll", toggleVisibility);
-    //     return () => window.removeEventListener("scroll", toggleVisibility);
-    // }, []);
 
     const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });

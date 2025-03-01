@@ -72,15 +72,19 @@
 
 .jobCard.darkMode {
     color: #fff;
-    background: rgba(24, 24, 24, 0.9);
+    background: rgba(24, 24, 24, 1);
 }
 
 .jobCard.hover {
     border: 1px solid #2b65ff;
 }
 
-.jobCard.darkMode.hover {
-    box-shadow: 0px 2px 15px #2b65ff;
+.jobCard p {
+    transition: all .3s ease-in-out;
+}
+
+.jobCard.darkMode.hover p {
+    color: #cbcbcb;
 }
 
 .jobLeftSide {
@@ -123,7 +127,7 @@
 }
 
 .jobLocation.darkMode {
-    color: #a6a6a6;
+    color: #a5a5a5;
 }
 
 .jobDescription {
@@ -133,7 +137,7 @@
 }
 
 .jobDescription.darkMode {
-    color: #a6a6a6;
+    color: #a5a5a5;
 }
 
 .skillChipContainer {
@@ -189,27 +193,27 @@
 }
 
 .darkBtn:focus {
-    outline: #101010 solid;
+    outline: transparent solid;
 }
 
 .lightBtn:focus {
-    outline: #a033ff solid;
+    outline: transparent solid;
 }
 
 .darkBtn:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
 }
 
 .lightBtn:hover {
-    box-shadow: 0px 0px 10px #a033ff;
+    box-shadow: 0px 0px 15px #a033ff;
 }
 
 .darkBtn.darkMode:hover {
-    box-shadow: 0px 0px 10px #2b65ff;
+    box-shadow: 0px 0px 15px #2b65ff;
 }
 
 .lightBtn.darkMode:hover {
-    box-shadow: 0px 0px 10px #fff;
+    box-shadow: 0px 0px 15px #fff;
 }
 
 @media (max-width: 1199px) {

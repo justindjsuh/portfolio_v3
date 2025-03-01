@@ -1,9 +1,6 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
-import { motion } from "framer-motion";
-import ExpertiseView from "../../expertise/ExpertiseView";
-import { comcastObj } from "../experiencesHelper";
 
 interface IComcastProps {
     selectedJob: IJobType;
@@ -17,10 +14,7 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
     darkMode = false,
 }) => {
     return (
-        <motion.div
-            whileHover="hover"
-            initial="rest"
-            animate="rest"
+        <div
             className={`jobCard comcast ${selectedJob.comcast ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
             } ${darkMode ? "darkMode" : ""}`}
@@ -45,12 +39,14 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                 }`}
             >
                 <div className="title">
-                    <p className="jobPosition">
+                    <h3 className="jobPosition">
                         Full-Stack Developer @ Comcast
+                    </h3>
+                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
+                        Philadelphia, PA
                     </p>
-                    <p className="jobLocation">Philadelphia, PA</p>
                 </div>
-                <div className="jobDescription">
+                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
                     Led the development of 5+ high-impact features and
                     contributed to a $12M annual cost reduction by developing
                     scalable features with React and TypeScript, streamlining
@@ -58,87 +54,53 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                     while collaborating with cross-functional teams, authoring
                     comprehensive documentation, and leveraging tools like
                     Figma, Node.js, MongoDB, and Jest.
-                </div>
+                </p>
                 <div className="skillChipContainer">
-                    <p
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         React
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         TypeScript
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         MongoDB
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         Node.js
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         Figma
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
                         }`}
                     >
                         Storybook
-                    </p>
+                    </span>
                 </div>
             </div>
-            {/* DISPLAY NONE FOR MOBILE??? */}
-            <motion.div
-                variants={{
-                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
-                    hover: {
-                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
-                        transition: {
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 25,
-                        },
-                    },
-                }}
-                style={{
-                    position: "fixed",
-                    bottom: "2rem",
-                    left: "0",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    gap: "1rem",
-                    opacity: "1",
-                    zIndex: 10,
-                }}
-            >
-                <ExpertiseView
-                    topLeft={comcastObj.topLeft}
-                    topRight={comcastObj.topRight}
-                    bottomLeft={comcastObj.bottomLeft}
-                    bottomRight={comcastObj.bottomRight}
-                    darkMode={darkMode}
-                />
-            </motion.div>
-        </motion.div>
+        </div>
     );
 };
 

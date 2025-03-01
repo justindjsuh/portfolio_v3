@@ -1,9 +1,6 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
-import { motion } from "framer-motion";
-import ExpertiseView from "../../expertise/ExpertiseView";
-import { sigObj } from "../experiencesHelper";
 
 interface ISIGProps {
     selectedJob: IJobType;
@@ -17,10 +14,7 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
     darkMode = false,
 }) => {
     return (
-        <motion.div
-            whileHover="hover"
-            initial="rest"
-            animate="rest"
+        <div
             className={`jobCard comcast ${selectedJob.sig ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
             } ${darkMode ? "darkMode" : ""}`}
@@ -41,86 +35,52 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
                 }`}
             >
                 <div className="title">
-                    <p className="jobPosition">
+                    <h3 className="jobPosition">
                         Full-Stack Web Developer @ SIG
-                    </p>
+                    </h3>
                     <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
                         Bala Cynwyd, PA
                     </p>
                 </div>
-                <div className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
+                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
                     Provided technical consultation for troubleshooting
                     hardware, software, and network issues, assembled and
                     configured production workstations, and created clear
                     documentation to enhance the hardware build process across
                     the company.
-                </div>
+                </p>
                 <div className="skillChipContainer">
-                    <p
+                    <span
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
                         } ${darkMode ? "darkMode" : ""}`}
                     >
                         Bash
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
                         } ${darkMode ? "darkMode" : ""}`}
                     >
                         Markdown
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
                         } ${darkMode ? "darkMode" : ""}`}
                     >
                         Jira
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.sig ? "selected" : ""
                         } ${darkMode ? "darkMode" : ""}`}
                     >
                         Confluence
-                    </p>
+                    </span>
                 </div>
             </div>
-            {/* DISPLAY NONE FOR MOBILE??? */}
-            <motion.div
-                variants={{
-                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
-                    hover: {
-                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
-                        transition: {
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 25,
-                        },
-                    },
-                }}
-                style={{
-                    position: "fixed",
-                    bottom: "2rem",
-                    left: "0",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    gap: "1rem",
-                    opacity: "1",
-                    zIndex: 10,
-                }}
-            >
-                <ExpertiseView
-                    topLeft={sigObj.topLeft}
-                    topRight={sigObj.topRight}
-                    bottomLeft={sigObj.bottomLeft}
-                    bottomRight={sigObj.bottomRight}
-                    darkMode={darkMode}
-                />
-            </motion.div>
-        </motion.div>
+        </div>
     );
 };
 

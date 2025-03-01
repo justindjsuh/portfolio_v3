@@ -1,9 +1,6 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
-import ExpertiseView from "../../expertise/ExpertiseView";
-import { fsaObj } from "../experiencesHelper";
-import { motion } from "framer-motion";
 
 interface IFSAProps {
     selectedJob: IJobType;
@@ -17,10 +14,7 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
     darkMode = false,
 }) => {
     return (
-        <motion.div
-            whileHover="hover"
-            initial="rest"
-            animate="rest"
+        <div
             className={`jobCard comcast ${selectedJob.fsa ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
             } ${darkMode ? "darkMode" : ""}`}
@@ -41,98 +35,66 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                 }`}
             >
                 <div className="title">
-                    <p className="jobPosition">
+                    <h3 className="jobPosition">
                         Fullstack Academy Bootcamp @ FSA
+                    </h3>
+                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
+                        Brooklyn, NY
                     </p>
-                    <p className="jobLocation">Brooklyn, NY</p>
                 </div>
-                <div className="jobDescription">
+                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
                     Completed an intensive 13-week program in full-stack web
                     development, gaining expertise in building full-stack
                     applications with the PERN stack, creating single-page
                     applications, and utilizing tools like Git, Visual Studio
                     Code, and testing frameworks.
-                </div>
+                </p>
                 <div className="skillChipContainer">
-                    <p
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         React
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         JavaScript
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         Node.js
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         Express.js
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         PostgreSQL
-                    </p>
-                    <p
+                    </span>
+                    <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
                         }`}
                     >
                         Mocha
-                    </p>
+                    </span>
                 </div>
             </div>
-            {/* DISPLAY NONE FOR MOBILE??? */}
-            <motion.div
-                variants={{
-                    rest: { y: 300 }, // Offscreen (or hidden) by 100px down
-                    hover: {
-                        y: 0, // Move to original position (assume container is fixed at bottom:2rem)
-                        transition: {
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 25,
-                        },
-                    },
-                }}
-                style={{
-                    position: "fixed",
-                    bottom: "2rem",
-                    left: "0",
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    gap: "1rem",
-                    opacity: "1",
-                    zIndex: 10,
-                }}
-            >
-                <ExpertiseView
-                    topLeft={fsaObj.topLeft}
-                    topRight={fsaObj.topRight}
-                    bottomLeft={fsaObj.bottomLeft}
-                    bottomRight={fsaObj.bottomRight}
-                    darkMode={darkMode}
-                />
-            </motion.div>
-        </motion.div>
+        </div>
     );
 };
 
