@@ -1,0 +1,70 @@
+.caseStudyBg {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-gradient-blue);
+}
+
+.caseStudyContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding-top: 5rem;
+    width: 80%;
+}
+
+.backNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backNavLeft {
+    display: flex;
+    cursor: pointer;
+}
+
+.backNavRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+
+.backNavRight button {
+    background-color: transparent;
+    border: 1px solid #5259A6;
+    transition: background-color .2s ease-in-out;
+    height: min-content;
+
+}
+
+.backNavRight button:hover {
+    background-color: rgba(82, 89, 166, .25);
+}
+
+.backNavRight img {
+    width: 45px;
+    height: auto;
+    cursor: pointer;
+}
+
+.backNavigation svg {
+    transition: all .3s;
+    transform: translate(0, 25%);
+}
+
+.backNavigation svg.hover {
+    transform: translate(-10%, 25%);
+}
+
+.caseStudyText {
+    font-size: 1rem;
+    /* font-family: 'Jost', sans-serif; */
+    letter-spacing: .2rem;
+}
+
+.caseStudyHeaderText {
+    font-size: 4rem;
+    line-height: 4rem;
+}

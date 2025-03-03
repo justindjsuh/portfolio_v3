@@ -35,6 +35,9 @@ const IMAGES = {
     peakBg: new URL("./project_peak.png", import.meta.url).href,
     portfolioV1Bg: new URL("./project_portfoliov1.png", import.meta.url).href,
     portfolioV2Bg: new URL("./project_portfoliov2.png", import.meta.url).href,
+    // CASE STUDY ICON
+    githubCaseIcon: new URL("./icons/github-gradient.png", import.meta.url)
+        .href,
 };
 
 export default IMAGES;

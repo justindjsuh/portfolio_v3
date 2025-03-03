@@ -33,7 +33,8 @@
 
 .projectsViewHeaderText {
     color: var(--text-primary-light-mode);
-    font-size: 1.25rem;
+    font-size: 1rem;
+    letter-spacing: .15rem;
     font-weight: 500;
 }
 
@@ -47,6 +48,7 @@
     font-size: 5rem;
     font-weight: 600;
     gap: 1rem;
+    line-height: 6rem;
 }
 
 .projectsViewHeaderSubText.darkMode {
@@ -54,6 +56,10 @@
 }
 
 .portfolioV3Nav {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 5rem;
     margin-top: 2rem;
     margin-left: 5rem;
@@ -61,23 +67,23 @@
     font-size: 1rem;
     color: #fafafab3;
     cursor: pointer;
+    width: fit-content;
 }
 
 .portfolioV3Nav svg {
-    transform: translate(0%, 25%);
+    transform: translate(0%, 0%);
     margin-left: .2rem;
-    transition: all .1s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .portfolioV3Nav svg.hover {
-    transform: translate(20%, 25%);
+    transform: translate(10%, 0);
 }
 
 .projectCardsContainer {
     display: grid;
     gap: 2rem;
     max-width: 320px;
-    /* overflow-x: hidden; */
 }
 
 .projectCarouselContainer {

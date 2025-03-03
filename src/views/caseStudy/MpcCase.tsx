@@ -4,7 +4,7 @@ import { useState } from "react";
 import IMAGES from "../../assets/images/Images";
 import { motion } from "framer-motion";
 
-const EmmanuelCaseStudy: React.FunctionComponent = () => {
+const MpcCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
 
@@ -61,7 +61,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 >
                     <p className="caseStudyText">CASE STUDY</p>
                     <p className="caseStudyHeaderText">
-                        Emmanuel Church of Philadelphia
+                        Montgomery Presbyterian Church
                     </p>
                 </motion.div>
                 <motion.div
@@ -84,4 +84,4 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
     );
 };
 
-export default EmmanuelCaseStudy;
+export default MpcCaseStudy;

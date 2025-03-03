@@ -34,7 +34,9 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
     const [columnCount, setColumnCount] = useState(4);
 
     const getColumnCount = () => {
-        const cols = Math.floor(window.innerWidth / slideDistance);
+        const cols = Math.floor(
+            document.documentElement.clientWidth / slideDistance
+        );
         setColumnCount(cols);
     };
 
@@ -80,7 +82,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
             }
         };
     }, [columnCount, hasAnimated]);
-    console.log(darkMode);
+
     useEffect(() => {
         if (isVisible) {
             startAutoSlide();
@@ -95,13 +97,10 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
 
     useEffect(() => {
         getColumnCount();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    useEffect(() => {
         window.addEventListener("resize", getColumnCount);
         return () => window.removeEventListener("resize", getColumnCount);
-    });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const navigate = useNavigate();
     const handleNavigation = (pathname: string) => {
@@ -135,7 +134,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                             darkMode ? "darkMode" : ""
                         }`}
                     >
-                        See my work.{" "}
+                        See my work.
                     </p>
                 </motion.div>
                 {columnCount === 1 || columnCount === 2 ? (
@@ -280,8 +279,8 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                 <span>Want to see how I built this site?</span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="60"
+                    height="15"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -292,7 +291,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                         isHovered ? "hover" : ""
                     }`}
                 >
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <line x1="-30" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
             </motion.div>

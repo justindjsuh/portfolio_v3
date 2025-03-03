@@ -15,7 +15,6 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     isVisible = false,
     darkMode,
 }) => {
-    console.log("DARKMODE", darkMode);
     return isMobile ? (
         <div
             className="projectCard test"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import IMAGES from "../../assets/images/Images";
 import { motion } from "framer-motion";
 
-const EmmanuelCaseStudy: React.FunctionComponent = () => {
+const PortfolioV3CaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
 
@@ -60,9 +60,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
                 >
                     <p className="caseStudyText">CASE STUDY</p>
-                    <p className="caseStudyHeaderText">
-                        Emmanuel Church of Philadelphia
-                    </p>
+                    <p className="caseStudyHeaderText">Portfolio V3</p>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
@@ -84,4 +82,4 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
     );
 };
 
-export default EmmanuelCaseStudy;
+export default PortfolioV3CaseStudy;
