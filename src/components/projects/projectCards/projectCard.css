@@ -1,0 +1,40 @@
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    cursor: pointer;
+}
+
+.projectTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.projectDesc {
+    font-size: .875rem;
+    font-weight: 500;
+    color: #fafafab3;
+    margin-bottom: .5rem;
+}
+
+.projectChipContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .2rem;
+    font-size: .75rem;
+    color: #fafafab3;
+}
+
+.projectChipContainer span {
+    border: 1px solid #222222;
+    border-radius: 500px;
+    padding: .2rem .5rem;
+}
+
+.projectCard img {
+    width: 20rem;
+    height: auto;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: .5rem;
+}
