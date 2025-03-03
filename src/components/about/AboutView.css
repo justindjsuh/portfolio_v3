@@ -3,13 +3,12 @@
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
-    width: 100vw;
     padding-top: 15rem;
     background: var(--bg-gradient-blue);
 }
 
 .aboutContent {
-    width: 90%;
+    width: 80%;
 }
 
 .aboutMe {
