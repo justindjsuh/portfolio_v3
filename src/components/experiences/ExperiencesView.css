@@ -30,10 +30,6 @@
     color: var(--text-primary-light-mode);
 }
 
-.experienceHeaderContainer {
-    color: var(--text-primary-light-mode);
-}
-
 .experienceHeaderContainer.darkMode {
     color: var(--subtext-default-light-mode);
 }

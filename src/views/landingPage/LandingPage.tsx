@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import AboutView from "../../components/about/AboutView";
 import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
+import ProjectsView from "../../components/projects/ProjectsView";
 
 const LandingPage: React.FunctionComponent = () => {
     const [isInView, setIsInView] = useState(false);
@@ -96,7 +97,9 @@ const LandingPage: React.FunctionComponent = () => {
             <div ref={experienceRef}>
                 <ExperiencesView />
             </div>
-            <div ref={projectsRef}></div>
+            <div ref={projectsRef}>
+                <ProjectsView />
+            </div>
             <div ref={contactRef}></div>
             {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>
                 <img

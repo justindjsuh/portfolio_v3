@@ -24,7 +24,7 @@ const getScrollTransformValues = () => {
         return { start: 1100, end: 1250, min: 80, max: 100 };
     } else if (width <= 1300) {
         // Tablet
-        return { start: 1250, end: 1650, min: 70, max: 100 };
+        return { start: 1100, end: 1600, min: 70, max: 100 };
     } else {
         // Desktop
         return { start: 1100, end: 1500, min: 60, max: 100 };
