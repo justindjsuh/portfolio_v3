@@ -1,4 +1,5 @@
 const IMAGES = {
+    // ICONS
     backToTopCube: new URL("./backToTopCube.png", import.meta.url).href,
     bashIcon: new URL("./icons/bash-icon.png", import.meta.url).href,
     bashIconDark: new URL("./icons/bash-icon-dark.png", import.meta.url).href,
@@ -27,6 +28,13 @@ const IMAGES = {
         "./icons/typescript-icon-dark.png",
         import.meta.url
     ).href,
+    // PROJECT IMGS
+    emmanuelBg: new URL("./project_emmanuel.png", import.meta.url).href,
+    alibiBg: new URL("./project_alibi.png", import.meta.url).href,
+    mpcBg: new URL("./project_mpc.png", import.meta.url).href,
+    peakBg: new URL("./project_peak.png", import.meta.url).href,
+    portfolioV1Bg: new URL("./project_portfoliov1.png", import.meta.url).href,
+    portfolioV2Bg: new URL("./project_portfoliov2.png", import.meta.url).href,
 };
 
 export default IMAGES;
