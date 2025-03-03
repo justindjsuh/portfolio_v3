@@ -40,6 +40,8 @@ const App = () => {
                 `scroll-position-${location.pathname}`
             );
 
+            console.log(location.pathname);
+
             if (savedScrollPosition) {
                 window.scrollTo(0, JSON.parse(savedScrollPosition));
             }

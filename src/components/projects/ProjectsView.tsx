@@ -105,7 +105,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
     const navigate = useNavigate();
     const handleNavigation = (pathname: string) => {
         sessionStorage.setItem(
-            `scroll-position-${pathname}`,
+            `scroll-position-/`,
             JSON.stringify(window.scrollY)
         );
         navigate(pathname, { state: { from: location.pathname } });
