@@ -7,6 +7,7 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
+    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -14,9 +15,15 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/alibi-esports")}
         >
             <img src={IMAGES.alibiBg} draggable="false" />
-            <p className="projectTitle">Alibi Esports</p>
-            <p className="projectDesc">Central hub for competitive gamers</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
+                Alibi Esports
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                Central hub for competitive gamers
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>AOS</span>
@@ -30,14 +37,20 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
         <motion.div
             className="projectCard"
             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate based on state
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
             transition={{ delay: 1, duration: 0.5, ease: "easeOut" }}
             onClick={() => handleNavigation("/cases/alibi-esports")}
         >
             <img src={IMAGES.alibiBg} draggable="false" />
-            <p className="projectTitle">Alibi Esports</p>
-            <p className="projectDesc">Central hub for competitive gamers</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
+                Alibi Esports
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                Central hub for competitive gamers
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>AOS</span>

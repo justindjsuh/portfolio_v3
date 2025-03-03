@@ -6,24 +6,33 @@ export interface IProjectCardProps {
     handleNavigation: (path: string) => void;
     isMobile?: boolean;
     isVisible?: boolean;
+    darkMode: boolean;
 }
 
 const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
+    darkMode,
 }) => {
+    console.log("DARKMODE", darkMode);
     return isMobile ? (
         <div
-            className="projectCard"
+            className="projectCard test"
             onClick={() =>
                 handleNavigation("/cases/montgomery-presbyterian-church")
             }
         >
             <img src={IMAGES.mpcBg} draggable="false" />
-            <p className="projectTitle">Montgomery Presbyterian Church</p>
-            <p className="projectDesc">COMING SOON</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
+                Montgomery Presbyterian Church
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                COMING SOON
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>
@@ -37,16 +46,22 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
         <motion.div
             className="projectCard"
             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate based on state
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
             transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
             onClick={() =>
                 handleNavigation("/cases/montgomery-presbyterian-church")
             }
         >
             <img src={IMAGES.mpcBg} draggable="false" />
-            <p className="projectTitle">Montgomery Presbyterian Church</p>
-            <p className="projectDesc">COMING SOON</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
+                Montgomery Presbyterian Church
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                COMING SOON
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>

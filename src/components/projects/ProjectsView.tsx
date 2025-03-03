@@ -9,9 +9,17 @@ import PeakProjectCard from "./projectCards/peakProjectCard";
 import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 
-const ProjectsView: React.FunctionComponent = () => {
+interface IProjectsViewProps {
+    darkMode: boolean;
+    setDarkMode: (val: boolean) => void;
+}
+
+const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
+    darkMode,
+}) => {
     const [isVisible, setIsVisible] = useState(false); // Track if in viewport
     const [isHovered, setIsHovered] = useState(false);
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     const controls = useAnimation();
     const maxIndex = 1;
@@ -54,7 +62,10 @@ const ProjectsView: React.FunctionComponent = () => {
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsVisible(entry.isIntersecting);
+                if (entry.isIntersecting && !hasAnimated) {
+                    setIsVisible(entry.isIntersecting);
+                    setHasAnimated(true);
+                }
             },
             { threshold: 0.3 } // Adjust this value if needed (30% visible to trigger)
         );
@@ -68,8 +79,8 @@ const ProjectsView: React.FunctionComponent = () => {
                 observer.unobserve(container);
             }
         };
-    }, [columnCount]);
-
+    }, [columnCount, hasAnimated]);
+    console.log(darkMode);
     useEffect(() => {
         if (isVisible) {
             startAutoSlide();
@@ -102,7 +113,7 @@ const ProjectsView: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="projectsViewBg">
+        <div className={`projectsViewBg ${darkMode ? "darkMode" : ""}`}>
             <div className="projectsViewContainer">
                 {/* This projectsviewheader should fade in upwards */}
                 <motion.div
@@ -112,8 +123,20 @@ const ProjectsView: React.FunctionComponent = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                    <p className="projectsViewHeaderText">SELECTED PROJECTS</p>
-                    <p className="projectsViewHeaderSubText">See my work. </p>
+                    <p
+                        className={`projectsViewHeaderText ${
+                            darkMode ? "darkMode" : ""
+                        }`}
+                    >
+                        SELECTED PROJECTS
+                    </p>
+                    <p
+                        className={`projectsViewHeaderSubText ${
+                            darkMode ? "darkMode" : ""
+                        }`}
+                    >
+                        See my work.{" "}
+                    </p>
                 </motion.div>
                 {columnCount === 1 || columnCount === 2 ? (
                     <div
@@ -154,26 +177,32 @@ const ProjectsView: React.FunctionComponent = () => {
                         >
                             <MpcProjectCard
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                             <EmmanuelProjectCard
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                             <PortfolioV2Card
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                             <PortfolioV1Card
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                             <AlibiProjectCard
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                             <PeakProjectCard
                                 handleNavigation={handleNavigation}
+                                darkMode={darkMode}
                                 isMobile
                             />
                         </motion.div>
@@ -192,18 +221,21 @@ const ProjectsView: React.FunctionComponent = () => {
                             <div className="cardHoverContainer">
                                 <MpcProjectCard
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>
                             <div className="cardHoverContainer">
                                 <EmmanuelProjectCard
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>
                             <div className="cardHoverContainer">
                                 <PortfolioV2Card
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>
@@ -211,6 +243,7 @@ const ProjectsView: React.FunctionComponent = () => {
                             <div className="cardHoverContainer">
                                 <PortfolioV1Card
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>
@@ -218,6 +251,7 @@ const ProjectsView: React.FunctionComponent = () => {
                             <div className="cardHoverContainer">
                                 <AlibiProjectCard
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>
@@ -225,6 +259,7 @@ const ProjectsView: React.FunctionComponent = () => {
                             <div className="cardHoverContainer">
                                 <PeakProjectCard
                                     handleNavigation={handleNavigation}
+                                    darkMode={darkMode}
                                     isVisible={isVisible}
                                 />
                             </div>

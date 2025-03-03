@@ -7,7 +7,15 @@ import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ProjectsView from "../../components/projects/ProjectsView";
 
-const LandingPage: React.FunctionComponent = () => {
+interface ILandingPageProps {
+    darkMode: boolean;
+    setDarkMode: (val: boolean) => void;
+}
+
+const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
+    darkMode,
+    setDarkMode,
+}) => {
     const [isInView, setIsInView] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
@@ -95,10 +103,13 @@ const LandingPage: React.FunctionComponent = () => {
                 <AboutView />
             </div>
             <div ref={experienceRef}>
-                <ExperiencesView />
+                <ExperiencesView
+                    darkMode={darkMode}
+                    setDarkMode={setDarkMode}
+                />
             </div>
             <div ref={projectsRef}>
-                <ProjectsView />
+                <ProjectsView darkMode={darkMode} setDarkMode={setDarkMode} />
             </div>
             <div ref={contactRef}></div>
             {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>

@@ -7,6 +7,7 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
+    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -16,9 +17,15 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             }
         >
             <img src={IMAGES.emmanuelBg} draggable="false" />
-            <p className="projectTitle">Emmanuel Church of Philadelphia</p>
-            <p className="projectDesc">A modern website for a growing church</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
+                Emmanuel Church of Philadelphia
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                A modern website for a growing church
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>
@@ -32,16 +39,22 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
         <motion.div
             className="projectCard"
             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate based on state
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
             transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
             onClick={() =>
                 handleNavigation("/cases/emmanuel-church-of-philadelphia")
             }
         >
             <img src={IMAGES.emmanuelBg} draggable="false" />
-            <p className="projectTitle">Emmanuel Church of Philadelphia</p>
-            <p className="projectDesc">A modern website for a growing church</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
+                Emmanuel Church of Philadelphia
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                A modern website for a growing church
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>

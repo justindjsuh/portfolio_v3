@@ -7,6 +7,7 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible,
+    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -14,11 +15,15 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/peak-fitness")}
         >
             <img src={IMAGES.peakBg} draggable="false" />
-            <p className="projectTitle">Peak Fitness</p>
-            <p className="projectDesc">
+            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
+                Peak Fitness
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
                 All your fitness needs in one dashboard
             </p>
-            <div className="projectChipContainer">
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>MATERIALUI</span>
@@ -30,17 +35,21 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     ) : (
         <motion.div
             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate based on state
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
             transition={{ delay: 1.25, duration: 0.5, ease: "easeOut" }}
             className="projectCard"
             onClick={() => handleNavigation("/cases/peak-fitness")}
         >
             <img src={IMAGES.peakBg} draggable="false" />
-            <p className="projectTitle">Peak Fitness</p>
-            <p className="projectDesc">
+            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
+                Peak Fitness
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
                 All your fitness needs in one dashboard
             </p>
-            <div className="projectChipContainer">
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>MATERIALUI</span>

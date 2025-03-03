@@ -1,7 +1,11 @@
 .projectsViewBg {
-    background-color: var(--bg-primary-dark-mode);
+    background-color: var(--bg-primary-light-mode);
     width: 100vw;
     padding-bottom: 5rem;
+}
+
+.projectsViewBg.darkMode {
+    background-color: var(--bg-primary-dark-mode);
 }
 
 .projectsViewContainer {
@@ -28,15 +32,25 @@
 }
 
 .projectsViewHeaderText {
+    color: var(--text-primary-light-mode);
     font-size: 1.25rem;
     font-weight: 500;
 }
 
+.projectsViewHeaderText.darkMode {
+    color: var(--text-primary-dark-mode)
+}
+
 .projectsViewHeaderSubText {
+    color: var(--text-primary-light-mode);
     display: flex;
     font-size: 5rem;
     font-weight: 600;
     gap: 1rem;
+}
+
+.projectsViewHeaderSubText.darkMode {
+    color: var(--text-primary-dark-mode)
 }
 
 .portfolioV3Nav {

@@ -7,6 +7,7 @@ import { useLocation, useNavigationType } from "react-router-dom";
 // import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
+    const [darkMode, setDarkMode] = useState(true);
     const [loading, setLoading] = useState(true);
     const navigationType = useNavigationType();
     const location = useLocation();
@@ -49,7 +50,7 @@ const App = () => {
     return (
         <>
             {loading && navigationType !== "PUSH" && <Loader />}
-            <LandingPage />
+            <LandingPage darkMode={darkMode} setDarkMode={setDarkMode} />
             {/* <StickyCursor /> */}
         </>
     );

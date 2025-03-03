@@ -7,6 +7,7 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
+    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -14,9 +15,15 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/portfolio-v2")}
         >
             <img src={IMAGES.portfolioV2Bg} draggable="false" />
-            <p className="projectTitle">Portfolio V2</p>
-            <p className="projectDesc">Personal portfolio</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
+                Portfolio V2
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                Personal portfolio
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>VITE</span>
@@ -29,15 +36,21 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
     ) : (
         <motion.div
             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate based on state
+            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
             transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
             className="projectCard"
             onClick={() => handleNavigation("/cases/portfolio-v2")}
         >
             <img src={IMAGES.portfolioV2Bg} draggable="false" />
-            <p className="projectTitle">Portfolio V2</p>
-            <p className="projectDesc">Personal portfolio</p>
-            <div className="projectChipContainer">
+            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
+                Portfolio V2
+            </p>
+            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+                Personal portfolio
+            </p>
+            <div
+                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
+            >
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>VITE</span>
