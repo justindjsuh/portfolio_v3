@@ -6,6 +6,7 @@ import AboutView from "../../components/about/AboutView";
 import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ProjectsView from "../../components/projects/ProjectsView";
+import ContactView from "../../components/contact/ContactView";
 
 interface ILandingPageProps {
     darkMode: boolean;
@@ -111,7 +112,9 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
             <div ref={projectsRef}>
                 <ProjectsView darkMode={darkMode} setDarkMode={setDarkMode} />
             </div>
-            <div ref={contactRef}></div>
+            <div ref={contactRef}>
+                <ContactView />
+            </div>
             {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>
                 <img
                     src={IMAGES.backToTopCube}

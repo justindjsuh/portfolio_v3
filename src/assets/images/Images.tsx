@@ -38,6 +38,9 @@ const IMAGES = {
     // CASE STUDY ICON
     githubCaseIcon: new URL("./icons/github-gradient.png", import.meta.url)
         .href,
+    githubIcon: new URL("./icons/github.png", import.meta.url).href,
+    emailIcon: new URL("./icons/email.png", import.meta.url).href,
+    linkedinIcon: new URL("./icons/linkedin.png", import.meta.url).href,
 };
 
 export default IMAGES;

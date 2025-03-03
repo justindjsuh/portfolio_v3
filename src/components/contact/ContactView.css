@@ -1,0 +1,70 @@
+.contactContainer {
+    background: linear-gradient(180deg, #101010, var(--bg-secondary));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.contactContent {
+    padding: 4rem;
+    border-radius: 5px;
+    background-color: #101010;
+    width: 95%;
+    height: 70%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactText {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #5c66d0;
+    letter-spacing: .05rem;
+    align-self: flex-start;
+}
+
+.mainTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.getConnectedText {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.contactChipContainer {
+    display: flex;
+    gap: .5rem;
+}
+
+.contactChip {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 10px;
+    padding: .5rem .05rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.contactChip:hover {
+    background-color: rgba(82, 89, 166, .25);
+}
+
+.contactChip img {
+    width: 60px;
+    height: auto;
+}
+
+.divider {
+    width: 100%;
+    border-color: #5c66d0;
+}
