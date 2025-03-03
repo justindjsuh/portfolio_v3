@@ -3,11 +3,14 @@ import LandingPage from "./views/landingPage/LandingPage";
 import Loader from "./components/loader";
 import { useEffect, useState } from "react";
 import useLenisSmoothScroll from "./components/smoothScroll/SmoothScroll";
+import { useLocation, useNavigationType } from "react-router-dom";
 // import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
-    useLenisSmoothScroll();
+    const navigationType = useNavigationType();
+    const location = useLocation();
+    useLenisSmoothScroll(loading);
 
     useEffect(() => {
         if (loading) {
@@ -18,6 +21,7 @@ const App = () => {
     }, [loading]);
 
     useEffect(() => {
+        // Need to disable this if the user is being redirected back from a case study path
         const timeout = setTimeout(() => {
             setLoading(false);
         }, 7000);
@@ -25,15 +29,26 @@ const App = () => {
     });
 
     useEffect(() => {
-        if ("scrollRestoration" in window.history) {
-            window.history.scrollRestoration = "manual";
+        if (navigationType !== "PUSH") {
+            if ("scrollRestoration" in window.history) {
+                window.history.scrollRestoration = "manual";
+            }
+            window.scrollTo(0, 0);
+        } else {
+            const savedScrollPosition = sessionStorage.getItem(
+                `scroll-position-${location.pathname}`
+            );
+
+            if (savedScrollPosition) {
+                window.scrollTo(0, JSON.parse(savedScrollPosition));
+            }
+            setLoading(false);
         }
-        window.scrollTo(0, 0);
-    }, []);
+    }, [navigationType, location]);
 
     return (
         <>
-            {loading && <Loader />}
+            {loading && navigationType !== "PUSH" && <Loader />}
             <LandingPage />
             {/* <StickyCursor /> */}
         </>

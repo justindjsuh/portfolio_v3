@@ -9,12 +9,13 @@
 }
 
 .aboutContent {
-    width: 80%;
+    width: 90%;
 }
 
 .aboutMe {
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: 5rem;
+    line-height: 5rem;
+    padding-bottom: 1rem;
 }
 
 .aboutContent h2 {
@@ -50,13 +51,10 @@
 
 @media (max-width: 1199px) {
     .aboutContainer {
-        height: 50vh;
+        height: 70vh;
     }
     .jobCard {
         grid-template-columns: 20% 80%;
-    }
-    .experiencesContainer {
-        width: 90vw;
     }
 }
 

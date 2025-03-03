@@ -1,16 +1,22 @@
 .projectsViewBg {
-    background-color: var(--bg-primary-light-mode);
-    height: 150vh;
+    background-color: var(--bg-primary-dark-mode);
     width: 100vw;
+    padding-bottom: 5rem;
 }
 
 .projectsViewContainer {
     padding-top: 15rem;
-    background-color: var(--bg-primary-dark-mode);
-    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 5rem;
+}
+
+.cardHoverContainer {
+    transition: opacity .2s ease-in-out;
+}
+
+.cardHoverContainer:hover {
+    opacity: .75;
 }
 
 .projectsViewHeader {
@@ -27,35 +33,60 @@
 }
 
 .projectsViewHeaderSubText {
+    display: flex;
     font-size: 5rem;
     font-weight: 600;
+    gap: 1rem;
+}
+
+.portfolioV3Nav {
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    margin-left: 5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #fafafab3;
+    cursor: pointer;
+}
+
+.portfolioV3Nav svg {
+    transform: translate(0%, 25%);
+    margin-left: .2rem;
+    transition: all .1s ease-in-out;
+}
+
+.portfolioV3Nav svg.hover {
+    transform: translate(20%, 25%);
 }
 
 .projectCardsContainer {
-    display: flex;
+    display: grid;
     gap: 2rem;
-    overflow-x: hidden;
+    max-width: 320px;
+    /* overflow-x: hidden; */
 }
 
 .projectCarouselContainer {
     margin-left: 5rem;
 }
 
-@media (max-width: 1199px) {
-
-}
-
-@media (max-width: 575px) {
+@media (max-width: 780px) {
+    .projectsViewContainer {
+        align-items: center;
+    }
     .projectsViewHeaderText {
         font-size: 1rem;
     }
     .projectsViewHeader {
-        margin-left: 1em;
+        margin-left: 0;
     }
     .projectsViewHeaderSubText {
         font-size: 3.5rem;
     }
     .projectCarouselContainer {
-        margin-left: 1rem;
+        margin-left: 0;
+    }
+    .portfolioV3Nav {
+        margin-left: 2rem;
     }
 }

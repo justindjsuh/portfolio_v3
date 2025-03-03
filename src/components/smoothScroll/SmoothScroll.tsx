@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
-const useLenisSmoothScroll = () => {
+const useLenisSmoothScroll = (isLoading: boolean) => {
     useEffect(() => {
         const lenis = new Lenis({
             duration: 0.6, // Adjust scroll speed (default: 1)
@@ -11,6 +11,9 @@ const useLenisSmoothScroll = () => {
             infinite: false, // Disable infinite scrolling
         });
 
+        if (isLoading) lenis.stop();
+        else lenis.start();
+
         const raf = (time: number) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -19,7 +22,7 @@ const useLenisSmoothScroll = () => {
         requestAnimationFrame(raf);
 
         return () => lenis.destroy(); // Cleanup function on unmount
-    }, []);
+    }, [isLoading]);
 };
 
 export default useLenisSmoothScroll;

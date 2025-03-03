@@ -1,8 +1,13 @@
 .projectCard {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: min-content;
     cursor: pointer;
+    /* transition: all .2s ease-in-out; */
+}
+
+.projectCard.hover {
+    opacity: .75;
 }
 
 .projectTitle {

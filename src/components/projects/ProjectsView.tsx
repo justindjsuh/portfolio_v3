@@ -6,13 +6,15 @@ import PortfolioV2Card from "./projectCards/portfolioV2Card";
 import PortfolioV1Card from "./projectCards/portfolioV1Card";
 import AlibiProjectCard from "./projectCards/alibiProjectCard";
 import PeakProjectCard from "./projectCards/peakProjectCard";
+import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 
 const ProjectsView: React.FunctionComponent = () => {
     const [isVisible, setIsVisible] = useState(false); // Track if in viewport
-    const [maxIndex, setMaxIndex] = useState(2);
+    const [isHovered, setIsHovered] = useState(false);
 
     const controls = useAnimation();
+    const maxIndex = 1;
     const cardWidth = 320;
     const slideDistance = cardWidth + 32;
     const totalCards = 6;
@@ -21,12 +23,19 @@ const ProjectsView: React.FunctionComponent = () => {
     const isDragging = useRef(false); // Track if user is dragging
     const containerRef = useRef(null);
     const currentIndex = useRef(0); // Track the current index manually
+    const [columnCount, setColumnCount] = useState(4);
+
+    const getColumnCount = () => {
+        const cols = Math.floor(window.innerWidth / slideDistance);
+        setColumnCount(cols);
+    };
 
     // Function to move to the next slide
     const nextSlide = () => {
         if (isDragging.current) return; // Prevent auto-slide during dragging
         currentIndex.current =
-            (currentIndex.current + 1) % (totalCards - maxIndex + 1);
+            (currentIndex.current + 1) %
+            (totalCards - Math.floor(window.innerWidth / slideDistance) + 1);
         controls.start({
             x: -currentIndex.current * slideDistance,
             transition: { duration: 0.8, ease: "easeInOut" },
@@ -38,31 +47,6 @@ const ProjectsView: React.FunctionComponent = () => {
         if (intervalRef.current) clearInterval(intervalRef.current); // Clear existing interval
         intervalRef.current = setInterval(nextSlide, 3000);
     };
-
-    // Function to update visible cards based on screen width
-    const updateVisibleCards = () => {
-        const screenWidth = window.innerWidth;
-        setMaxIndex(Math.floor(screenWidth / slideDistance));
-    };
-
-    useEffect(() => {
-        updateVisibleCards(); // Set on mount
-        window.addEventListener("resize", updateVisibleCards);
-        return () => window.removeEventListener("resize", updateVisibleCards);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    useEffect(() => {
-        if (isVisible) {
-            startAutoSlide();
-        }
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isVisible, controls, maxIndex, slideDistance]);
 
     // Intersection Observer to detect when the carousel is in view
     useEffect(() => {
@@ -84,7 +68,38 @@ const ProjectsView: React.FunctionComponent = () => {
                 observer.unobserve(container);
             }
         };
+    }, [columnCount]);
+
+    useEffect(() => {
+        if (isVisible) {
+            startAutoSlide();
+        }
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isVisible, controls, slideDistance]);
+
+    useEffect(() => {
+        getColumnCount();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        window.addEventListener("resize", getColumnCount);
+        return () => window.removeEventListener("resize", getColumnCount);
+    });
+
+    const navigate = useNavigate();
+    const handleNavigation = (pathname: string) => {
+        sessionStorage.setItem(
+            `scroll-position-${pathname}`,
+            JSON.stringify(window.scrollY)
+        );
+        navigate(pathname, { state: { from: location.pathname } });
+    };
 
     return (
         <div className="projectsViewBg">
@@ -98,53 +113,154 @@ const ProjectsView: React.FunctionComponent = () => {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                 >
                     <p className="projectsViewHeaderText">SELECTED PROJECTS</p>
-                    <p className="projectsViewHeaderSubText">See my work.</p>
+                    <p className="projectsViewHeaderSubText">See my work. </p>
                 </motion.div>
-                <div
-                    className="projectCarouselContainer"
-                    ref={containerRef}
-                    style={{
-                        position: "relative",
-                        overflow: "hidden",
-                    }}
-                >
-                    <motion.div
-                        className="projectCardsContainer"
-                        drag="x"
-                        dragConstraints={{
-                            left: -maxIndex * cardWidth,
-                            right: 0,
-                        }}
-                        dragElastic={0.1} // Reduces bounciness
-                        dragTransition={{
-                            bounceStiffness: 100,
-                            bounceDamping: 15,
-                        }} // Smooth scrolling feel
-                        animate={controls}
+                {columnCount === 1 || columnCount === 2 ? (
+                    <div
+                        className="projectCarouselContainer"
+                        ref={containerRef}
                         style={{
-                            display: "flex",
-                            cursor: "grab",
-                            width: `${totalCards * (cardWidth + 32)}px`, // Ensure all cards fit
-                        }}
-                        onDragStart={() => {
-                            isDragging.current = true;
-                            if (intervalRef.current)
-                                clearInterval(intervalRef.current); // Stop auto-slide
-                        }}
-                        onDragLeave={() => {
-                            isDragging.current = false;
-                            startAutoSlide(); // Restart auto-slide
+                            position: "relative",
+                            overflow: "hidden",
                         }}
                     >
-                        <MpcProjectCard />
-                        <EmmanuelProjectCard />
-                        <PortfolioV2Card />
-                        <PortfolioV1Card />
-                        <AlibiProjectCard />
-                        <PeakProjectCard />
-                    </motion.div>
-                </div>
+                        <motion.div
+                            className="projectCardsContainer"
+                            drag="x"
+                            dragConstraints={{
+                                left: -maxIndex * cardWidth,
+                                right: 0,
+                            }}
+                            dragElastic={0.1} // Reduces bounciness
+                            dragTransition={{
+                                bounceStiffness: 100,
+                                bounceDamping: 15,
+                            }} // Smooth scrolling feel
+                            animate={controls}
+                            style={{
+                                display: "flex",
+                                cursor: "grab",
+                                width: `${totalCards * (cardWidth + 32)}px`, // Ensure all cards fit
+                            }}
+                            onDragStart={() => {
+                                isDragging.current = true;
+                                if (intervalRef.current)
+                                    clearInterval(intervalRef.current); // Stop auto-slide
+                            }}
+                            onDragLeave={() => {
+                                isDragging.current = false;
+                                startAutoSlide(); // Restart auto-slide
+                            }}
+                        >
+                            <MpcProjectCard
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                            <EmmanuelProjectCard
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                            <PortfolioV2Card
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                            <PortfolioV1Card
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                            <AlibiProjectCard
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                            <PeakProjectCard
+                                handleNavigation={handleNavigation}
+                                isMobile
+                            />
+                        </motion.div>
+                    </div>
+                ) : (
+                    <div
+                        className="projectCarouselContainer"
+                        ref={containerRef}
+                    >
+                        <div
+                            className="projectCardsContainer"
+                            style={{
+                                gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
+                            }}
+                        >
+                            <div className="cardHoverContainer">
+                                <MpcProjectCard
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+                            <div className="cardHoverContainer">
+                                <EmmanuelProjectCard
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+                            <div className="cardHoverContainer">
+                                <PortfolioV2Card
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+
+                            <div className="cardHoverContainer">
+                                <PortfolioV1Card
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+
+                            <div className="cardHoverContainer">
+                                <AlibiProjectCard
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+
+                            <div className="cardHoverContainer">
+                                <PeakProjectCard
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
+            <motion.div
+                className="portfolioV3Nav"
+                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onClick={() => handleNavigation("/cases/portfolio-v3")}
+            >
+                <span>Want to see how I built this site?</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`feather feather-arrow-right ${
+                        isHovered ? "hover" : ""
+                    }`}
+                >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </motion.div>
         </div>
     );
 };
