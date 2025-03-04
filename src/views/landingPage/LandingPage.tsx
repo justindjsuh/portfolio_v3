@@ -113,14 +113,8 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                 <ProjectsView darkMode={darkMode} setDarkMode={setDarkMode} />
             </div>
             <div ref={contactRef}>
-                <ContactView />
+                <ContactView darkMode={darkMode} />
             </div>
-            {/* <button className={`backToTop ${isBackToTopVisible ? "show" : ""}`}>
-                <img
-                    src={IMAGES.backToTopCube}
-                    alt="A cube used to scroll back to top"
-                />
-            </button> */}
         </div>
     );
 };

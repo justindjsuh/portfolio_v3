@@ -41,6 +41,10 @@ const IMAGES = {
     githubIcon: new URL("./icons/github.png", import.meta.url).href,
     emailIcon: new URL("./icons/email.png", import.meta.url).href,
     linkedinIcon: new URL("./icons/linkedin.png", import.meta.url).href,
+    githubDarkIcon: new URL("./icons/github_dark.png", import.meta.url).href,
+    emailDarkIcon: new URL("./icons/email_dark.png", import.meta.url).href,
+    linkedinDarkIcon: new URL("./icons/linkedin_dark.png", import.meta.url)
+        .href,
     // CASE IMAGES
     caseEmmanuelBg: new URL("./caseImages/case_emmanuel.png", import.meta.url)
         .href,

@@ -1,15 +1,19 @@
 .contactContainer {
-    background: linear-gradient(180deg, #101010, var(--bg-secondary));
+    background: linear-gradient(180deg, #fff, var(--bg-secondary));
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
+.contactContainer.darkMode {
+    background: linear-gradient(180deg, #101010, var(--bg-secondary));
+}
+
 .contactContent {
     padding: 4rem;
     border-radius: 5px;
-    background-color: #101010;
+    background-color: #fff;
     width: 95%;
     height: 70%;
     margin-bottom: 2rem;
@@ -17,6 +21,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.contactContent.darkMode {
+    background-color: #101010;
 }
 
 .contactText {
@@ -32,12 +40,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #101010;
+}
+
+.mainTextContainer.darkMode {
+    color: #fff;
 }
 
 .getConnectedText {
-    color: #fff;
+    color: #101010;
     font-size: 5rem;
     font-weight: 600;
+}
+
+.getConnectedText.darkMode {
+    color: #fff;
 }
 
 .contactChipContainer {
