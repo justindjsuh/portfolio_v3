@@ -41,6 +41,26 @@ const IMAGES = {
     githubIcon: new URL("./icons/github.png", import.meta.url).href,
     emailIcon: new URL("./icons/email.png", import.meta.url).href,
     linkedinIcon: new URL("./icons/linkedin.png", import.meta.url).href,
+    // CASE IMAGES
+    caseEmmanuelBg: new URL("./caseImages/case_emmanuel.png", import.meta.url)
+        .href,
+    caseAlibiBg: new URL("./caseImages/case_alibiesports.png", import.meta.url)
+        .href,
+    casePeakBg: new URL("./caseImages/case_peakfitness.png", import.meta.url)
+        .href,
+    casePortfolioV1Bg: new URL(
+        "./caseImages/case_portfoliov1.png",
+        import.meta.url
+    ).href,
+    casePortfolioV2Bg: new URL(
+        "./caseImages/case_portfoliov2.png",
+        import.meta.url
+    ).href,
+    casePortfolioV3Bg: new URL(
+        "./caseImages/case_portfoliov3.png",
+        import.meta.url
+    ).href,
+    caseMpcBg: new URL("./caseImages/case_mpc.png", import.meta.url).href,
 };
 
 export default IMAGES;

@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IMAGES from "../../assets/images/Images";
 import { motion } from "framer-motion";
+import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
+    useLenisSmoothScroll(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="caseStudyBg">
@@ -15,7 +21,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     className="backNavigation"
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
                     whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                 >
                     <div
@@ -48,15 +54,25 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <p>Back to my portfolio</p>
                     </div>
                     <div className="backNavRight">
-                        <button>Live Site</button>
-                        <img src={IMAGES.githubCaseIcon} />
+                        <a
+                            href="https://emmanuel-ec.vercel.app/"
+                            target="_blank"
+                        >
+                            <button>Live Site</button>
+                        </a>
+                        <a
+                            href="https://github.com/justindjsuh/emmanuel-ec"
+                            target="_blank"
+                        >
+                            <img src={IMAGES.githubCaseIcon} />
+                        </a>
                     </div>
                 </motion.div>
                 <motion.div
                     className="caseStudyHeader"
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
                     whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
                 >
                     <p className="caseStudyText">CASE STUDY</p>
@@ -67,18 +83,200 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
                     whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true }}
                     transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                     style={{
                         fontSize: "1rem",
                         margin: "0 auto",
                         fontWeight: "400",
-                        fontFamily: "Jost",
                         letterSpacing: ".5rem",
                     }}
+                    className="caseImage"
                 >
-                    COMING SOON
+                    <img src={IMAGES.caseEmmanuelBg} />
                 </motion.div>
+                <div className="caseStudyContent">
+                    <div className="caseLeftSide">
+                        <motion.div
+                            className="caseSection"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p>PURPOSE</p>
+                            <p>
+                                This website was created for the Emmanuel Church
+                                of Philadelphia, to be on the frontlines of
+                                interaction with the members and potential
+                                members. To be a central hub of information and
+                                communication while focusing on user-centered
+                                design.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            className="caseSection"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p>LESSONS</p>
+                            <p>
+                                It's been some time since I've picked up a
+                                personal project, but I had the great
+                                opportunity to build the website for the church
+                                I was attending which is Emmanuel Church of
+                                Philadelphia. This wasn't necessarily my first
+                                time working with a client and doing this type
+                                of freelancing work, but it was an awesome
+                                opportunity to be able to test my skills and
+                                build a website that would be used live and be
+                                on the frontlines of interaction made with the
+                                church.
+                            </p>
+                            <p>
+                                The website was overall quite standard, but it
+                                was my first time trying to make a site as
+                                simple, clean, and appealing all at the same
+                                time. In the past, I've always tried to make the
+                                websites I created using all the fancy packages
+                                and animations I could - to make it as unique as
+                                possible, but this time around, I was to stick
+                                to a design that engaged the user with a design
+                                that makes the user feel as if the design didn't
+                                exist in a sense. It was to be seamless and
+                                pleasing to the eyes.
+                            </p>
+                            <p>
+                                I worked in Figma and communicated with the
+                                client in iterations which was an awesome
+                                experience - it felt much like I was getting
+                                into freelance work. I do think this project
+                                overall was not just a way to test my technical
+                                skillset, but also my communication with clients
+                                as well as giving me a stronger understanding of
+                                where I would like to take my skillset in the
+                                future. Freelancing for churches and being able
+                                to help the communities with a skillset I
+                                originally thought was difficult to incorporate
+                                in a volunteering sense, made me more passionate
+                                to pursue higher heights.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            className="caseSection"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p>REFLECTIONS</p>
+                            <p>
+                                While I really did enjoy this opportunity to
+                                contribute to the community and have an actual
+                                "client" project, I do think I fell short a bit
+                                on the completion of this project. It's only
+                                been half a year, and I can already see so many
+                                improvements I could have made. It was
+                                definitely a great entry project into the space
+                                of building websites for local churches which is
+                                the project I'm taking on next!
+                            </p>
+                        </motion.div>
+                    </div>
+                    <div className="caseRightSide">
+                        <motion.div
+                            className="caseMetadata"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p className="metadataHeader">CLIENT</p>
+                            <p>Emmanuel Church of Philadelphia</p>
+                        </motion.div>
+                        <motion.div
+                            className="caseMetadata"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p className="metadataHeader">ROLE</p>
+                            <p>Full-Stack Web Developer</p>
+                        </motion.div>
+                        <motion.div
+                            className="caseMetadata"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p className="metadataHeader">DATE COMPLETED</p>
+                            <p>October 31, 2024</p>
+                        </motion.div>
+                        <motion.div
+                            className="caseMetadata"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <p className="metadataHeader">TECH-STACK</p>
+                            <div className="metadataChipContainer">
+                                <span>TYPESCRIPT</span>
+                                <span>REACT</span>
+                                <span>NEXTJS</span>
+                                <span>VERCEL</span>
+                                <span>CSS3</span>
+                                <span>HTML5</span>
+                                <span>FIGMA</span>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className="caseMetadata"
+                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                            viewport={{ once: true }}
+                            transition={{
+                                delay: 0.5,
+                                duration: 0.5,
+                                ease: "easeOut",
+                            }}
+                        >
+                            <hr className="caseDivider" />
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </div>
     );

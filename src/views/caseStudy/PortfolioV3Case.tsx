@@ -77,6 +77,18 @@ const PortfolioV3CaseStudy: React.FunctionComponent = () => {
                 >
                     COMING SOON
                 </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                    whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+                    style={{
+                        margin: "0 auto",
+                    }}
+                    className="caseImage blur"
+                >
+                    <img src={IMAGES.casePortfolioV3Bg} />
+                </motion.div>
             </div>
         </div>
     );

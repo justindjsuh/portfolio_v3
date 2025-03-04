@@ -9,7 +9,7 @@ const ContactView: React.FunctionComponent = () => {
                 className="contactContent"
                 initial={{ opacity: 0, y: 100 }} // Start invisible and 50px lower
                 whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <p className="contactText">CONTACT</p>
