@@ -36,7 +36,6 @@ const getScrollTransformValues = () => {
 
 const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = ({
     darkMode,
-    setDarkMode,
 }) => {
     const [selectedJob, setSelectedJob] = useState<IJobType>({
         comcast: false,
@@ -72,43 +71,17 @@ const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = ({
         <div className="experiencesBg">
             <motion.div
                 ref={experienceContainerRef}
-                className={`experiencesContainer ${darkMode ? "darkMode" : ""}`}
+                className="experiencesContainer"
                 style={{
                     width: widthStyle,
                     position: "relative",
                     borderRadius: borderRadius,
                 }}
             >
-                <div
-                    className={`experiencesContent ${
-                        darkMode ? "darkMode" : ""
-                    }`}
-                >
-                    <div
-                        className={`experienceHeaderContainer ${
-                            darkMode ? "darkMode" : ""
-                        }`}
-                    >
+                <div className="experiencesContent">
+                    <div className="experienceHeaderContainer">
                         <p className="experienceHeader">Experience</p>
                         <p>See where I&apos;ve made my impact.</p>
-                        <div className="darkModeToggle">
-                            <button
-                                className={`darkBtn ${
-                                    darkMode ? "darkMode" : ""
-                                }`}
-                                onClick={() => setDarkMode(true)}
-                            >
-                                Dark Mode
-                            </button>
-                            <button
-                                className={`lightBtn ${
-                                    darkMode ? "darkMode" : ""
-                                }`}
-                                onClick={() => setDarkMode(false)}
-                            >
-                                Light Mode
-                            </button>
-                        </div>
                     </div>
                     <Comcast
                         selectedJob={selectedJob}

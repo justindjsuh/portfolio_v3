@@ -15,23 +15,14 @@
     padding: 4rem 0;
     justify-content: center;
     border-radius: 25px;
-    background: var( --bg-primary-light-mode);
-    box-shadow:  var(--glow-large-light-mode);
-    transition: background-color .3s ease-in-out;
-}
-
-.experiencesContainer.darkMode {
     background: var(--bg-primary-dark-mode);
     box-shadow: var(--glow-large-dark-mode);
+    transition: background-color .3s ease-in-out;
 }
 
 .experienceHeaderContainer {
     text-align: center;
     margin-bottom: 10rem;
-    color: var(--text-primary-light-mode);
-}
-
-.experienceHeaderContainer.darkMode {
     color: var(--subtext-default-light-mode);
 }
 
@@ -53,10 +44,9 @@
 }
 
 .jobCard {
-    color: var(--text-primary-light-mode);
-    background: var(--bg-primary-light-mode);
+    color: var(--text-primary-dark-mode);
+    background: var(--card-bg-dark-mode);
     border-radius: 25px;
-    background: var(--card-bg-gradient-light-mode);
     display: grid;
     grid-template-columns: 20% 80%;
     padding: 1.5rem 2rem;
@@ -64,11 +54,6 @@
     border: 1px solid transparent;
     box-shadow: var(--glow-small-light-mode);
     transition: all .3s ease-in-out;
-}
-
-.jobCard.darkMode {
-    color: var(--text-primary-dark-mode);
-    background: var(--card-bg-dark-mode);
 }
 
 .jobCard.hover {
@@ -79,16 +64,11 @@
     transition: all .3s ease-in-out;
 }
 
-.jobCard.darkMode.hover p {
+.jobCard.hover p {
     color: #cbcbcb;
 }
 
 .jobLeftSide {
-    color: #666666;
-    transition: all 0.2s ease-in;
-}
-
-.jobLeftSide.darkMode {
     color: #a6a6a6;
 }
 
@@ -119,21 +99,13 @@
 }
 
 .jobLocation {
-    color: #666666;
-}
-
-.jobLocation.darkMode {
     color: #a5a5a5;
 }
 
 .jobDescription {
-    color: #666666;
+    color: #a5a5a5;
     font-size: .875rem;
     word-break: break-word;
-}
-
-.jobDescription.darkMode {
-    color: #a5a5a5;
 }
 
 .skillChipContainer {
@@ -144,9 +116,8 @@
 }
 
 .skillChip {
-    color: #666666;
-    border: 1.5px solid #A0A0A0;
-
+    color: #a6a6a6;
+    border: 1.5px solid #2b2b2b;
     font-size: .75rem;    
     background-color: transparent;
     border-radius: 25px;
@@ -154,62 +125,10 @@
     transition: all 0.3s ease-in-out;
 }
 
-.skillChip.darkMode {
-    color: #a6a6a6;
-    border: 1.5px solid #2b2b2b;
-}
-
 .skillChip.selected {
     background-color: #2b65ff;
     border: 1.5px solid transparent;
     color: white;
-}
-
-.darkModeToggle {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.darkModeToggle button {
-    font-size: .875rem;
-    background-color: transparent;
-    color: #101010;
-    transition: all .3s ease-in-out;
-    border: 1px solid #d8d8d8;
-}
-
-.darkBtn.darkMode {
-    color: #fff;
-}
-
-.lightBtn.darkMode {
-    color: #fff;
-}
-
-.darkBtn:focus {
-    outline: transparent solid;
-}
-
-.lightBtn:focus {
-    outline: transparent solid;
-}
-
-.darkBtn:hover {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
-}
-
-.lightBtn:hover {
-    box-shadow: 0px 0px 15px #a033ff;
-}
-
-.darkBtn.darkMode:hover {
-    box-shadow: 0px 0px 15px #2b65ff;
-}
-
-.lightBtn.darkMode:hover {
-    box-shadow: 0px 0px 15px #fff;
 }
 
 @media (max-width: 1199px) {
@@ -262,12 +181,5 @@
     }
     .jobDescription {
         font-size: .875rem;
-    }
-    .darkModeToggle button {
-        font-size: .875rem;
-        background-color: transparent;
-        color: #101010;
-        transition: all .3s ease-in-out;
-        border: 1px solid #d8d8d8;
     }
 }

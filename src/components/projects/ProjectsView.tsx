@@ -8,7 +8,6 @@ import AlibiProjectCard from "./projectCards/alibiProjectCard";
 import PeakProjectCard from "./projectCards/peakProjectCard";
 import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
-import EmmanuelCardV2 from "./projectCardsV2/emmanuelCardV2";
 
 interface IProjectsViewProps {
     darkMode: boolean;
@@ -206,42 +205,47 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                         className="projectCarouselContainer"
                         ref={containerRef}
                     >
-                        <div className="projectCardsContainerV2">
+                        <div
+                            className="projectCardsContainer"
+                            style={{
+                                gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
+                            }}
+                        >
                             <div className="cardHoverContainer">
-                                {/* <MpcProjectCard
-                                    handleNavigation={handleNavigation}
-                                    isVisible={isVisible}
-                                /> */}
-                            </div>
-                            <div className="cardHoverContainer">
-                                <EmmanuelCardV2
+                                <MpcProjectCard
                                     handleNavigation={handleNavigation}
                                     isVisible={isVisible}
                                 />
                             </div>
                             <div className="cardHoverContainer">
-                                {/* <PortfolioV2Card
+                                <EmmanuelProjectCard
                                     handleNavigation={handleNavigation}
                                     isVisible={isVisible}
-                                /> */}
+                                />
                             </div>
                             <div className="cardHoverContainer">
-                                {/* <PortfolioV1Card
+                                <PortfolioV2Card
                                     handleNavigation={handleNavigation}
                                     isVisible={isVisible}
-                                /> */}
+                                />
                             </div>
                             <div className="cardHoverContainer">
-                                {/* <AlibiProjectCard
+                                <PortfolioV1Card
                                     handleNavigation={handleNavigation}
                                     isVisible={isVisible}
-                                /> */}
+                                />
                             </div>
                             <div className="cardHoverContainer">
-                                {/* <PeakProjectCard
+                                <AlibiProjectCard
                                     handleNavigation={handleNavigation}
                                     isVisible={isVisible}
-                                /> */}
+                                />
+                            </div>
+                            <div className="cardHoverContainer">
+                                <PeakProjectCard
+                                    handleNavigation={handleNavigation}
+                                    isVisible={isVisible}
+                                />
                             </div>
                         </div>
                     </div>
