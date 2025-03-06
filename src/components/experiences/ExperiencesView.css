@@ -4,7 +4,8 @@
     align-items: center;
     /* height: 150vh; */
     width: 100vw;
-    background-color:  rgba(43, 101, 255, .7);
+    /* background: linear-gradient(180deg, #0C0C0C 0%, rgba(43, 101, 255, 1) 30%, rgba(43, 101, 255, 1) 100%); */
+    background: #0c0c0c;
 }
 
 .experiencesContainer {

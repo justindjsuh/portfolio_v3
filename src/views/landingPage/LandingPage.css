@@ -102,10 +102,10 @@
 
 @media (max-width: 575px) {
     .position {
-        white-space: unset;
+        font-size: .8rem;
     }
     .landingContentContainer {
-        transform: translateX(-30%) translateY(250%);
+        transform: translateX(-50%) translateY(0);
     }
     /* Need to implement a hamburger menu for mobile */
     .nav-container {

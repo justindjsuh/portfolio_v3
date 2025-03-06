@@ -85,3 +85,13 @@
     width: 100%;
     border-color: #2b65ff;
 }
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 575px) {
+    .getConnectedText {
+        font-size: 3rem;
+    }
+}

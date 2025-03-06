@@ -68,7 +68,7 @@ const PeakFitnessCase: React.FunctionComponent = () => {
                             </a>
                         </button>
                         <a href="https://github.com/peak-fitness/peak">
-                            <img src={IMAGES.githubCaseIcon} />
+                            <img rel="preload" src={IMAGES.githubCaseIcon} />
                         </a>
                     </div>
                 </motion.div>
@@ -95,7 +95,7 @@ const PeakFitnessCase: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src={IMAGES.casePeakBg} />
+                    <img rel="preload" src={IMAGES.casePeakBg} />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

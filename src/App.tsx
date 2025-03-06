@@ -48,7 +48,7 @@ const App = () => {
 
     return (
         <>
-            {loading && navigationType !== "PUSH" && <Loader />}
+            {/* {loading && navigationType !== "PUSH" && <Loader />} */}
             <LandingPage darkMode={darkMode} setDarkMode={setDarkMode} />
             <StickyCursor />
         </>

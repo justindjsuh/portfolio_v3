@@ -99,7 +99,7 @@ const AlibiEsportsCase: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src={IMAGES.caseAlibiBg} />
+                    <img rel="preload" src={IMAGES.caseAlibiBg} />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

@@ -72,7 +72,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                             href="https://github.com/justindjsuh/portfolio-site"
                             target="_blank"
                         >
-                            <img src={IMAGES.githubCaseIcon} />
+                            <img rel="preload" src={IMAGES.githubCaseIcon} />
                         </a>
                     </div>
                 </motion.div>
@@ -99,7 +99,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src={IMAGES.casePortfolioV1Bg} />
+                    <img rel="preload" src={IMAGES.casePortfolioV1Bg} />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

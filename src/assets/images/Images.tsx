@@ -46,7 +46,7 @@ const IMAGES = {
     linkedinDarkIcon: new URL("./icons/linkedin_dark.png", import.meta.url)
         .href,
     // CASE IMAGES
-    caseEmmanuelBg: new URL("./caseImages/case_emmanuel.png", import.meta.url)
+    caseEmmanuelBg: new URL("./caseImages/case_emmanuel.avif", import.meta.url)
         .href,
     caseAlibiBg: new URL("./caseImages/case_alibiesports.png", import.meta.url)
         .href,

@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
+    const [loaded, setLoaded] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
@@ -20,6 +21,15 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = IMAGES.caseEmmanuelBg;
+        img.onload = () => {
+            console.log("Image preloaded");
+            setLoaded(true);
+        };
     }, []);
 
     return (
@@ -101,7 +111,19 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src={IMAGES.caseEmmanuelBg} />
+                    {!loaded ? (
+                        <div style={{ width: "34rem", height: "60rem" }} />
+                    ) : (
+                        <img
+                            rel="preload"
+                            onLoad={() => {
+                                console.log("ISLOADED", loaded);
+                                setLoaded(true);
+                            }}
+                            src={IMAGES.caseEmmanuelBg}
+                            style={{ display: loaded ? "block" : "none" }}
+                        />
+                    )}
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
