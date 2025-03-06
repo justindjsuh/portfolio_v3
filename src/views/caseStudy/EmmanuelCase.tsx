@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
+
+    const [visible, setVisible] = useState(false);
+    const firstDivRef = useRef(null);
+    const isInView = useInView(firstDivRef, { amount: 1 });
+
+    useEffect(() => {
+        if (isInView) setVisible(true);
+    }, [isInView]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -100,13 +108,12 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
+                            ref={firstDivRef}
                         >
                             <p>PURPOSE</p>
                             <p>
@@ -118,19 +125,27 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 design.
                             </p>
                         </motion.div>
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>LESSONS</p>
-                            <p>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                LESSONS
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.2,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 It's been some time since I've picked up a
                                 personal project, but I had the great
                                 opportunity to build the website for the church
@@ -142,8 +157,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 build a website that would be used live and be
                                 on the frontlines of interaction made with the
                                 church.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 The website was overall quite standard, but it
                                 was my first time trying to make a site as
                                 simple, clean, and appealing all at the same
@@ -155,8 +178,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 that makes the user feel as if the design didn't
                                 exist in a sense. It was to be seamless and
                                 pleasing to the eyes.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.4,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I worked in Figma and communicated with the
                                 client in iterations which was an awesome
                                 experience - it felt much like I was getting
@@ -170,13 +201,12 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 originally thought was difficult to incorporate
                                 in a volunteering sense, made me more passionate
                                 to pursue higher heights.
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
                                 delay: 0.5,
                                 duration: 0.5,
@@ -201,10 +231,8 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -215,10 +243,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.1,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -227,12 +254,10 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                             <p>Full-Stack Web Developer</p>
                         </motion.div>
                         <motion.div
-                            className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -243,10 +268,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.3,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -265,10 +289,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.4,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}

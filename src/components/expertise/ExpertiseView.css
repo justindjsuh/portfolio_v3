@@ -1,6 +1,3 @@
-/* Give job cards a fade out and fade in */
-/* Follow user scroll up to the top of the container and bottom of the container */
-
 .expertiseContainer {
     display: flex;
     width: min-content;

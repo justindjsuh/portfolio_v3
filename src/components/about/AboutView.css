@@ -4,7 +4,7 @@
     align-items: flex-start;
     height: 100vh;
     padding-top: 15rem;
-    background: var(--bg-gradient-blue);
+    background: linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 50%,  rgba(43, 101, 255, .7) 100%);
 }
 
 .aboutContent {
@@ -45,12 +45,12 @@
 }
 
 .word-highlight {
-    color: var(--accent-tertiary);
+    color: rgba(43, 101, 255, 1);
 }
 
 @media (max-width: 1199px) {
     .aboutContainer {
-        height: 70vh;
+        height: 90vh;
     }
     .jobCard {
         grid-template-columns: 20% 80%;

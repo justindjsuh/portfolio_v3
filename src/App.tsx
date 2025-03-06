@@ -4,7 +4,7 @@ import Loader from "./components/loader";
 import { useEffect, useState } from "react";
 import useLenisSmoothScroll from "./components/smoothScroll/SmoothScroll";
 import { useLocation, useNavigationType } from "react-router-dom";
-// import StickyCursor from "./components/stickyCursor/stickyCursor";
+import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -22,7 +22,6 @@ const App = () => {
     }, [loading]);
 
     useEffect(() => {
-        // Need to disable this if the user is being redirected back from a case study path
         const timeout = setTimeout(() => {
             setLoading(false);
         }, 7000);
@@ -51,7 +50,7 @@ const App = () => {
         <>
             {loading && navigationType !== "PUSH" && <Loader />}
             <LandingPage darkMode={darkMode} setDarkMode={setDarkMode} />
-            {/* <StickyCursor /> */}
+            <StickyCursor />
         </>
     );
 };

@@ -4,7 +4,7 @@
     align-items: center;
     /* height: 150vh; */
     width: 100vw;
-    background-color: var(--bg-secondary);
+    background-color:  rgba(43, 101, 255, .7);
 }
 
 .experiencesContainer {

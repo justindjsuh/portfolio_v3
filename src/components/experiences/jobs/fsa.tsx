@@ -53,42 +53,42 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         React
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         JavaScript
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Node.js
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Express.js
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         PostgreSQL
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.fsa ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Mocha
                     </span>

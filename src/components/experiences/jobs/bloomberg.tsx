@@ -59,35 +59,35 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                     <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         JavaScript
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         HTML
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         CSS
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Python
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.bloomberg ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Regex
                     </span>

@@ -59,42 +59,42 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         React
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         TypeScript
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         MongoDB
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Node.js
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Figma
                     </span>
                     <span
                         className={`skillChip ${
                             selectedJob.comcast ? "selected" : ""
-                        }`}
+                        } ${darkMode ? "darkMode" : ""}`}
                     >
                         Storybook
                     </span>

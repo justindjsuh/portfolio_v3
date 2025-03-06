@@ -42,7 +42,9 @@ body {
 }
 
 body {
-    background: black;
+    /* background: radial-gradient(circle at top, rgba(160, 51, 255, 0.2), transparent 70%),
+    radial-gradient(circle at bottom, rgba(43, 101, 255, 0.2), transparent 70%), #101010; */
+    background-color: #101010;
     scroll-behavior: smooth;   
 }
 

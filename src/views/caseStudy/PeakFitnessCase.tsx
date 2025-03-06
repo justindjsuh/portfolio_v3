@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
-const EmmanuelCaseStudy: React.FunctionComponent = () => {
+const PeakFitnessCase: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
+
+    const [visible, setVisible] = useState(false);
+    const firstDivRef = useRef(null);
+    const isInView = useInView(firstDivRef, { amount: 1 });
+
+    useEffect(() => {
+        if (isInView && !visible) setVisible(true);
+    }, [isInView, visible]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -91,61 +99,109 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>PURPOSE</p>
-                            <p>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                                ref={firstDivRef}
+                            >
+                                PURPOSE
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Peak is a health tracking website that strives
                                 to bring users closer to their fitness goals
                                 with a long-term mindset.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.2,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Keep track of when you've gone to the gym with
                                 the attendance tracker. Visually tracks when
                                 you've uploaded a workout to the app and keeps
                                 track of your streaks.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Workout journal to keep track of your workouts
                                 (exercise, sets, reps) for the entire year.
                                 Calculate your calories through our tracker that
                                 lets you input custom meals for breakfast,
                                 lunch, and dinner.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.4,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Find motivation and be held accountable by
                                 tracking your workouts with friends. Add other
                                 users on the app as friends, and get a
                                 personalized feed of your friends' lifts.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.5,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Gain achievements through challenges to push
                                 motivation and show off by displaying them on
                                 your personal profile.
-                            </p>
-                        </motion.div>
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>LESSONS</p>
-                            <p>
+                            </motion.p>
+                        </div>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.6,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                LESSONS
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.7,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 This was the first project I worked on with a
                                 group of devs and it was definitely an eye
                                 opening project. This was a "final project" of
@@ -159,8 +215,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 to. To this day, I look back fondly on this
                                 project and I do think it was a strong
                                 experience builder for early-career devs.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.8,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I do think the MaterialUI usage generally would
                                 be a good choice, but in the hands of amateur
                                 devs, you really have a hard time getting away
@@ -172,15 +236,14 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 beginner devs without determined roles. I really
                                 did enjoy using Supabase though and plan to use
                                 it in some projects in the near future!
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.9,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -209,10 +272,8 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -223,10 +284,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.1,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -237,10 +297,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -251,10 +310,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.3,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -272,10 +330,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.4,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -289,4 +346,4 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
     );
 };
 
-export default EmmanuelCaseStudy;
+export default PeakFitnessCase;

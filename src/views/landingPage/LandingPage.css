@@ -3,16 +3,16 @@
     height: 100vh;
     background: transparent;
     position: relative;
-    background: radial-gradient(circle at 67% 35%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
+    /* background: radial-gradient(circle at 67% 35%, rgba(97,97,97,1) 0%, rgba(50,50,50,1) 10%, rgba(28,28,28,1) 17%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%); */
 }
 
 .landingContentContainer {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     position: absolute;
-    top: 0;
-    left: 30%;
-    transform: translateX(-40%) translateY(200%);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .landingContent {
@@ -23,23 +23,20 @@
     color: white;
     max-width: min-content;
     gap: .2rem;
+    text-align: center;
 }
 
-.landingContent h1 {
-    font-size: 3rem;
-    font-weight: 500;
-    letter-spacing: .2rem;
-    margin-left: .3rem;
-    padding-bottom: .4rem;
-    white-space: nowrap;
+.landingContent hr {
+    border-color: #2b65ff;
 }
 
 .position {
-    font-size: .9rem;
-    font-weight: 500;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
     letter-spacing: .1rem;
-    width: fit-content;
     white-space: nowrap;
+    /* color: #2b65ff; */
 }
 
 .summary {
@@ -86,11 +83,11 @@
 .nav-container button::before {
     content: "";
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 0%;
-    height: 100%;
-    background: white;
+    height: 2px;
+    background: #2b65ff;
     z-index: -1;
     transition: width 0.3s ease-in-out;
 }
@@ -99,14 +96,8 @@
     width: 100%;
 }
 
-.nav-container button:hover {
-    color: black;
-}
-
 @media (max-width: 1199px) {
-    .landingContentContainer {
-        transform: translateX(-30%) translateY(300%);
-    }
+
 }
 
 @media (max-width: 575px) {

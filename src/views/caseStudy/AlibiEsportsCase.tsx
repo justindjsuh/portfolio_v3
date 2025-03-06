@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
-const EmmanuelCaseStudy: React.FunctionComponent = () => {
+const AlibiEsportsCase: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
+
+    const [visible, setVisible] = useState(false);
+    const firstDivRef = useRef(null);
+    const isInView = useInView(firstDivRef, { amount: 1 });
+
+    useEffect(() => {
+        if (isInView && !visible) setVisible(true);
+    }, [isInView, visible]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -95,60 +103,108 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>PURPOSE</p>
-                            <p>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                                ref={firstDivRef}
+                            >
+                                PURPOSE
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 This website serves as a medium for the esports
                                 organization, Alibi Esports, and their player
                                 base. The organization reaches out to
                                 communities and provides them with a competitive
                                 outlet for trending games.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.2,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • An all-in-one platform for the organization
                                 and players to exchange information
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • There is a scrollable landing page that
                                 explains what the company is about and what they
                                 strive to achieve through this organization
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.4,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Players can sign up for tournaments via the
                                 Register button, where they can input all of
                                 their team information including up to five
                                 players, a coach, a manager, and two subs.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.5,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 • Players are also able to browser previous and
                                 upcoming tournaments on the tournaments page
                                 where the participating teams and final
                                 placements are displayed
-                            </p>
-                        </motion.div>
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>LESSONS</p>
-                            <p>
+                            </motion.p>
+                        </div>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.6,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                LESSONS
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.7,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 One of the first things one might ask when
                                 checking out this repo is, "Why is the frontend
                                 and backend split?" Now there are two main
@@ -160,8 +216,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 take 30+ seconds, but a request (like a team
                                 registration) will require the backend to spin
                                 back up. More on this in my learn more section!
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.8,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 As my first website put into production and the
                                 sole developer of this project, there were a lot
                                 of obstacles I had to overcome to get this site
@@ -171,8 +235,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 of the front end technology (HTML & CSS) and
                                 found myself having trouble accounting for
                                 smaller screen sizes.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.9,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Another quick lesson I learned, was that there
                                 are many great deployment websites that I can
                                 use for free fullstack project deployments. I
@@ -184,8 +256,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 seconds. Sites like Netlify, Vercel, and Cyclic
                                 are all options I will consider in the future as
                                 I continue to develop websites.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Through a lot of Googling and looking at a ton
                                 of Stack Overflow posts, I was able to learn an
                                 insane amount in the short timespan of this
@@ -199,23 +279,30 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 form is no joke), Express custom middleware
                                 (loggers and error handlers), and overall mainly
                                 improving my front end development skills.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 1.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Is this the best I can do? Absolutely not. I
                                 already feel like I could immensely improve
                                 countless things, but as my first step into
                                 professional web development, I will definitely
                                 look back on this fondly as I continue to
                                 improve my skills.
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 1.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -240,10 +327,8 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -254,10 +339,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.1,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -268,10 +352,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -282,10 +365,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.3,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -304,10 +386,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.4,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -321,4 +402,4 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
     );
 };
 
-export default EmmanuelCaseStudy;
+export default AlibiEsportsCase;

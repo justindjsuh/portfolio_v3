@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
+
+    const [visible, setVisible] = useState(false);
+    const firstDivRef = useRef(null);
+    const isInView = useInView(firstDivRef, { amount: 1 });
+
+    useEffect(() => {
+        if (isInView && !visible) setVisible(true);
+    }, [isInView, visible]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -95,45 +103,69 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>PURPOSE</p>
-                            <p>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                                ref={firstDivRef}
+                            >
+                                PURPOSE
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 This website is my personal portfolio where I
                                 can not only demonstrate my skillset, but also
                                 talk about my experiences and past projects that
                                 have brought me to where I am now.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.2,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I think there's a beauty in not just making a
                                 portfolio, but projects in general. Each project
                                 I make is a step towards my goal of learning
                                 more about the constantly expanding field of web
                                 development and software engineering.
-                            </p>
-                        </motion.div>
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>LESSONS</p>
-                            <p>
+                            </motion.p>
+                        </div>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                LESSONS
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.4,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Creating a personal website was one of the goals
                                 I always wanted to accomplish, but never thought
                                 I'd achieve. Even when I wasn't in web
@@ -146,8 +178,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 at these tools and add more to my skillset so I
                                 can make something that I can satisfy my
                                 creative side.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.5,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Probably noticed, but I hardly used anything
                                 other than the bare bones for web development.
                                 This brought some challenges that required me to
@@ -160,15 +200,14 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 three.js, and anime.js to really make my
                                 portfolio pop the next time I do a revamp for
                                 it!
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.6,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -195,10 +234,8 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -209,10 +246,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.1,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -223,10 +259,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -237,10 +272,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.3,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -258,10 +292,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.4,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}

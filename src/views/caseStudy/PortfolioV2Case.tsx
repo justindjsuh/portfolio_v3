@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
+
+    const [visible, setVisible] = useState(false);
+    const firstDivRef = useRef(null);
+    const isInView = useInView(firstDivRef, { amount: 1 });
+
+    useEffect(() => {
+        if (isInView && !visible) setVisible(true);
+    }, [isInView, visible]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -95,52 +103,84 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>PURPOSE</p>
-                            <p>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                                ref={firstDivRef}
+                            >
+                                PURPOSE
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.1,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 This website is my personal portfolio where I
                                 can not only demonstrate my skillset, but also
                                 talk about my experiences and past projects that
                                 have brought me to where I am now.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.2,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I think there's a beauty in not just making a
                                 portfolio, but projects in general. Each project
                                 I make is a step towards my goal of learning
                                 more about the constantly expanding field of web
                                 development and software engineering.
-                            </p>
-                        </motion.div>
-                        <motion.div
-                            className="caseSection"
-                            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: 0.5,
-                                duration: 0.5,
-                                ease: "easeOut",
-                            }}
-                        >
-                            <p>LESSONS</p>
-                            <p>
+                            </motion.p>
+                        </div>
+                        <div className="caseSection">
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
+                                LESSONS
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.4,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 Before I begin, I must give credit to Demilade
                                 Olaleye for inspiring me to create an intro
                                 page. He had an amazing light/dark toggle
                                 animation I just needed to apply to my
                                 portfolio.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.5,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I had made my first portfolio back in January,
                                 so it felt like it was an odd decision to decide
                                 to make a new one so soon (within two months).
@@ -150,8 +190,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 inspired my decision to create a new portfolio
                                 from scratch that utilized my new web
                                 development and design knowledge.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.6,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 One of the features I really wanted to implement
                                 this time around, was a dark mode feature. It
                                 was very cool to work with :root variables and
@@ -170,8 +218,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 However, I wasn't able to implement that just
                                 yet. It is in the list of features I am planning
                                 to implement though.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.7,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I had tried to work with Anime.js and a package
                                 called Splt.js, but for some reason I could not
                                 get them to work properly. I stuck with GSAP for
@@ -182,8 +238,16 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 cleaner solution than the one I implemented. It
                                 is a bit finnicky so it is definitely not the
                                 preferred method.
-                            </p>
-                            <p>
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                                animate={visible ? { opacity: 1, y: 0 } : {}}
+                                transition={{
+                                    delay: 0.8,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                }}
+                            >
                                 I also got the opportunity to work with EmailJS
                                 which is a package/service that allows you to
                                 send emails without any backend code. It was
@@ -200,15 +264,14 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                                 states into one state and have the value be an
                                 object. Then use the spread operator to update
                                 the state object values.
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
                         <motion.div
                             className="caseSection"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.9,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -239,10 +302,8 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -253,10 +314,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.1,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -267,10 +327,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.2,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -281,10 +340,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.3,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}
@@ -304,10 +362,9 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                         <motion.div
                             className="caseMetadata"
                             initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                            whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                            viewport={{ once: true }}
+                            animate={visible ? { opacity: 1, y: 0 } : {}}
                             transition={{
-                                delay: 0.5,
+                                delay: 0.4,
                                 duration: 0.5,
                                 ease: "easeOut",
                             }}

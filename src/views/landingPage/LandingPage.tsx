@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { Scene } from "../../components/scene";
 import "./LandingPage.css";
 import React, { useEffect, useRef, useState } from "react";
 import AboutView from "../../components/about/AboutView";
@@ -7,6 +6,8 @@ import ExperiencesView from "../../components/experiences/ExperiencesView";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ProjectsView from "../../components/projects/ProjectsView";
 import ContactView from "../../components/contact/ContactView";
+import Room from "../../components/3dRenders/RoomScene";
+import FlipLink from "../../components/WaterfallText";
 
 interface ILandingPageProps {
     darkMode: boolean;
@@ -17,7 +18,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
     darkMode,
     setDarkMode,
 }) => {
-    const [isInView, setIsInView] = useState(false);
+    const [startAnimation, setStartAnimation] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const experienceRef = useRef<HTMLDivElement | null>(null);
     const projectsRef = useRef<HTMLDivElement | null>(null);
@@ -25,81 +26,77 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     const { scrollYProgress } = useScroll();
-    const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsInView(entry.isIntersecting);
-            },
-            {
-                rootMargin: "2000px", // start rendering a bit before it fully enters the viewport
-            }
-        );
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
-        return () => observer.disconnect();
-    }, []);
+    const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
 
     const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
     };
 
+    useEffect(() => {
+        // Need to disable this if the user is being redirected back from a case study path
+        const timeout = setTimeout(() => {
+            setStartAnimation(true);
+        }, 6500);
+        return () => clearTimeout(timeout);
+    });
+
     return (
         <div className="landingContainer" ref={containerRef}>
-            <Canvas
+            {/* <div
                 style={{
-                    width: "100vw",
                     height: "100vh",
-                    background: "transparent",
-                    position: "relative",
-                    willChange: "transform",
+                    width: "100vw",
+                    padding: ".1rem",
+                    backgroundColor: "#1E48B6",
                 }}
-                camera={{ position: [0, 0, 20], fov: 50 }}
-                shadows
-                frameloop={isInView ? "always" : "demand"}
             >
-                <Scene />
+                <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
+                    <Room />
+                </Canvas>
+            </div> */}
+            <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
+                <Room />
             </Canvas>
             <div className="landingContentContainer">
-                <motion.div className="landingContent" style={{ y }}>
-                    <h1>JUSTIN SUH</h1>
-                    <p className="position">
-                        SOFTWARE ENGINEER, FULL-STACK WEB DEVELOPER.
-                    </p>
-                    <p className="summary">
-                        I create products that are as stunning as they are
-                        seamless, elevating user experience.
-                    </p>
-                    <div className="socials">
-                        <a
-                            href="https://www.linkedin.com/in/justin-suh98/"
-                            target="_blank"
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href="https://github.com/justindjsuh"
-                            target="_blank"
-                        >
-                            GitHub
-                        </a>
-                    </div>
+                {startAnimation && (
+                    <motion.div
+                        className="landingContent"
+                        style={{ y }}
+                        initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                        whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        <FlipLink phrase="justin suh." />
+                        <p className="position">
+                            software engineer, full-stack web developer.
+                        </p>
+                        <hr />
+                    </motion.div>
+                )}
+            </div>
+            {startAnimation && (
+                <motion.div
+                    className="nav-container"
+                    initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
+                    whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                    <button onClick={() => scrollToSection(aboutRef)}>
+                        about
+                    </button>
+                    <button onClick={() => scrollToSection(experienceRef)}>
+                        experience
+                    </button>
+                    <button onClick={() => scrollToSection(projectsRef)}>
+                        projects
+                    </button>
+                    <button onClick={() => scrollToSection(contactRef)}>
+                        contact
+                    </button>
                 </motion.div>
-            </div>
-            <div className="nav-container">
-                <button onClick={() => scrollToSection(aboutRef)}>about</button>
-                <button onClick={() => scrollToSection(experienceRef)}>
-                    experience
-                </button>
-                <button onClick={() => scrollToSection(projectsRef)}>
-                    projects
-                </button>
-                <button onClick={() => scrollToSection(contactRef)}>
-                    contact
-                </button>
-            </div>
+            )}
             <div ref={aboutRef}>
                 <AboutView />
             </div>

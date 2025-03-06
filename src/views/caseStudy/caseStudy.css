@@ -32,14 +32,14 @@
 
 .backNavRight button {
     background-color: transparent;
-    border: 1px solid #5259A6;
+    border: 1px solid #2b65ff;
     transition: background-color .2s ease-in-out;
     height: min-content;
 
 }
 
 .backNavRight button:hover {
-    background-color: rgba(82, 89, 166, .25);
+    background-color: rgba(43, 101, 255, .3);
 }
 
 .backNavRight img {
@@ -113,7 +113,7 @@
 .caseSection p:first-child {
     font-size: 1rem;
     letter-spacing: .05rem;
-    color: #5b64bc;
+    color: #2856d2;
 }
 
 .caseRightSide {
@@ -132,13 +132,13 @@
 
 .metadataHeader {
     letter-spacing: .05rem;
-    color: #5b64bc;
+    color: #2856d2;
     margin-bottom: .2rem;
     font-size: .875rem;
 }
 
 .caseDivider {
-    border-color: #5b64bc;
+    border-color: #2856d2;
 }
 
 @media (max-width: 1199px) {
