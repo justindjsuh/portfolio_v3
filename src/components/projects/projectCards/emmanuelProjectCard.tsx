@@ -7,7 +7,6 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
-    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -17,15 +16,9 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             }
         >
             <img src={IMAGES.emmanuelBg} draggable="false" />
-            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
-                Emmanuel Church of Philadelphia
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                A modern website for a growing church
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Emmanuel Church of Philadelphia</p>
+            <p className="projectDesc">A modern website for a growing church</p>
+            <div className="projectChipContainer">
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>
@@ -46,15 +39,9 @@ const EmmanuelProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             }
         >
             <img src={IMAGES.emmanuelBg} draggable="false" />
-            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
-                Emmanuel Church of Philadelphia
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                A modern website for a growing church
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Emmanuel Church of Philadelphia</p>
+            <p className="projectDesc">A modern website for a growing church</p>
+            <div className="projectChipContainer">
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>

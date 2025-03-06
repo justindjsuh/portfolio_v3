@@ -6,14 +6,12 @@ export interface IProjectCardProps {
     handleNavigation: (path: string) => void;
     isMobile?: boolean;
     isVisible?: boolean;
-    darkMode: boolean;
 }
 
 const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
-    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -23,15 +21,9 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             }
         >
             <img src={IMAGES.mpcBg} draggable="false" />
-            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
-                Montgomery Presbyterian Church
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                COMING SOON
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Montgomery Presbyterian Church</p>
+            <p className="projectDesc">COMING SOON</p>
+            <div className="projectChipContainer">
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>
@@ -52,15 +44,9 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             }
         >
             <img src={IMAGES.mpcBg} draggable="false" />
-            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
-                Montgomery Presbyterian Church
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                COMING SOON
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Montgomery Presbyterian Church</p>
+            <p className="projectDesc">COMING SOON</p>
+            <div className="projectChipContainer">
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
                 <span>NEXTJS</span>

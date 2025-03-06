@@ -7,7 +7,6 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible,
-    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -15,15 +14,11 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/peak-fitness")}
         >
             <img src={IMAGES.peakBg} draggable="false" />
-            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
-                Peak Fitness
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+            <p className="projectTitle">Peak Fitness</p>
+            <p className="projectDesc">
                 All your fitness needs in one dashboard
             </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>MATERIALUI</span>
@@ -41,15 +36,11 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/peak-fitness")}
         >
             <img src={IMAGES.peakBg} draggable="false" />
-            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
-                Peak Fitness
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
+            <p className="projectTitle">Peak Fitness</p>
+            <p className="projectDesc">
                 All your fitness needs in one dashboard
             </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>MATERIALUI</span>

@@ -10,24 +10,16 @@
 }
 
 .projectTitle {
-    color: var(--text-primary-light-mode);
+    color: #fff;
     font-size: 1.25rem;
     font-weight: 500;
-}
-
-.projectTitle.darkMode {
-    color: #fff;
 }
 
 .projectDesc {
     font-size: .875rem;
     font-weight: 500;
-    color: #181818b3;
-    margin-bottom: .5rem;
-}
-
-.projectDesc.darkMode {
     color: #fafafab3;
+    margin-bottom: .5rem;
 }
 
 .projectChipContainer {
@@ -35,11 +27,7 @@
     flex-wrap: wrap;
     gap: .4rem;
     font-size: .75rem;
-    color: #0d0d0db3;
-}
-
-.projectChipContainer.darkMode {
-    color: #fafafab3
+    color: #fafafab3;
 }
 
 .projectChipContainer span {

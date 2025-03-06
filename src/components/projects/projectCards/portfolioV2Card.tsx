@@ -7,7 +7,6 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
-    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -15,15 +14,9 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/portfolio-v2")}
         >
             <img src={IMAGES.portfolioV2Bg} draggable="false" />
-            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
-                Portfolio V2
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                Personal portfolio
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Portfolio V2</p>
+            <p className="projectDesc">Personal portfolio</p>
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>VITE</span>
@@ -42,15 +35,9 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/portfolio-v2")}
         >
             <img src={IMAGES.portfolioV2Bg} draggable="false" />
-            <p className={`projectTitle test ${darkMode ? "darkMode" : ""}`}>
-                Portfolio V2
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                Personal portfolio
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Portfolio V2</p>
+            <p className="projectDesc">Personal portfolio</p>
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>VITE</span>

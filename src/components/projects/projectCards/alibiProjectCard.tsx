@@ -7,7 +7,6 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
     handleNavigation,
     isMobile = false,
     isVisible = false,
-    darkMode,
 }) => {
     return isMobile ? (
         <div
@@ -15,15 +14,9 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/alibi-esports")}
         >
             <img src={IMAGES.alibiBg} draggable="false" />
-            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
-                Alibi Esports
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                Central hub for competitive gamers
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Alibi Esports</p>
+            <p className="projectDesc">Central hub for competitive gamers</p>
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>AOS</span>
@@ -42,15 +35,9 @@ const AlibiProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             onClick={() => handleNavigation("/cases/alibi-esports")}
         >
             <img src={IMAGES.alibiBg} draggable="false" />
-            <p className={`projectTitle ${darkMode ? "darkMode" : ""}`}>
-                Alibi Esports
-            </p>
-            <p className={`projectDesc ${darkMode ? "darkMode" : ""}`}>
-                Central hub for competitive gamers
-            </p>
-            <div
-                className={`projectChipContainer ${darkMode ? "darkMode" : ""}`}
-            >
+            <p className="projectTitle">Alibi Esports</p>
+            <p className="projectDesc">Central hub for competitive gamers</p>
+            <div className="projectChipContainer">
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
                 <span>AOS</span>
