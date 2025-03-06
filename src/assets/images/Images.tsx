@@ -65,6 +65,14 @@ const IMAGES = {
         import.meta.url
     ).href,
     caseMpcBg: new URL("./caseImages/case_mpc.png", import.meta.url).href,
+    emmanuelImg1: new URL(
+        "./subImages/emmanuel_projectCard_1.png",
+        import.meta.url
+    ).href,
+    emmanuelImg2: new URL(
+        "./subImages/emmanuel_projectCard_2.png",
+        import.meta.url
+    ).href,
 };
 
 export default IMAGES;

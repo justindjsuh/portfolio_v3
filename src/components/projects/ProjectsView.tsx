@@ -8,6 +8,7 @@ import AlibiProjectCard from "./projectCards/alibiProjectCard";
 import PeakProjectCard from "./projectCards/peakProjectCard";
 import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
+import EmmanuelCardV2 from "./projectCardsV2/emmanuelCardV2";
 
 interface IProjectsViewProps {
     darkMode: boolean;
@@ -176,32 +177,26 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                         >
                             <MpcProjectCard
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                             <EmmanuelProjectCard
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                             <PortfolioV2Card
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                             <PortfolioV1Card
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                             <AlibiProjectCard
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                             <PeakProjectCard
                                 handleNavigation={handleNavigation}
-                                darkMode={darkMode}
                                 isMobile
                             />
                         </motion.div>
@@ -211,56 +206,42 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                         className="projectCarouselContainer"
                         ref={containerRef}
                     >
-                        <div
-                            className="projectCardsContainer"
-                            style={{
-                                gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
-                            }}
-                        >
+                        <div className="projectCardsContainerV2">
                             <div className="cardHoverContainer">
-                                <MpcProjectCard
+                                {/* <MpcProjectCard
                                     handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
+                                    isVisible={isVisible}
+                                /> */}
+                            </div>
+                            <div className="cardHoverContainer">
+                                <EmmanuelCardV2
+                                    handleNavigation={handleNavigation}
                                     isVisible={isVisible}
                                 />
                             </div>
                             <div className="cardHoverContainer">
-                                <EmmanuelProjectCard
+                                {/* <PortfolioV2Card
                                     handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
                                     isVisible={isVisible}
-                                />
+                                /> */}
                             </div>
                             <div className="cardHoverContainer">
-                                <PortfolioV2Card
+                                {/* <PortfolioV1Card
                                     handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
                                     isVisible={isVisible}
-                                />
+                                /> */}
                             </div>
-
                             <div className="cardHoverContainer">
-                                <PortfolioV1Card
+                                {/* <AlibiProjectCard
                                     handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
                                     isVisible={isVisible}
-                                />
+                                /> */}
                             </div>
-
                             <div className="cardHoverContainer">
-                                <AlibiProjectCard
+                                {/* <PeakProjectCard
                                     handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
                                     isVisible={isVisible}
-                                />
-                            </div>
-
-                            <div className="cardHoverContainer">
-                                <PeakProjectCard
-                                    handleNavigation={handleNavigation}
-                                    darkMode={darkMode}
-                                    isVisible={isVisible}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </div>

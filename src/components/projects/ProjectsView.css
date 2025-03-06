@@ -2,6 +2,10 @@
     background-color: var(--bg-primary-light-mode);
     width: 100vw;
     padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .projectsViewBg.darkMode {
@@ -12,19 +16,20 @@
     padding-top: 15rem;
     display: flex;
     flex-direction: column;
+    width: 85%;
     gap: 5rem;
 }
 
 .cardHoverContainer {
-    transition: opacity .2s ease-in-out;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+    padding: 1rem;
+    width: fit-content;
 }
 
 .cardHoverContainer:hover {
-    opacity: .75;
-}
-
-.projectsViewHeader {
-    margin-left: 5rem;
+    border: 1px solid rgba(43, 101, 255, 1);
 }
 
 .projectsViewText {
@@ -84,10 +89,6 @@
     display: grid;
     gap: 2rem;
     max-width: 320px;
-}
-
-.projectCarouselContainer {
-    margin-left: 5rem;
 }
 
 @media (max-width: 780px) {
