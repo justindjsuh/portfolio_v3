@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import {
     MorphingSphere,
@@ -7,43 +7,43 @@ import {
 } from "../animations/RoomSphere/RoomSphere";
 import { useFrame } from "@react-three/fiber";
 
-const InteractiveLight = () => {
-    const lightRef = useRef<THREE.DirectionalLight>(null);
-    const [mouseX, setMouseX] = useState(0.5); // Default to center
+// const InteractiveLight = () => {
+//     const lightRef = useRef<THREE.DirectionalLight>(null);
+//     const [mouseX, setMouseX] = useState(0.5); // Default to center
 
-    useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-            const normalizedX = event.clientX / window.innerWidth; // Normalize between 0 and 1
-            setMouseX(normalizedX);
-        };
+//     useEffect(() => {
+//         const handleMouseMove = (event: MouseEvent) => {
+//             const normalizedX = event.clientX / window.innerWidth; // Normalize between 0 and 1
+//             setMouseX(normalizedX);
+//         };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+//         window.addEventListener("mousemove", handleMouseMove);
+//         return () => window.removeEventListener("mousemove", handleMouseMove);
+//     }, []);
 
-    useFrame(() => {
-        if (lightRef.current) {
-            // Define the two colors
-            const color1 = new THREE.Color("#2b65ff");
-            const color2 = new THREE.Color("#a033ff");
+//     useFrame(() => {
+//         if (lightRef.current) {
+//             // Define the two colors
+//             const color1 = new THREE.Color("#2b65ff");
+//             const color2 = new THREE.Color("#a033ff");
 
-            // Interpolate between colors based on mouse position
-            const lerpedColor = color1.lerp(color2, mouseX);
+//             // Interpolate between colors based on mouse position
+//             const lerpedColor = color1.lerp(color2, mouseX);
 
-            // Apply the lerped color to the light
-            lightRef.current.color.set(lerpedColor);
-        }
-    });
+//             // Apply the lerped color to the light
+//             lightRef.current.color.set(lerpedColor);
+//         }
+//     });
 
-    return (
-        <directionalLight
-            ref={lightRef}
-            position={[1, 1.4, 1]}
-            intensity={2}
-            // castShadow
-        />
-    );
-};
+//     return (
+//         <directionalLight
+//             ref={lightRef}
+//             position={[1, 1.4, 1]}
+//             intensity={2}
+//             // castShadow
+//         />
+//     );
+// };
 
 interface ITriangularWall {
     width: number;
