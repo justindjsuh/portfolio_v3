@@ -3,6 +3,7 @@ import "./WaterfallText.css";
 
 interface IFlipLinkProps {
     phrase: string;
+    error?: boolean;
 }
 
 const DURATION = 0.25;
@@ -183,6 +184,7 @@ export const FlipLinkV2: React.FunctionComponent<IFlipLinkProps> = ({
 
 export const FlipLinkV3: React.FunctionComponent<IFlipLinkProps> = ({
     phrase,
+    error = false,
 }) => {
     return (
         <motion.div
@@ -219,7 +221,12 @@ export const FlipLinkV3: React.FunctionComponent<IFlipLinkProps> = ({
                         }}
                         style={{
                             display: "inline-block",
-                            color: l !== "." ? "#fff" : "#2b65ff",
+                            color:
+                                l !== "."
+                                    ? "#fff"
+                                    : error
+                                    ? "#ff0033"
+                                    : "#2b65ff",
                         }}
                     >
                         {l === " " ? <span>&nbsp;</span> : l}

@@ -10,6 +10,7 @@ import PortfolioV2CaseStudy from "./views/caseStudy/PortfolioV2Case.tsx";
 import PortfolioV1CaseStudy from "./views/caseStudy/PortfolioV1Case.tsx";
 import PeakFitnessCaseStudy from "./views/caseStudy/PeakFitnessCase.tsx";
 import PortfolioV3CaseStudy from "./views/caseStudy/PortfolioV3Case.tsx";
+import NotFound from "./views/404page.tsx";
 
 // NEED TO STILL HANDLE A 404 PAGE
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     {
         path: "/cases/peak-fitness",
         element: <PeakFitnessCaseStudy />,
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 ]);
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Mesh } from "three";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 export function MorphingSphere() {
     const meshRef = useRef<Mesh>(null);
@@ -17,6 +18,75 @@ export function MorphingSphere() {
 
     return (
         <mesh ref={meshRef} position={[0.4, 0.5, 0.4]} castShadow>
+            <icosahedronGeometry args={[0.35, 2]} /> {/* Low-poly look */}
+            <meshStandardMaterial
+                color={"#5B5B5B"}
+                flatShading
+                emissiveIntensity={0.3}
+                metalness={0.5}
+                roughness={0.7}
+            />
+        </mesh>
+    );
+}
+
+function getRandomIntInclusive(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function ErrorSphere() {
+    const meshRef = useRef<Mesh>(null);
+    const [targetRotation, setTargetRotation] = useState({
+        x: 0,
+        y: 0,
+        z: 0,
+    });
+    const [lastJitterTime, setLastJitterTime] = useState(0);
+
+    useFrame(({ clock }) => {
+        if (!meshRef.current) return;
+
+        const elapsed = clock.getElapsedTime();
+
+        // Every few seconds, pick a new "scan" direction
+        if (Math.floor(elapsed) % getRandomIntInclusive(5, 15) === 0) {
+            setTargetRotation({
+                x: Math.sin(elapsed * 0.3) * 0.4, // Oscillate x slightly
+                y: Math.sin(elapsed * 0.2) * 0.6, // Oscillate y more
+                z: Math.sin(elapsed * 0.5) * 0.2, // Small z tilt
+            });
+        }
+
+        // Add **gentle jitter** every 2-3 seconds (but not every frame)
+        if (elapsed - lastJitterTime > 2 + Math.random() * 1) {
+            setLastJitterTime(elapsed);
+            setTargetRotation((prev) => ({
+                x: prev.x + (Math.random() - 0.5) * 0.3, // Small 5° twitch
+                y: prev.y + (Math.random() - 0.5) * 0.15,
+                z: prev.z + (Math.random() - 0.5) * 0.1,
+            }));
+        }
+
+        // Smoothly transition to the target rotation
+        meshRef.current.rotation.x = THREE.MathUtils.lerp(
+            meshRef.current.rotation.x,
+            targetRotation.x,
+            0.1
+        );
+        meshRef.current.rotation.y = THREE.MathUtils.lerp(
+            meshRef.current.rotation.y,
+            targetRotation.y,
+            0.1
+        );
+        meshRef.current.rotation.z = THREE.MathUtils.lerp(
+            meshRef.current.rotation.z,
+            targetRotation.z,
+            0.1
+        );
+    });
+
+    return (
+        <mesh ref={meshRef} scale={2} position={[0, 0, 0]} castShadow>
             <icosahedronGeometry args={[0.35, 2]} /> {/* Low-poly look */}
             <meshStandardMaterial
                 color={"#5B5B5B"}
@@ -107,7 +177,7 @@ export function InteractiveSphere() {
     );
 }
 
-export function InteractiveMesh() {
+export function InteractiveMesh({ color = "#898989" }) {
     const wireframeRef = useRef<Mesh>(null);
 
     useFrame(({ clock }) => {
@@ -123,7 +193,7 @@ export function InteractiveMesh() {
             {/* Slightly larger to wrap around */}
             <icosahedronGeometry args={[0.45, 2]} />
             <meshStandardMaterial
-                color={"#898989"}
+                color={color}
                 wireframe
                 transparent
                 emissive={"#303030"}

@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import "./stickyCursor.css";
 import { motion, useMotionValue, useSpring } from "motion/react";
 
-const StickyCursor: React.FunctionComponent = () => {
+interface IStickyCursorProps {
+    error?: boolean;
+}
+
+const StickyCursor: React.FunctionComponent<IStickyCursorProps> = ({
+    error = false,
+}) => {
     const cursorSize = 30;
     const mouse = {
         x: useMotionValue(0),
@@ -31,7 +37,11 @@ const StickyCursor: React.FunctionComponent = () => {
     return (
         <motion.div
             className="cursor"
-            style={{ left: smoothMouse.x, top: smoothMouse.y }}
+            style={{
+                left: smoothMouse.x,
+                top: smoothMouse.y,
+                backgroundColor: error ? "#ff0033" : "#2b65ff",
+            }}
             animate={{
                 width: cursorSize,
                 height: cursorSize,

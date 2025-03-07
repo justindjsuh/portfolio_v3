@@ -1,0 +1,34 @@
+.notFoundContainer {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #101010, #ff0033);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem;
+}
+
+.notFoundContent {
+    background-color: #101010;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+
+.notFoundLeftSide h3 {
+    font-size: 8rem;
+}
+
+.homeBtn {
+    margin-top: 2rem;
+    border: 1px solid #2b65ff;
+    transition: all .3s ease-in-out;
+}
+
+.homeBtn:hover {
+    border: 1px solid #2b65ff;
+    background-color: rgba(43, 101, 255, .3);
+}
