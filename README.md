@@ -24,7 +24,7 @@
 ## Demo
 
 <p align="center">
-    <img src="./sc/ec-website-demo.gif" width="738" />
+    <img src="./screenshots/DEMO.gif" width="738" />
 </p>
 
 
@@ -33,31 +33,31 @@
 <h3 align="center">Landing Page<h3>
 
 <p align="center">
-    <img src="./sc/landing_view.png" alt="landing page" width="738">
+    <img src="./screenshots/LANDING.png" alt="landing page" width="738">
 </p>
 
 <h3 align="center">About me Section<h3>
 
 <p align="center">
-    <img src="./sc/events.png" alt="about me section" width="738">
+    <img src="./screenshots/ABOUT.png" alt="about me section" width="738">
 </p>
 
 <h3 align="center">Experiences Section<h3>
 
 <p align="center">
-    <img src="./sc/events.png" alt="experiences section" width="738">
+    <img src="./screenshots/EXPERIENCE.png" alt="experiences section" width="738">
 </p>
 
 <h3 align="center">Projects Section<h3>
 
 <p align="center">
-    <img src="./sc/vision_and_values.png" alt="projects section" width="738">
+    <img src="./screenshots/PROJECTS.png" alt="projects section" width="738">
 </p>
 
 <h3 align="center">Contact Me Section<h3>
 
 <p align="center">
-    <img src="./sc/footer_last_section.png" alt="contact me section" width="738">
+    <img src="./screenshots/CONTACT.png" alt="contact me section" width="738">
 </p>
 
 
