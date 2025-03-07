@@ -2,9 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 150vh; */
     width: 100vw;
-    /* background: linear-gradient(180deg, #0C0C0C 0%, rgba(43, 101, 255, 1) 30%, rgba(43, 101, 255, 1) 100%); */
     background: #0c0c0c;
 }
 
@@ -54,18 +52,11 @@
     border: 1px solid transparent;
     box-shadow: var(--glow-small-light-mode);
     transition: all .3s ease-in-out;
+    overflow: hidden;
 }
 
 .jobCard.hover {
     border: 1px solid var(--accent-primary);
-}
-
-.jobCard p {
-    transition: all .3s ease-in-out;
-}
-
-.jobCard.hover p {
-    color: #cbcbcb;
 }
 
 .jobLeftSide {
@@ -77,14 +68,6 @@
     flex-direction: column;
     gap: 0.4rem;
     transition: all 0.2s ease-in-out;
-}
-
-.jobLeftSide.fadedDesc {
-    opacity: .5;
-}
-
-.jobRightSide.fadedDesc {
-    opacity: .5;
 }
 
 .title {
@@ -106,6 +89,7 @@
     color: #a5a5a5;
     font-size: .875rem;
     word-break: break-word;
+    overflow: hidden;
 }
 
 .skillChipContainer {

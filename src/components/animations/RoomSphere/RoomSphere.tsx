@@ -94,7 +94,7 @@ export function InteractiveSphere() {
     });
 
     return (
-        <mesh ref={meshRef} scale={1.7} position={[0, 0, 0]} castShadow>
+        <mesh ref={meshRef} scale={2} position={[0, 0, 0]} castShadow>
             <icosahedronGeometry args={[0.35, 2]} /> {/* Low-poly look */}
             <meshStandardMaterial
                 color={"#5B5B5B"}
@@ -119,7 +119,7 @@ export function InteractiveMesh() {
     });
 
     return (
-        <mesh ref={wireframeRef} position={[0, 0, 0]} scale={1.8} receiveShadow>
+        <mesh ref={wireframeRef} position={[0, 0, 0]} scale={2} receiveShadow>
             {/* Slightly larger to wrap around */}
             <icosahedronGeometry args={[0.45, 2]} />
             <meshStandardMaterial

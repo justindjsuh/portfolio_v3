@@ -155,7 +155,7 @@ function Room() {
             <ambientLight intensity={0.1} />
             <directionalLight
                 position={[3, 5, 3]}
-                intensity={2}
+                intensity={3.5}
                 castShadow
                 shadow-mapSize-width={1024}
                 shadow-mapSize-height={1024}
@@ -164,7 +164,7 @@ function Room() {
             <spotLight
                 position={[3, 5, 3]}
                 angle={0.5}
-                intensity={5}
+                intensity={12}
                 castShadow={false}
                 penumbra={0.2}
             />
@@ -182,11 +182,7 @@ function Room() {
                 castShadow={false}
                 penumbra={0.2}
             />
-            <directionalLight
-                position={[0, 0.4, 0]}
-                intensity={0.3}
-                castShadow
-            />
+            <directionalLight position={[0, 0.4, 0]} intensity={1} castShadow />
 
             {/* Extra Lights */}
             {/* <InteractiveLight /> */}

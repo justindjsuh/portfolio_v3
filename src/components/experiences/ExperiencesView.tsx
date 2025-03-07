@@ -34,9 +34,7 @@ const getScrollTransformValues = () => {
     }
 };
 
-const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = ({
-    darkMode,
-}) => {
+const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = () => {
     const [selectedJob, setSelectedJob] = useState<IJobType>({
         comcast: false,
         fsa: false,
@@ -86,22 +84,18 @@ const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = ({
                     <Comcast
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
-                        darkMode={darkMode}
                     />
                     <FSA
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
-                        darkMode={darkMode}
                     />
                     <Bloomberg
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
-                        darkMode={darkMode}
                     />
                     <SIG
                         selectedJob={selectedJob}
                         handleHoverSelection={handleHoverSelection}
-                        darkMode={darkMode}
                     />
                 </div>
             </motion.div>

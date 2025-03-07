@@ -1,23 +1,22 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
+import { motion } from "framer-motion";
 
 interface IFSAProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
-    darkMode?: boolean;
 }
 
 const FSA: React.FunctionComponent<IFSAProps> = ({
     selectedJob,
     handleHoverSelection,
-    darkMode = false,
 }) => {
     return (
         <div
             className={`jobCard comcast ${selectedJob.fsa ? "hover" : ""} ${
                 selectedJob.unselected ? "unselected" : ""
-            } ${darkMode ? "darkMode" : ""}`}
+            }`}
             onMouseEnter={() => handleHoverSelection("fsa")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -26,7 +25,6 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                     selectedJob.fsa || selectedJob.unselected ? "" : "fadedDesc"
                 }`}
             >
-                {" "}
                 <p>2022 — 2023</p>
             </div>
             <div
@@ -38,60 +36,50 @@ const FSA: React.FunctionComponent<IFSAProps> = ({
                     <h3 className="jobPosition">
                         Fullstack Academy Bootcamp @ FSA
                     </h3>
-                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
-                        Brooklyn, NY
-                    </p>
+                    <p className="jobLocation">Brooklyn, NY</p>
                 </div>
-                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
+                <motion.p
+                    className="jobDescription"
+                    initial={{ height: "0px", opacity: 0 }}
+                    animate={
+                        selectedJob.fsa
+                            ? { height: "4rem", opacity: 1 }
+                            : { height: "0px", opacity: 0 }
+                    }
+                    transition={{
+                        height: {
+                            duration: 0.2,
+                            ease: "easeOut",
+                        },
+                        opacity: selectedJob.fsa
+                            ? { delay: 0.2, duration: 0.3, ease: "easeOut" }
+                            : { delay: 0.2, duration: 0.3, ease: "easeOut" },
+                    }}
+                >
                     Completed an intensive 13-week program in full-stack web
                     development, gaining expertise in building full-stack
                     applications with the PERN stack, creating single-page
                     applications, and utilizing tools like Git, Visual Studio
                     Code, and testing frameworks.
-                </p>
+                </motion.p>
                 <div className="skillChipContainer">
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        React
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        JavaScript
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Node.js
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Express.js
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        PostgreSQL
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.fsa ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Mocha
-                    </span>
+                    {[
+                        "React",
+                        "JavaScript",
+                        "Node.js",
+                        "Express.js",
+                        "PostgreSQL",
+                        "Mocha",
+                    ].map((skill) => (
+                        <span
+                            key={skill}
+                            className={`skillChip ${
+                                selectedJob.fsa ? "selected" : ""
+                            }`}
+                        >
+                            {skill}
+                        </span>
+                    ))}
                 </div>
             </div>
         </div>

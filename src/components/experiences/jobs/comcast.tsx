@@ -1,23 +1,20 @@
 import React from "react";
 import { IJobType } from "../ExperiencesView";
 import "../ExperiencesView.css";
+import { motion } from "framer-motion";
 
 interface IComcastProps {
     selectedJob: IJobType;
     handleHoverSelection: (job: keyof IJobType) => void;
-    darkMode?: boolean;
 }
 
 const Comcast: React.FunctionComponent<IComcastProps> = ({
     selectedJob,
     handleHoverSelection,
-    darkMode = false,
 }) => {
     return (
-        <div
-            className={`jobCard comcast ${selectedJob.comcast ? "hover" : ""} ${
-                selectedJob.unselected ? "unselected" : ""
-            } ${darkMode ? "darkMode" : ""}`}
+        <motion.div
+            className="jobCard"
             onMouseEnter={() => handleHoverSelection("comcast")}
             onMouseLeave={() => handleHoverSelection("unselected")}
         >
@@ -28,7 +25,6 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                         : "fadedDesc"
                 }`}
             >
-                {" "}
                 <p>2023 — Present</p>
             </div>
             <div
@@ -42,11 +38,26 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                     <h3 className="jobPosition">
                         Full-Stack Developer @ Comcast
                     </h3>
-                    <p className={`jobLocation ${darkMode ? "darkMode" : ""}`}>
-                        Philadelphia, PA
-                    </p>
+                    <p className="jobLocation">Philadelphia, PA</p>
                 </div>
-                <p className={`jobDescription ${darkMode ? "darkMode" : ""}`}>
+                <motion.p
+                    className="jobDescription"
+                    initial={{ height: "0px", opacity: 0 }}
+                    animate={
+                        selectedJob.comcast
+                            ? { height: "5.5rem", opacity: 1 }
+                            : { height: "0px", opacity: 0 }
+                    }
+                    transition={{
+                        height: {
+                            duration: 0.2,
+                            ease: "easeOut",
+                        },
+                        opacity: selectedJob.comcast
+                            ? { delay: 0.2, duration: 0.3, ease: "easeOut" }
+                            : { delay: 0.2, duration: 0.3, ease: "easeOut" },
+                    }}
+                >
                     Led the development of 5+ high-impact features and
                     contributed to a $12M annual cost reduction by developing
                     scalable features with React and TypeScript, streamlining
@@ -54,53 +65,28 @@ const Comcast: React.FunctionComponent<IComcastProps> = ({
                     while collaborating with cross-functional teams, authoring
                     comprehensive documentation, and leveraging tools like
                     Figma, Node.js, MongoDB, and Jest.
-                </p>
+                </motion.p>
                 <div className="skillChipContainer">
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        React
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        TypeScript
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        MongoDB
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Node.js
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Figma
-                    </span>
-                    <span
-                        className={`skillChip ${
-                            selectedJob.comcast ? "selected" : ""
-                        } ${darkMode ? "darkMode" : ""}`}
-                    >
-                        Storybook
-                    </span>
+                    {[
+                        "React",
+                        "TypeScript",
+                        "MongoDB",
+                        "Node.js",
+                        "Figma",
+                        "Storybook",
+                    ].map((skill) => (
+                        <span
+                            key={skill}
+                            className={`skillChip ${
+                                selectedJob.comcast ? "selected" : ""
+                            }`}
+                        >
+                            {skill}
+                        </span>
+                    ))}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

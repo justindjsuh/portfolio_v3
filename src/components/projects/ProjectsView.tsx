@@ -117,7 +117,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                 {/* This projectsviewheader should fade in upwards */}
                 <motion.div
                     className="projectsViewHeader"
-                    style={{ height: "7rem", overflow: "hidden" }}
+                    style={{ height: "7.5rem", overflow: "hidden" }}
                 >
                     <motion.p
                         initial={{ y: 200 }} // Start below and invisible

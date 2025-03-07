@@ -42,18 +42,6 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
 
     return (
         <div className="landingContainer" ref={containerRef}>
-            {/* <div
-                style={{
-                    height: "100vh",
-                    width: "100vw",
-                    padding: ".1rem",
-                    backgroundColor: "#1E48B6",
-                }}
-            >
-                <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
-                    <Room />
-                </Canvas>
-            </div> */}
             <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
                 <Room />
             </Canvas>
@@ -105,6 +93,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                     darkMode={darkMode}
                     setDarkMode={setDarkMode}
                 />
+                {/* <ExperiencesViewV2 /> */}
             </div>
             <div ref={projectsRef}>
                 <ProjectsView darkMode={darkMode} setDarkMode={setDarkMode} />
