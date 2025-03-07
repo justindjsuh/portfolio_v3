@@ -9,14 +9,7 @@ import PeakProjectCard from "./projectCards/peakProjectCard";
 import { useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 
-interface IProjectsViewProps {
-    darkMode: boolean;
-    setDarkMode: (val: boolean) => void;
-}
-
-const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
-    darkMode,
-}) => {
+const ProjectsView: React.FunctionComponent = () => {
     const [isVisible, setIsVisible] = useState(false); // Track if in viewport
     const [isHovered, setIsHovered] = useState(false);
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -112,7 +105,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
     };
 
     return (
-        <div className={`projectsViewBg ${darkMode ? "darkMode" : ""}`}>
+        <div className="projectsViewBg">
             <div className="projectsViewContainer">
                 {/* This projectsviewheader should fade in upwards */}
                 <motion.div

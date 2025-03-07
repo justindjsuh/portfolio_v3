@@ -6,11 +6,6 @@ import Bloomberg from "./jobs/bloomberg";
 import SIG from "./jobs/sig";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-interface IExperienceViewProps {
-    darkMode: boolean;
-    setDarkMode: (val: boolean) => void;
-}
-
 export interface IJobType {
     comcast: boolean;
     fsa: boolean;
@@ -34,7 +29,7 @@ const getScrollTransformValues = () => {
     }
 };
 
-const ExperiencesView: React.FunctionComponent<IExperienceViewProps> = () => {
+const ExperiencesView: React.FunctionComponent = () => {
     const [selectedJob, setSelectedJob] = useState<IJobType>({
         comcast: false,
         fsa: false,

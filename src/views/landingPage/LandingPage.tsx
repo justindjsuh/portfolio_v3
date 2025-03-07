@@ -10,13 +10,11 @@ import Room from "../../components/3dRenders/RoomScene";
 import FlipLink from "../../components/WaterfallText";
 
 interface ILandingPageProps {
-    darkMode: boolean;
-    setDarkMode: (val: boolean) => void;
+    navigationType: string;
 }
 
 const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
-    darkMode,
-    setDarkMode,
+    navigationType,
 }) => {
     const [startAnimation, setStartAnimation] = useState(false);
     const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -46,7 +44,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                 <Room />
             </Canvas>
             <div className="landingContentContainer">
-                {startAnimation && (
+                {(startAnimation || navigationType === "PUSH") && (
                     <motion.div
                         className="landingContent"
                         style={{ y }}
@@ -63,7 +61,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                     </motion.div>
                 )}
             </div>
-            {startAnimation && (
+            {(startAnimation || navigationType === "PUSH") && (
                 <motion.div
                     className="nav-container"
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
@@ -89,17 +87,14 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                 <AboutView />
             </div>
             <div ref={experienceRef}>
-                <ExperiencesView
-                    darkMode={darkMode}
-                    setDarkMode={setDarkMode}
-                />
+                <ExperiencesView />
                 {/* <ExperiencesViewV2 /> */}
             </div>
             <div ref={projectsRef}>
-                <ProjectsView darkMode={darkMode} setDarkMode={setDarkMode} />
+                <ProjectsView />
             </div>
             <div ref={contactRef}>
-                <ContactView darkMode={darkMode} />
+                <ContactView />
             </div>
         </div>
     );

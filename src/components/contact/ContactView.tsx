@@ -5,11 +5,7 @@ import { FlipLinkV2, FlipLinkV3 } from "../WaterfallText";
 import { Canvas } from "@react-three/fiber";
 import ContactScene from "../3dRenders/ContactScene";
 
-interface IContactView {
-    darkMode: boolean;
-}
-
-const ContactView: React.FunctionComponent<IContactView> = ({ darkMode }) => {
+const ContactView: React.FunctionComponent = () => {
     const firstRef = useRef(null);
     const [visible, setVisible] = useState(false);
 
@@ -20,11 +16,8 @@ const ContactView: React.FunctionComponent<IContactView> = ({ darkMode }) => {
     }, [isInView]);
 
     return (
-        <div className={`contactContainer ${darkMode ? "darkMode" : ""}`}>
-            <div
-                className={`contactContent ${darkMode ? "darkMode" : ""}`}
-                ref={firstRef}
-            >
+        <div className="contactContainer">
+            <div className="contactContent" ref={firstRef}>
                 <motion.div style={{ overflow: "hidden", height: "2rem" }}>
                     <motion.p
                         className="contactText"
