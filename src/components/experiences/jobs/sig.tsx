@@ -25,9 +25,7 @@ const SIG: React.FunctionComponent<ISIGProps> = ({
             </div>
             <div className="jobRightSide">
                 <div className="title">
-                    <h3 className="jobPosition">
-                        Full-Stack Web Developer @ SIG
-                    </h3>
+                    <h3 className="jobPosition">Client Triage Support @ SIG</h3>
                     <p className="jobLocation">Bala Cynwyd, PA</p>
                 </div>
                 <motion.p

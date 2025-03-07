@@ -37,9 +37,7 @@ const Bloomberg: React.FunctionComponent<IBloombergProps> = ({
                 }`}
             >
                 <div className="title">
-                    <h3 className="jobPosition">
-                        Data Engineer Co-op @ Bloomberg
-                    </h3>
+                    <h3 className="jobPosition">Data Engineer @ Bloomberg</h3>
                     <p className="jobLocation">Princeton, NJ</p>
                 </div>
                 <motion.p
