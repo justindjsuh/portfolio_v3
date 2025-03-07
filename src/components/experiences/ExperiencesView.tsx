@@ -19,7 +19,7 @@ const getScrollTransformValues = () => {
 
     if (width <= 480) {
         // Mobile
-        return { start: 1100, end: 1250, min: 80, max: 100 };
+        return { start: 1050, end: 1200, min: 80, max: 100 };
     } else if (width <= 1300) {
         // Tablet
         return { start: 1200, end: 1600, min: 70, max: 100 };

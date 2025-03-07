@@ -40,9 +40,25 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
 
     return (
         <div className="landingContainer" ref={containerRef}>
+            {/* Not sure if I prefer it with the border or not.. */}
             <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
                 <Room />
             </Canvas>
+            {/* <div
+                style={{
+                    paddingLeft: ".2rem",
+                    paddingRight: ".2rem",
+                    paddingTop: ".2rem",
+                    background:
+                        "linear-gradient(180deg, #2b65ff 0%, #2b65ff 60%, #1A1A1A)",
+                    width: "100vw",
+                    height: "100vh",
+                }}
+            >
+                <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
+                    <Room />
+                </Canvas>
+            </div> */}
             <div className="landingContentContainer">
                 {(startAnimation || navigationType === "PUSH") && (
                     <motion.div
