@@ -69,7 +69,7 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                     setHasAnimated(true);
                 }
             },
-            { threshold: 0.3 } // Adjust this value if needed (30% visible to trigger)
+            { threshold: 0.1 } // Adjust this value if needed (30% visible to trigger)
         );
 
         if (containerRef.current) {
@@ -117,25 +117,36 @@ const ProjectsView: React.FunctionComponent<IProjectsViewProps> = ({
                 {/* This projectsviewheader should fade in upwards */}
                 <motion.div
                     className="projectsViewHeader"
-                    initial={{ opacity: 0, y: 100 }} // Start invisible and 50px lower
-                    whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    style={{ height: "7rem", overflow: "hidden" }}
                 >
-                    <p
-                        className={`projectsViewHeaderText ${
-                            darkMode ? "darkMode" : ""
-                        }`}
+                    <motion.p
+                        initial={{ y: 200 }} // Start below and invisible
+                        animate={isVisible ? { y: 0 } : {}} // Move up and fade in
+                        transition={{
+                            type: "spring",
+                            stiffness: 90, // Lower stiffness = looser movement
+                            damping: 20, // Reduces abrupt stop
+                            mass: 1.2, // Lighter mass = more bounce
+                            duration: 0.1,
+                        }}
+                        className="projectsViewHeaderText"
                     >
                         SELECTED PROJECTS
-                    </p>
-                    <p
-                        className={`projectsViewHeaderSubText ${
-                            darkMode ? "darkMode" : ""
-                        }`}
+                    </motion.p>
+                    <motion.p
+                        initial={{ y: 200 }} // Start below and invisible
+                        animate={isVisible ? { y: 0 } : {}} // Move up and fade in
+                        transition={{
+                            type: "spring",
+                            stiffness: 90, // Lower stiffness = looser movement
+                            damping: 20, // Reduces abrupt stop
+                            mass: 1.2, // Lighter mass = more bounce
+                            duration: 0.1,
+                        }}
+                        className="projectsViewHeaderSubText"
                     >
                         See my work.
-                    </p>
+                    </motion.p>
                 </motion.div>
                 {columnCount === 1 || columnCount === 2 ? (
                     <div

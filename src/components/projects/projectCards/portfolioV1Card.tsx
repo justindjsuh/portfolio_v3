@@ -26,25 +26,34 @@ const PortfolioV1Card: React.FunctionComponent<IProjectCardProps> = ({
             </div>
         </div>
     ) : (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
-            transition={{ delay: 0.75, duration: 0.5, ease: "easeOut" }}
-            className="projectCard"
-            onClick={() => handleNavigation("/cases/portfolio-v1")}
-        >
-            <img src={IMAGES.portfolioV1Bg} draggable="false" />
-            <p className="projectTitle">Portfolio V1</p>
-            <p className="projectDesc">Personal portfolio</p>
-            <div className="projectChipContainer">
-                <span>JAVASCRIPT</span>
-                <span>REACT</span>
-                <span>AOS</span>
-                <span>CSS3</span>
-                <span>HTML5</span>
-                <span>FIGMA</span>
-            </div>
-        </motion.div>
+        <div style={{ height: "28rem", overflow: "hidden" }}>
+            <motion.div
+                initial={{ y: 500 }} // Start below and invisible
+                animate={isVisible ? { y: 0 } : {}} // Move up and fade in
+                transition={{
+                    type: "spring",
+                    stiffness: 60, // Lower stiffness = looser movement
+                    damping: 20, // Reduces abrupt stop
+                    mass: 1.2, // Lighter mass = more bounce
+                    duration: 0.1,
+                    delay: 1,
+                }}
+                className="projectCard"
+                onClick={() => handleNavigation("/cases/portfolio-v1")}
+            >
+                <img src={IMAGES.portfolioV1Bg} draggable="false" />
+                <p className="projectTitle">Portfolio V1</p>
+                <p className="projectDesc">Personal portfolio</p>
+                <div className="projectChipContainer">
+                    <span>JAVASCRIPT</span>
+                    <span>REACT</span>
+                    <span>AOS</span>
+                    <span>CSS3</span>
+                    <span>HTML5</span>
+                    <span>FIGMA</span>
+                </div>
+            </motion.div>
+        </div>
     );
 };
 

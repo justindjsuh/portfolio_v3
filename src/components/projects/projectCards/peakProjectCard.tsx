@@ -28,27 +28,36 @@ const PeakProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             </div>
         </div>
     ) : (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
-            transition={{ delay: 1.25, duration: 0.5, ease: "easeOut" }}
-            className="projectCard"
-            onClick={() => handleNavigation("/cases/peak-fitness")}
-        >
-            <img src={IMAGES.peakBg} draggable="false" />
-            <p className="projectTitle">Peak Fitness</p>
-            <p className="projectDesc">
-                All your fitness needs in one dashboard
-            </p>
-            <div className="projectChipContainer">
-                <span>JAVASCRIPT</span>
-                <span>REACT</span>
-                <span>MATERIALUI</span>
-                <span>EXPRESSJS</span>
-                <span>POSTGRESQL</span>
-                <span>SUPABASE</span>
-            </div>
-        </motion.div>
+        <div style={{ height: "28rem", overflow: "hidden" }}>
+            <motion.div
+                initial={{ y: 500 }} // Start below and invisible
+                animate={isVisible ? { y: 0 } : {}} // Move up and fade in
+                transition={{
+                    type: "spring",
+                    stiffness: 60, // Lower stiffness = looser movement
+                    damping: 20, // Reduces abrupt stop
+                    mass: 1.2, // Lighter mass = more bounce
+                    duration: 0.1,
+                    delay: 1.4,
+                }}
+                className="projectCard"
+                onClick={() => handleNavigation("/cases/peak-fitness")}
+            >
+                <img src={IMAGES.peakBg} draggable="false" />
+                <p className="projectTitle">Peak Fitness</p>
+                <p className="projectDesc">
+                    All your fitness needs in one dashboard
+                </p>
+                <div className="projectChipContainer">
+                    <span>JAVASCRIPT</span>
+                    <span>REACT</span>
+                    <span>MATERIALUI</span>
+                    <span>EXPRESSJS</span>
+                    <span>POSTGRESQL</span>
+                    <span>SUPABASE</span>
+                </div>
+            </motion.div>
+        </div>
     );
 };
 

@@ -34,28 +34,37 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             </div>
         </div>
     ) : (
-        <motion.div
-            className="projectCard"
-            initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-            animate={isVisible ? { opacity: 1, y: 0 } : undefined} // Animate based on state
-            transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
-            onClick={() =>
-                handleNavigation("/cases/montgomery-presbyterian-church")
-            }
-        >
-            <img src={IMAGES.mpcBg} draggable="false" />
-            <p className="projectTitle">Montgomery Presbyterian Church</p>
-            <p className="projectDesc">COMING SOON</p>
-            <div className="projectChipContainer">
-                <span>TYPESCRIPT</span>
-                <span>REACT</span>
-                <span>NEXTJS</span>
-                <span>EXPRESSJS</span>
-                <span>SUPABASE</span>
-                <span>MATERIALUI</span>
-                <span>FIGMA</span>
-            </div>
-        </motion.div>
+        <div style={{ height: "28rem", overflow: "hidden" }}>
+            <motion.div
+                className="projectCard"
+                initial={{ y: 500 }} // Start below and invisible
+                animate={isVisible ? { y: 0 } : {}} // Move up and fade in
+                transition={{
+                    type: "spring",
+                    stiffness: 60, // Lower stiffness = looser movement
+                    damping: 20, // Reduces abrupt stop
+                    mass: 1.2, // Lighter mass = more bounce
+                    duration: 0.1,
+                    delay: 0.4,
+                }}
+                onClick={() =>
+                    handleNavigation("/cases/montgomery-presbyterian-church")
+                }
+            >
+                <img src={IMAGES.mpcBg} draggable="false" />
+                <p className="projectTitle">Montgomery Presbyterian Church</p>
+                <p className="projectDesc">COMING SOON</p>
+                <div className="projectChipContainer">
+                    <span>TYPESCRIPT</span>
+                    <span>REACT</span>
+                    <span>NEXTJS</span>
+                    <span>EXPRESSJS</span>
+                    <span>SUPABASE</span>
+                    <span>MATERIALUI</span>
+                    <span>FIGMA</span>
+                </div>
+            </motion.div>
+        </div>
     );
 };
 
