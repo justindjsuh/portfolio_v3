@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../assets/images/Images";
 import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
+import StickyCursor from "../../components/stickyCursor/stickyCursor";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -24,6 +25,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
 
     return (
         <div className="caseStudyBg">
+            <StickyCursor />
             <div className="caseStudyContainer">
                 <motion.div
                     className="backNavigation"
@@ -88,8 +90,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                    whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }} // Fade in and move up
                     transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                     style={{
                         fontSize: "1rem",

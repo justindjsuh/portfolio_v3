@@ -33,11 +33,11 @@ const PortfolioV2Card: React.FunctionComponent<IProjectCardProps> = ({
                 animate={isVisible ? { y: 0 } : {}} // Move up and fade in
                 transition={{
                     type: "spring",
-                    stiffness: 60, // Lower stiffness = looser movement
+                    stiffness: 80, // Lower stiffness = looser movement
                     damping: 20, // Reduces abrupt stop
-                    mass: 1.2, // Lighter mass = more bounce
+                    mass: 1, // Lighter mass = more bounce
                     duration: 0.1,
-                    delay: 0.8,
+                    delay: 0.6,
                 }}
                 className="projectCard"
                 onClick={() => handleNavigation("/cases/portfolio-v2")}

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: min-content;
-    cursor: pointer;
 }
 
 .projectCard.hover {
