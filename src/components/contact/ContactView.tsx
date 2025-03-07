@@ -1,78 +1,232 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import "./ContactView.css";
-import IMAGES from "../../assets/images/Images";
+import { useEffect, useRef, useState } from "react";
+import { FlipLinkV2, FlipLinkV3 } from "../WaterfallText";
+import { Canvas } from "@react-three/fiber";
+import ContactScene from "../3dRenders/ContactScene";
 
 interface IContactView {
     darkMode: boolean;
 }
 
 const ContactView: React.FunctionComponent<IContactView> = ({ darkMode }) => {
+    const firstRef = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    const isInView = useInView(firstRef, { amount: 0.5 });
+
+    useEffect(() => {
+        if (isInView) setVisible(true);
+    }, [isInView]);
+
+    console.log(visible);
+
     return (
         <div className={`contactContainer ${darkMode ? "darkMode" : ""}`}>
-            <motion.div
+            <div
                 className={`contactContent ${darkMode ? "darkMode" : ""}`}
-                initial={{ opacity: 0, y: 100 }} // Start invisible and 50px lower
-                whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                ref={firstRef}
             >
-                <p className="contactText">CONTACT</p>
-                <div
-                    className={`mainTextContainer ${
-                        darkMode ? "darkMode" : ""
-                    }`}
-                >
-                    <p
-                        className={`getConnectedText ${
-                            darkMode ? "darkMode" : ""
-                        }`}
+                <motion.div style={{ overflow: "hidden", height: "2rem" }}>
+                    <motion.p
+                        className="contactText"
+                        initial={{ y: 100 }} // Start below and invisible
+                        animate={visible ? { y: 0 } : {}} // Move up and fade in
+                        transition={{
+                            type: "spring",
+                            stiffness: 90, // Lower stiffness = looser movement
+                            damping: 20, // Reduces abrupt stop
+                            mass: 1.2, // Lighter mass = more bounce
+                            duration: 0.1,
+                        }}
                     >
-                        Let's get connected.
-                    </p>
-                    <p>CAPTURE YOUR IDEAS, CREATE CONNECTIONS</p>
+                        Contact
+                    </motion.p>
+                </motion.div>
+                <div className="contactMainContent">
+                    <div className="mainTextContainer">
+                        <motion.div className="letsGetContainer">
+                            <motion.p
+                                className="getConnectedText"
+                                initial={{ y: 100 }} // Start below and invisible
+                                animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 90, // Lower stiffness = looser movement
+                                    damping: 20, // Reduces abrupt stop
+                                    mass: 1.2, // Lighter mass = more bounce
+                                    duration: 0.1,
+                                    delay: 0.25,
+                                }}
+                            >
+                                Let's get
+                            </motion.p>
+                        </motion.div>
+                        <motion.div className="connectedContainer">
+                            <motion.p
+                                className="getConnectedText"
+                                initial={{ y: 100 }} // Start below and invisible
+                                animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 90, // Lower stiffness = looser movement
+                                    damping: 20, // Reduces abrupt stop
+                                    mass: 1.2, // Lighter mass = more bounce
+                                    duration: 0.1,
+                                    delay: 0.5,
+                                }}
+                            >
+                                connected
+                                <span className="word-highlight">.</span>
+                            </motion.p>
+                        </motion.div>
+                        <motion.div
+                            style={{ overflow: "hidden", height: "3rem" }}
+                        >
+                            <motion.p
+                                className="getConnectedSubText"
+                                initial={{ y: 100 }} // Start below and invisible
+                                animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 90, // Lower stiffness = looser movement
+                                    damping: 20, // Reduces abrupt stop
+                                    mass: 1.2, // Lighter mass = more bounce
+                                    duration: 0.1,
+                                    delay: 0.75,
+                                }}
+                            >
+                                Capture your ideas, create connections
+                            </motion.p>
+                        </motion.div>
+                    </div>
+                    <div className="contactBottomContainer">
+                        <div className="contactChipContainer">
+                            <motion.div
+                                style={{ overflow: "hidden", height: "5.9rem" }}
+                            >
+                                <motion.div
+                                    className="getConnectedSubText"
+                                    initial={{ y: 100 }} // Start below and invisible
+                                    animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 90, // Lower stiffness = looser movement
+                                        damping: 20, // Reduces abrupt stop
+                                        mass: 1.2, // Lighter mass = more bounce
+                                        duration: 0.1,
+                                        delay: 0.25,
+                                    }}
+                                >
+                                    <a
+                                        href="https://github.com/justindjsuh"
+                                        target="_blank"
+                                    >
+                                        <FlipLinkV2 phrase="github" />
+                                    </a>
+                                </motion.div>
+                            </motion.div>
+                            <motion.div
+                                style={{ overflow: "hidden", height: "4.8rem" }}
+                            >
+                                <motion.div
+                                    className="getConnectedSubText"
+                                    initial={{ y: 100 }} // Start below and invisible
+                                    animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 90, // Lower stiffness = looser movement
+                                        damping: 20, // Reduces abrupt stop
+                                        mass: 1.2, // Lighter mass = more bounce
+                                        duration: 0.1,
+                                        delay: 0.5,
+                                    }}
+                                >
+                                    <a
+                                        href="https://www.linkedin.com/in/justin-suh98/"
+                                        target="_blank"
+                                    >
+                                        <FlipLinkV2 phrase="linkedin" />
+                                    </a>
+                                </motion.div>
+                            </motion.div>
+                            <motion.div
+                                style={{ overflow: "hidden", height: "5rem" }}
+                            >
+                                <motion.div
+                                    className="getConnectedSubText"
+                                    initial={{ y: 100 }} // Start below and invisible
+                                    animate={visible ? { y: 0 } : {}} // Move up and fade in
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 90, // Lower stiffness = looser movement
+                                        damping: 20, // Reduces abrupt stop
+                                        mass: 1.2, // Lighter mass = more bounce
+                                        duration: 0.1,
+                                        delay: 0.75,
+                                    }}
+                                >
+                                    <a href="mailto:justindjsuh@gmail.com">
+                                        <FlipLinkV2 phrase="email" />
+                                    </a>
+                                </motion.div>
+                            </motion.div>
+                        </div>
+                    </div>
                 </div>
-                <hr className="divider" />
-                <div className="contactChipContainer">
-                    <a
-                        className="contactChip"
-                        href="https://github.com/justindjsuh"
-                        target="_blank"
+                <motion.hr
+                    className="dividerDim"
+                    initial={{ scaleX: 0, opacity: 1 }} // Start as a thin line
+                    animate={visible ? { scaleX: 1 } : undefined} // Expand width-wise
+                    transition={{
+                        delay: 1.5,
+                        duration: 0.8,
+                        ease: "easeOut",
+                    }}
+                    style={{ originX: 0 }} // Ensures it expands from left to right
+                />
+
+                <div className="footerContent">
+                    <div className="footerLeft">
+                        {visible && (
+                            <div
+                                className="nameAnimation"
+                                style={{ overflow: "hidden", height: "10rem" }}
+                            >
+                                <FlipLinkV3 phrase="justin suh." />
+                            </div>
+                        )}
+                        <p className="copyright" style={{ color: "#404040" }}>
+                            © 2025 Justin Suh. All Rights Reserved.
+                        </p>
+                    </div>
+                    <motion.div
+                        className="footerRight"
+                        style={{ overflow: "hidden", height: "10rem" }}
                     >
-                        <img
-                            src={
-                                darkMode
-                                    ? IMAGES.githubIcon
-                                    : IMAGES.githubDarkIcon
-                            }
-                        />
-                    </a>
-                    <a
-                        className="contactChip"
-                        href="https://www.linkedin.com/in/justin-suh98/"
-                        target="_blank"
-                    >
-                        <img
-                            src={
-                                darkMode
-                                    ? IMAGES.linkedinIcon
-                                    : IMAGES.linkedinDarkIcon
-                            }
-                        />
-                    </a>
-                    <a
-                        className="contactChip"
-                        href="mailto:justindjsuh@gmail.com"
-                    >
-                        <img
-                            src={
-                                darkMode
-                                    ? IMAGES.emailIcon
-                                    : IMAGES.emailDarkIcon
-                            }
-                        />
-                    </a>
+                        <motion.div
+                            initial={{ y: 200 }} // Start below and invisible
+                            animate={visible ? { y: 0 } : {}} // Move up and fade in
+                            transition={{
+                                type: "spring",
+                                stiffness: 50, // Lower stiffness = looser movement
+                                damping: 20, // Reduces abrupt stop
+                                mass: 1.2, // Lighter mass = more bounce
+                                duration: 0.8,
+                                delay: 1,
+                            }}
+                            style={{ height: "100%" }}
+                        >
+                            <Canvas
+                                shadows
+                                camera={{ position: [0, 1, 5], fov: 20 }}
+                            >
+                                <ContactScene />
+                            </Canvas>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 };

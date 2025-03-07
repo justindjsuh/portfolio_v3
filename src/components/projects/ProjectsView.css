@@ -1,7 +1,6 @@
 .projectsViewBg {
     background-color: var(--bg-primary-light-mode);
     width: 100vw;
-    padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

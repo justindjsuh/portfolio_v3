@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mesh } from "three";
 import { useFrame } from "@react-three/fiber";
 
@@ -52,7 +52,78 @@ export function WireframeSphere() {
             {/* Slightly larger to wrap around */}
             <icosahedronGeometry args={[0.45, 2]} />
             <meshStandardMaterial
-                color={"#898989"} // Purple outline
+                color={"#898989"}
+                // color={"#2b65ff"}
+                wireframe
+                transparent
+                emissive={"#303030"}
+                emissiveIntensity={0.3}
+                opacity={0.8} // Slight transparency for softer effect
+            />
+        </mesh>
+    );
+}
+
+export function InteractiveSphere() {
+    const meshRef = useRef<Mesh>(null);
+    const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
+    // Track mouse position globally
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            const x = (event.clientX / window.innerWidth) * 2 - 1;
+            const y = -(event.clientY / window.innerHeight) * 2 + 1;
+            setMouse({ x, y });
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, []);
+
+    useFrame(() => {
+        if (meshRef.current) {
+            meshRef.current.rotation.y += 0.02; // Slow natural rotation
+            meshRef.current.rotation.x += 0.0015; // Adds slight vertical spin
+
+            // Mouse influence (adds on top of the base rotation)
+            meshRef.current.rotation.y +=
+                (mouse.x * 0.9 - meshRef.current.rotation.y) * 0.1;
+            meshRef.current.rotation.x +=
+                (mouse.y * 0.9 - meshRef.current.rotation.x) * 0.1;
+        }
+    });
+
+    return (
+        <mesh ref={meshRef} scale={1.7} position={[0, 0, 0]} castShadow>
+            <icosahedronGeometry args={[0.35, 2]} /> {/* Low-poly look */}
+            <meshStandardMaterial
+                color={"#5B5B5B"}
+                flatShading
+                emissiveIntensity={0.3}
+                metalness={0.5}
+                roughness={0.7}
+            />
+        </mesh>
+    );
+}
+
+export function InteractiveMesh() {
+    const wireframeRef = useRef<Mesh>(null);
+
+    useFrame(({ clock }) => {
+        if (wireframeRef.current) {
+            const dynamicSpeed2 =
+                0.15 + Math.cos(clock.getElapsedTime() * 0.1) * 0.05;
+            wireframeRef.current.rotation.y -= dynamicSpeed2 * 0.01;
+        }
+    });
+
+    return (
+        <mesh ref={wireframeRef} position={[0, 0, 0]} scale={1.8} receiveShadow>
+            {/* Slightly larger to wrap around */}
+            <icosahedronGeometry args={[0.45, 2]} />
+            <meshStandardMaterial
+                color={"#898989"}
                 wireframe
                 transparent
                 emissive={"#303030"}

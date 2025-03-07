@@ -8,7 +8,7 @@ import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const navigationType = useNavigationType();
     const location = useLocation();
     useLenisSmoothScroll(loading);
@@ -21,12 +21,12 @@ const App = () => {
         }
     }, [loading]);
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setLoading(false);
-        }, 7000);
-        return () => clearTimeout(timeout);
-    });
+    // useEffect(() => {
+    //     const timeout = setTimeout(() => {
+    //         setLoading(false);
+    //     }, 7000);
+    //     return () => clearTimeout(timeout);
+    // });
 
     useEffect(() => {
         if (navigationType !== "PUSH") {
@@ -48,7 +48,7 @@ const App = () => {
 
     return (
         <>
-            {loading && navigationType !== "PUSH" && <Loader />}
+            {/* {loading && navigationType !== "PUSH" && <Loader />} */}
             <LandingPage darkMode={darkMode} setDarkMode={setDarkMode} />
             <StickyCursor />
         </>

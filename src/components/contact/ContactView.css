@@ -1,70 +1,55 @@
 .contactContainer {
-    background: linear-gradient(180deg, #fff, var(--bg-secondary));
-    height: 100vh;
+    background: linear-gradient(180deg, #101010 0%, #2b65ff 30%, #2b65ff 100%);
     display: flex;
-    justify-content: center;
     align-items: flex-end;
-}
-
-.contactContainer.darkMode {
-    background: linear-gradient(180deg, #101010, rgba(43, 101, 255, .7));
+    padding: .2rem;
+    border-top: none;
+    border-radius: 5px;
 }
 
 .contactContent {
+    background-color: #101010;
     padding: 4rem;
-    border-radius: 5px;
-    background-color: #fff;
-    width: 95%;
-    height: 70%;
-    margin-bottom: 2rem;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-}
-
-.contactContent.darkMode {
-    background-color: #101010;
+    border-radius: 5px;
+    gap: 2rem;
 }
 
 .contactText {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: #2b65ff;
     letter-spacing: .05rem;
-    align-self: flex-start;
 }
 
 .mainTextContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #101010;
-}
-
-.mainTextContainer.darkMode {
     color: #fff;
 }
 
 .getConnectedText {
-    color: #101010;
+    color: #fff;
     font-size: 5rem;
     font-weight: 600;
+    line-height: 5rem;
 }
 
-.getConnectedText.darkMode {
-    color: #fff;
+.getConnectedSubText {
+    font-size: 1.5rem;
 }
 
 .contactChipContainer {
     display: flex;
-    gap: .5rem;
+    flex-direction: column;
 }
 
 .contactChip {
     display: flex;
-    align-items: center;
     border: 1px solid #2b65ff;
     border-radius: 10px;
     padding: .5rem .05rem;
@@ -81,9 +66,47 @@
     height: auto;
 }
 
-.divider {
+.dividerDim {
     width: 100%;
-    border-color: #2b65ff;
+    border: none;
+    height: 1px;
+    color: #2b65ff;
+    background-color: #2b65ff;
+}
+
+.contactBottomContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nameAnimation {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8rem;
+    letter-spacing: .3rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.contactMainContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.letsGetContainer {
+    overflow: hidden;
+    height: 5.5rem;
+}
+
+.connectedContainer {
+    overflow: hidden;
+    height: 6rem;
 }
 
 @media (max-width: 1199px) {
@@ -92,6 +115,30 @@
 
 @media (max-width: 575px) {
     .getConnectedText {
+        line-height: 3rem;
         font-size: 3rem;
+    }
+    .footerRight {
+        display: none;
+    }
+    .contactMainContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .contactContent {
+        padding: 1rem;
+    }
+    .letsGetContainer {
+        height: 3.5rem;
+    }
+    .connectedContainer {
+        height: 4rem;
+    }
+    .getConnectedSubText {
+        font-size: 1rem;
+    }
+    .copyright {
+        font-size: .875rem;
     }
 }

@@ -1,0 +1,13 @@
+.flipLinkContainer3 {
+    font-size: 5rem;
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 575px) {
+    .flipLinkContainer3 {
+        font-size: 4rem;
+    }
+}

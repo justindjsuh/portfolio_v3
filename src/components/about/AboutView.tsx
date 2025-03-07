@@ -11,8 +11,6 @@ const AboutView: React.FunctionComponent = () => {
         if (isInView) setVisible(true);
     }, [isInView]);
 
-    console.log(visible);
-
     return (
         <div className="aboutContainer">
             <div className="aboutContent">
