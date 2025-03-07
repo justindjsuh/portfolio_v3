@@ -4,10 +4,12 @@ import { useState } from "react";
 import IMAGES from "../../assets/images/Images";
 import { motion } from "framer-motion";
 import StickyCursor from "../../components/stickyCursor/stickyCursor";
+import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 
 const MpcCaseStudy: React.FunctionComponent = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
+    useLenisSmoothScroll(false);
 
     return (
         <div className="caseStudyBg">
@@ -50,8 +52,18 @@ const MpcCaseStudy: React.FunctionComponent = () => {
                         <p>Back to my portfolio</p>
                     </div>
                     <div className="backNavRight">
-                        <button>Live Site</button>
-                        <img src={IMAGES.githubCaseIcon} />
+                        <a
+                        // href="https://emmanuel-ec.vercel.app/"
+                        // target="_blank"
+                        >
+                            <button>Live Site</button>
+                        </a>
+                        <a
+                        // href="https://github.com/justindjsuh/emmanuel-ec"
+                        // target="_blank"
+                        >
+                            <button>GitHub</button>
+                        </a>
                     </div>
                 </motion.div>
                 <motion.div

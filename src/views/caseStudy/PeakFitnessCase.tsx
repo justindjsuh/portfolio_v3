@@ -70,7 +70,7 @@ const PeakFitnessCase: React.FunctionComponent = () => {
                             </a>
                         </button>
                         <a href="https://github.com/peak-fitness/peak">
-                            <img rel="preload" src={IMAGES.githubCaseIcon} />
+                            <button>GitHub</button>
                         </a>
                     </div>
                 </motion.div>

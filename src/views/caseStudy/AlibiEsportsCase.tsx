@@ -74,7 +74,7 @@ const AlibiEsportsCase: React.FunctionComponent = () => {
                             href="https://github.com/justindjsuh/alibi-esports-fe"
                             target="_blank"
                         >
-                            <img src={IMAGES.githubCaseIcon} />
+                            <button>GitHub</button>
                         </a>
                     </div>
                 </motion.div>

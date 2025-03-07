@@ -84,7 +84,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                             href="https://github.com/justindjsuh/emmanuel-ec"
                             target="_blank"
                         >
-                            <img src={IMAGES.githubCaseIcon} />
+                            <button>GitHub</button>
                         </a>
                     </div>
                 </motion.div>
