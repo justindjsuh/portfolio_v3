@@ -28,7 +28,6 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
         const img = new Image();
         img.src = IMAGES.caseEmmanuelBg;
         img.onload = () => {
-            console.log("Image preloaded");
             setLoaded(true);
         };
     }, []);

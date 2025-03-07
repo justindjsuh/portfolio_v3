@@ -8,7 +8,7 @@ import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const navigationType = useNavigationType();
     const location = useLocation();
     useLenisSmoothScroll(loading);

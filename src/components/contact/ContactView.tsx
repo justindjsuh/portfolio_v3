@@ -19,8 +19,6 @@ const ContactView: React.FunctionComponent<IContactView> = ({ darkMode }) => {
         if (isInView) setVisible(true);
     }, [isInView]);
 
-    console.log(visible);
-
     return (
         <div className={`contactContainer ${darkMode ? "darkMode" : ""}`}>
             <div
