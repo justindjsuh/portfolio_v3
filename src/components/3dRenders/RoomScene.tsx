@@ -61,7 +61,7 @@ const PyramidWall: React.FunctionComponent<ITriangularWall> = ({
     const ref = useRef<THREE.Mesh>(null);
 
     const geometry = useMemo(() => {
-        const segments = 12; // Controls number of triangles
+        const segments = 10; // Controls number of triangles
         const geom = new THREE.PlaneGeometry(width, height, segments, segments);
         const posAttr = geom.attributes.position;
         const numVertices = posAttr.count;
