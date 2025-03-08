@@ -149,6 +149,13 @@ function Room() {
         }
     });
 
+    useFrame(({ clock }) => {
+        if (cubeRef.current) {
+            const t = clock.getElapsedTime();
+            cubeRef.current.position.y = Math.sin(t * 1) * 0.01 - 0.7; // Adjust speed and height
+        }
+    });
+
     return (
         <>
             {/* Lighting for Realism */}
@@ -224,12 +231,12 @@ function Room() {
 
             {/* Cube */}
             <mesh
-                position={[0, -0.9, 0]}
+                position={[0, -0.7, 0]}
                 ref={cubeRef}
                 castShadow
                 receiveShadow
             >
-                <boxGeometry args={[2, 1, 2]} />
+                <boxGeometry args={[2, 0.4, 2]} />
                 <meshPhysicalMaterial
                     color="#333333"
                     roughness={0.5}
@@ -237,11 +244,6 @@ function Room() {
                     clearcoat={1}
                     clearcoatRoughness={0.05}
                 />
-                {/* <meshStandardMaterial
-                    color="#333333"
-                    roughness={0.5}
-                    metalness={0.2}
-                /> */}
             </mesh>
 
             {/* Controls for Camera Interaction */}
