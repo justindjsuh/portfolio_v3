@@ -91,7 +91,7 @@ const PyramidWall: React.FunctionComponent<ITriangularWall> = ({
             receiveShadow
         >
             <meshPhysicalMaterial
-                color="#303030"
+                color="#282828"
                 flatShading
                 roughness={0.5}
                 metalness={0.2}
@@ -215,7 +215,7 @@ function Room() {
                 <planeGeometry args={[6, 6]} />
                 <meshPhysicalMaterial
                     color="#272727"
-                    roughness={0.9}
+                    roughness={0.6}
                     metalness={0.5}
                     clearcoat={1}
                     clearcoatRoughness={0.1}
@@ -233,9 +233,9 @@ function Room() {
                 <meshPhysicalMaterial
                     color="#333333"
                     roughness={0.5}
-                    metalness={0.2}
+                    metalness={0.4}
                     clearcoat={1}
-                    clearcoatRoughness={0.1}
+                    clearcoatRoughness={0.05}
                 />
                 {/* <meshStandardMaterial
                     color="#333333"

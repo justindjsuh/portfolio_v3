@@ -20,7 +20,7 @@ export function MorphingSphere() {
         <mesh ref={meshRef} position={[0.4, 0.5, 0.4]} castShadow>
             <icosahedronGeometry args={[0.35, 2]} /> {/* Low-poly look */}
             <meshStandardMaterial
-                color={"#5B5B5B"}
+                color={"#404040"}
                 flatShading
                 emissiveIntensity={0.3}
                 metalness={0.5}
