@@ -48,16 +48,16 @@ const IMAGES = {
     // CASE IMAGES
     caseEmmanuelBg: new URL("./caseImages/case_emmanuel.avif", import.meta.url)
         .href,
-    caseAlibiBg: new URL("./caseImages/case_alibiesports.png", import.meta.url)
+    caseAlibiBg: new URL("./caseImages/case_alibiesports.PNG", import.meta.url)
         .href,
     casePeakBg: new URL("./caseImages/case_peakfitness.png", import.meta.url)
         .href,
     casePortfolioV1Bg: new URL(
-        "./caseImages/case_portfoliov1.png",
+        "./caseImages/case_portfoliov1.PNG",
         import.meta.url
     ).href,
     casePortfolioV2Bg: new URL(
-        "./caseImages/case_portfoliov2.png",
+        "./caseImages/case_portfoliov2.PNG",
         import.meta.url
     ).href,
     casePortfolioV3Bg: new URL(
