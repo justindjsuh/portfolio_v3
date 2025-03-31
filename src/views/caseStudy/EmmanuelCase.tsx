@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
 import { useEffect, useRef, useState } from "react";
-import IMAGES from "../../assets/images/Images";
 import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 import StickyCursor from "../../components/stickyCursor/stickyCursor";
 
 const EmmanuelCaseStudy: React.FunctionComponent = () => {
-    const [loaded, setLoaded] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
     useLenisSmoothScroll(false);
@@ -22,14 +20,6 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
-        const img = new Image();
-        img.src = IMAGES.caseEmmanuelBg;
-        img.onload = () => {
-            setLoaded(true);
-        };
     }, []);
 
     return (
@@ -104,22 +94,11 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     animate={{ opacity: 1, y: 0 }} // Fade in and move up
                     transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                     style={{
-                        fontSize: "1rem",
                         margin: "0 auto",
-                        fontWeight: "400",
-                        letterSpacing: ".5rem",
                     }}
                     className="caseImage"
                 >
-                    {!loaded ? (
-                        <div style={{ width: "34rem", height: "60rem" }} />
-                    ) : (
-                        <img
-                            rel="preload"
-                            src={IMAGES.caseEmmanuelBg}
-                            style={{ display: loaded ? "block" : "none" }}
-                        />
-                    )}
+                    <img src='/caseImages/case_emmanuel.png' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

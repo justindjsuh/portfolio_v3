@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
 import { useEffect, useRef, useState } from "react";
-import IMAGES from "../../assets/images/Images";
 import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 import StickyCursor from "../../components/stickyCursor/stickyCursor";
@@ -93,14 +92,11 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     animate={{ opacity: 1, y: 0 }} // Fade in and move up
                     transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                     style={{
-                        fontSize: "1rem",
                         margin: "0 auto",
-                        fontWeight: "400",
-                        letterSpacing: ".5rem",
                     }}
                     className="caseImage"
                 >
-                    <img rel="preload" src={IMAGES.casePortfolioV1Bg} />
+                    <img src='/caseImages/case_portfoliov1.PNG' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

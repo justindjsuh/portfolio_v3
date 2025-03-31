@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./caseStudy.css";
 import { useEffect, useRef, useState } from "react";
-import IMAGES from "../../assets/images/Images";
 import { motion, useInView } from "framer-motion";
 import useLenisSmoothScroll from "../../components/smoothScroll/SmoothScroll";
 import StickyCursor from "../../components/stickyCursor/stickyCursor";
@@ -96,7 +95,7 @@ const PeakFitnessCase: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img rel="preload" src={IMAGES.casePeakBg} />
+                    <img rel="preload" src='/caseImages/case_peakfitness.png' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

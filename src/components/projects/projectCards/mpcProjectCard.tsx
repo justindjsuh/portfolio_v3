@@ -22,14 +22,14 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
         >
             <img src={IMAGES.mpcBg} draggable="false" />
             <p className="projectTitle">Montgomery Presbyterian Church</p>
-            <p className="projectDesc">COMING SOON</p>
+            <p className="projectDesc">Frontline of user interaction for a local church</p>
             <div className="projectChipContainer">
                 <span>TYPESCRIPT</span>
                 <span>REACT</span>
+                <span>FRAMER MOTION</span>
                 <span>NEXTJS</span>
-                <span>EXPRESSJS</span>
                 <span>SUPABASE</span>
-                <span>MATERIALUI</span>
+                <span>ANT DESIGN</span>
                 <span>FIGMA</span>
             </div>
         </div>
@@ -53,15 +53,15 @@ const MpcProjectCard: React.FunctionComponent<IProjectCardProps> = ({
             >
                 <img src={IMAGES.mpcBg} draggable="false" />
                 <p className="projectTitle">Montgomery Presbyterian Church</p>
-                <p className="projectDesc">COMING SOON</p>
+                <p className="projectDesc">Frontline of user interaction for a local church</p>
                 <div className="projectChipContainer">
-                    <span>TYPESCRIPT</span>
-                    <span>REACT</span>
-                    <span>NEXTJS</span>
-                    <span>EXPRESSJS</span>
-                    <span>SUPABASE</span>
-                    <span>MATERIALUI</span>
-                    <span>FIGMA</span>
+                  <span>TYPESCRIPT</span>
+                  <span>REACT</span>
+                  <span>FRAMER MOTION</span>
+                  <span>NEXTJS</span>
+                  <span>SUPABASE</span>
+                  <span>ANT DESIGN</span>
+                  <span>FIGMA</span>
                 </div>
             </motion.div>
         </div>
