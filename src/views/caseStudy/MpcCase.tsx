@@ -97,7 +97,7 @@ const MpcCaseStudy: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src='/caseImages/case_mpc.png' />
+                    <img src='/caseImages/case_mpc.avif' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

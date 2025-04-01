@@ -96,7 +96,7 @@ const EmmanuelCaseStudy: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src='/caseImages/case_portfoliov1.PNG' />
+                    <img src='/caseImages/case_portfoliov1.avif' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

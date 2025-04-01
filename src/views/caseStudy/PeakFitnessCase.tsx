@@ -95,7 +95,7 @@ const PeakFitnessCase: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img rel="preload" src='/caseImages/case_peakfitness.png' />
+                    <img rel="preload" src='/caseImages/case_peakfitness.avif' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">

@@ -96,7 +96,7 @@ const PortfolioV3CaseStudy: React.FunctionComponent = () => {
                     }}
                     className="caseImage"
                 >
-                    <img src='/caseImages/case_portfoliov3.png' />
+                    <img src='/caseImages/case_portfoliov3.avif' />
                 </motion.div>
                 <div className="caseStudyContent">
                     <div className="caseLeftSide">
