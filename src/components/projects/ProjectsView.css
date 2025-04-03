@@ -11,7 +11,6 @@
     padding-top: 15rem;
     display: flex;
     flex-direction: column;
-    width: 85%;
     gap: 5rem;
 }
 
@@ -67,10 +66,13 @@
     transform: translate(10%, 0);
 }
 
+.projectCarouselContainer {
+  display: flex;
+}
+
 .projectCardsContainer {
     display: grid;
     gap: 2rem;
-    max-width: 320px;
 }
 
 @media (max-width: 780px) {
@@ -93,4 +95,7 @@
     .portfolioV3Nav {
         margin-left: 2rem;
     }
+    .projectCardsContainer {
+      max-width: 320px;
+  }
 }

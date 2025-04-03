@@ -28,7 +28,7 @@ const ProjectsView: React.FunctionComponent = () => {
 
     const getColumnCount = () => {
         const cols = Math.floor(
-            document.documentElement.clientWidth / slideDistance
+            (document.documentElement.clientWidth * .85) / slideDistance
         );
         setColumnCount(cols);
     };
