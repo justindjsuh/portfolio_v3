@@ -6,6 +6,7 @@ import {
     WireframeSphere,
 } from "../animations/RoomSphere/RoomSphere";
 import { useFrame } from "@react-three/fiber";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 // const InteractiveLight = () => {
 //     const lightRef = useRef<THREE.DirectionalLight>(null);
@@ -72,7 +73,7 @@ const PyramidWall: React.FunctionComponent<ITriangularWall> = ({
             const centerIndex = i + 5; // Using the last vertex as the peak
 
             // Raise the peak of the triangle to create a pyramid effect
-            const peakHeight = 0.03; // Adjust for more or less depth
+            const peakHeight = 0.08; // Adjust for more or less depth
             const z = posAttr.getZ(centerIndex) + peakHeight;
             posAttr.setZ(centerIndex, z);
         }
@@ -91,10 +92,10 @@ const PyramidWall: React.FunctionComponent<ITriangularWall> = ({
             receiveShadow
         >
             <meshPhysicalMaterial
-                color="#282828"
-                flatShading
-                roughness={0.5}
-                metalness={0.2}
+              flatShading
+                color="#222222"
+                roughness={0.6}
+                metalness={0.5}
                 clearcoat={1}
                 clearcoatRoughness={0.1}
             />
@@ -141,6 +142,7 @@ function Room() {
     const spotLightRef = useRef<THREE.SpotLight>(null);
     const floorRef = useRef<THREE.Mesh>(null);
     const cubeRef = useRef<THREE.Mesh>(null);
+    const cube2Ref = useRef<THREE.Mesh>(null);
 
     useFrame(() => {
         if (spotLightRef.current) {
@@ -154,6 +156,10 @@ function Room() {
             const t = clock.getElapsedTime();
             cubeRef.current.position.y = Math.sin(t * 1) * 0.01 - 0.7; // Adjust speed and height
         }
+        if (cube2Ref.current) {
+            const t = clock.getElapsedTime();
+            cube2Ref.current.position.y = Math.sin(t * 1) * 0.01 - 0.71; // Adjust speed and height
+        }
     });
 
     return (
@@ -162,7 +168,7 @@ function Room() {
             <ambientLight intensity={0.1} />
             <directionalLight
                 position={[3, 5, 3]}
-                intensity={3.5}
+                intensity={2.5}
                 castShadow
                 shadow-mapSize-width={1024}
                 shadow-mapSize-height={1024}
@@ -221,7 +227,7 @@ function Room() {
             >
                 <planeGeometry args={[6, 6]} />
                 <meshPhysicalMaterial
-                    color="#272727"
+                    color="#181818"
                     roughness={0.6}
                     metalness={0.5}
                     clearcoat={1}
@@ -238,7 +244,7 @@ function Room() {
             >
                 <boxGeometry args={[2, 0.4, 2]} />
                 <meshPhysicalMaterial
-                    color="#333333"
+                    color="#202020"
                     roughness={0.5}
                     metalness={0.4}
                     clearcoat={1}
@@ -246,6 +252,23 @@ function Room() {
                 />
             </mesh>
 
+          {/* Glowing edges */}
+          <mesh ref={cube2Ref} position={[0, 2, 0]}>
+            <boxGeometry args={[1.99, 0.41, 1.99]} />
+            <meshPhysicalMaterial
+              color="#2b65ff"
+              // wireframe
+              emissive="#2b65ff"
+              emissiveIntensity={1}
+            />
+          </mesh>
+            <EffectComposer>
+              <Bloom
+                intensity={.2} // Adjust for glow strength
+                luminanceThreshold={0.2} // Controls glow activation threshold
+                luminanceSmoothing={0.5} // Softens the glow transition
+              />
+            </EffectComposer>
             {/* Controls for Camera Interaction */}
             <OrbitControls
                 enableZoom={false}
