@@ -44,13 +44,6 @@ const ExperiencesView: React.FunctionComponent = () => {
     const width = useTransform(scrollY, [start, end], [min, max]);
     const widthStyle = useTransform(width, (v) => `${v}%`);
 
-    const borderRadiusCalc = useTransform(scrollY, [1000, 1400], [15, 0]);
-
-    const borderRadius = useTransform(
-        borderRadiusCalc,
-        (value) => `${value}px`
-    );
-
     const handleHoverSelection = (selectedJob: keyof IJobType) => {
         setSelectedJob((prev) =>
             Object.keys(prev).reduce((acc, curr) => {
@@ -68,7 +61,7 @@ const ExperiencesView: React.FunctionComponent = () => {
                 style={{
                     width: widthStyle,
                     position: "relative",
-                    borderRadius: borderRadius,
+                    borderRadius: "10px",
                 }}
             >
                 <div className="experiencesContent">
