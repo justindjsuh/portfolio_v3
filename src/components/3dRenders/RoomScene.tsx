@@ -144,13 +144,6 @@ function Room() {
     const cubeRef = useRef<THREE.Mesh>(null);
     const cube2Ref = useRef<THREE.Mesh>(null);
 
-    useFrame(() => {
-        if (spotLightRef.current) {
-            spotLightRef.current.shadow.bias = -0.004;
-            spotLightRef.current.shadow.radius = 24;
-        }
-    });
-
     useFrame(({ clock }) => {
         if (cubeRef.current) {
             const t = clock.getElapsedTime();
@@ -170,30 +163,7 @@ function Room() {
                 position={[3, 5, 3]}
                 intensity={2.5}
                 castShadow
-                shadow-mapSize-width={1024}
-                shadow-mapSize-height={1024}
                 ref={spotLightRef}
-            />
-            <spotLight
-                position={[3, 5, 3]}
-                angle={0.5}
-                intensity={12}
-                castShadow={false}
-                penumbra={0.2}
-            />
-            <spotLight
-                position={[3, 5, 3]}
-                angle={0.5}
-                intensity={12}
-                castShadow
-                penumbra={0.2}
-            />
-            <spotLight
-                position={[0, 3, 2]}
-                angle={0.5}
-                intensity={7}
-                castShadow={false}
-                penumbra={0.2}
             />
             <directionalLight position={[0, 0.4, 0]} intensity={1} castShadow />
 
@@ -259,12 +229,12 @@ function Room() {
               color="#2b65ff"
               // wireframe
               emissive="#2b65ff"
-              emissiveIntensity={1}
+              emissiveIntensity={4}
             />
           </mesh>
             <EffectComposer>
               <Bloom
-                intensity={.2} // Adjust for glow strength
+                intensity={.5} // Adjust for glow strength
                 luminanceThreshold={0.2} // Controls glow activation threshold
                 luminanceSmoothing={0.5} // Softens the glow transition
               />

@@ -3,7 +3,7 @@ import "./LandingPage.css";
 import React, { useEffect, useRef, useState } from "react";
 import AboutView from "../../components/about/AboutView";
 import ExperiencesView from "../../components/experiences/ExperiencesView";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import ProjectsView from "../../components/projects/ProjectsView";
 import ContactView from "../../components/contact/ContactView";
 import Room from "../../components/3dRenders/RoomScene";
@@ -38,10 +38,12 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
         return () => clearTimeout(timeout);
     });
 
+    const isInView = useInView(containerRef, { margin: '-50% 0px -50% 0px' }); // trigger when ~centered
+
     return (
         <div className="landingContainer" ref={containerRef}>
             {/* Not sure if I prefer it with the border or not.. */}
-            <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }}>
+            <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }} frameloop={isInView ? "always" : "never"}>
                 <Room />
             </Canvas>
             {/* <div

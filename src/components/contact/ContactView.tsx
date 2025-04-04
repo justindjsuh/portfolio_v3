@@ -211,6 +211,7 @@ const ContactView: React.FunctionComponent = () => {
                             <Canvas
                                 shadows
                                 camera={{ position: [0, 1, 5], fov: 20 }}
+                                frameloop={visible ? "always" : "never"}
                             >
                                 <ContactScene />
                             </Canvas>
