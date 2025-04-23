@@ -141,7 +141,7 @@ const ProjectsView: React.FunctionComponent = () => {
                         See my work.
                     </motion.p>
                 </motion.div>
-                {columnCount === 1 || columnCount === 2 ? (
+                {columnCount <= 2 ? (
                     <div
                         className="projectCarouselContainer"
                         ref={containerRef}
