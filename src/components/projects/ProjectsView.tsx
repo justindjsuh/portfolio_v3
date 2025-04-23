@@ -15,7 +15,7 @@ const ProjectsView: React.FunctionComponent = () => {
     const [hasAnimated, setHasAnimated] = useState(false);
 
     const controls = useAnimation();
-    const maxIndex = 1;
+    const maxIndex = 5.5;
     const cardWidth = 320;
     const slideDistance = cardWidth + 32;
     const totalCards = 6;
@@ -173,7 +173,7 @@ const ProjectsView: React.FunctionComponent = () => {
                                 if (intervalRef.current)
                                     clearInterval(intervalRef.current); // Stop auto-slide
                             }}
-                            onDragLeave={() => {
+                            onDragEnd={() => {
                                 isDragging.current = false;
                                 startAutoSlide(); // Restart auto-slide
                             }}
