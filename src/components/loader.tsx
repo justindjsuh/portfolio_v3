@@ -110,6 +110,8 @@ const Loader: React.FunctionComponent = () => {
                         fontSize: "2rem",
                         fontWeight: "500",
                         fontFamily: "EB Garamond",
+                        background: 'red',
+                        zIndex: 10000
                     }}
                 >
                     justin suh
@@ -122,7 +124,8 @@ const Loader: React.FunctionComponent = () => {
                         height: "1px",
                         overflow: expanding ? "visible" : "hidden",
                         backgroundColor: "black",
-                        zIndex: 10
+                        background: 'red',
+                        zIndex: 10000
                     }}
                 >
                     <motion.div
