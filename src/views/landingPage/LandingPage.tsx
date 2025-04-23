@@ -42,6 +42,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
 
     return (
         <div className="landingContainer" ref={containerRef}>
+            <div className="cover"></div>
             {/* Not sure if I prefer it with the border or not.. */}
             <Canvas shadows camera={{ position: [6, 1, 6], fov: 20 }} frameloop={isInView ? "always" : "never"}>
                 <Room />
