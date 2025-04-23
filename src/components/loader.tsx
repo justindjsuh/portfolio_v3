@@ -97,7 +97,7 @@ const Loader: React.FunctionComponent = () => {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "flex-end",
-                    zIndex: 9999,
+                    zIndex: 5,
                 }}
             >
                 {/* Your Name */}
@@ -122,6 +122,7 @@ const Loader: React.FunctionComponent = () => {
                         height: "1px",
                         overflow: expanding ? "visible" : "hidden",
                         backgroundColor: "black",
+                        zIndex: 10
                     }}
                 >
                     <motion.div
@@ -157,7 +158,7 @@ const Loader: React.FunctionComponent = () => {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    zIndex: 9999,
+                    zIndex: 5,
                 }}
             />
             {/* <motion.div
