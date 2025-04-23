@@ -4,7 +4,7 @@ import Loader from "./components/loader";
 import { useEffect, useState } from "react";
 import useLenisSmoothScroll from "./components/smoothScroll/SmoothScroll";
 import { useLocation, useNavigationType } from "react-router-dom";
-import StickyCursor from "./components/stickyCursor/stickyCursor";
+// import StickyCursor from "./components/stickyCursor/stickyCursor";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -49,7 +49,7 @@ const App = () => {
         <>
             {loading && navigationType !== "PUSH" && <Loader />}
             <LandingPage navigationType={navigationType} />
-            <StickyCursor />
+            {/* <StickyCursor /> */}
         </>
     );
 };
