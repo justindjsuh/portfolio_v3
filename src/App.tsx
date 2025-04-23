@@ -8,6 +8,7 @@ import { useLocation, useNavigationType } from "react-router-dom";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
+    const [renderScene, setRenderScene] = useState(false);
     const navigationType = useNavigationType();
     const location = useLocation();
     useLenisSmoothScroll(loading);
@@ -24,8 +25,14 @@ const App = () => {
         const timeout = setTimeout(() => {
             setLoading(false);
         }, 7000);
-        return () => clearTimeout(timeout);
-    });
+        const timeout2 = setTimeout(() => {
+            setRenderScene(true);
+        }, 5000);
+        return () => {
+          clearTimeout(timeout2)
+          clearTimeout(timeout);
+        };
+    }, []);
 
     useEffect(() => {
         if (navigationType !== "PUSH") {
@@ -48,7 +55,7 @@ const App = () => {
     return (
         <>
             {loading && navigationType !== "PUSH" && <Loader />}
-            <LandingPage navigationType={navigationType} />
+            {renderScene && <LandingPage navigationType={navigationType} />}
             {/* <StickyCursor /> */}
         </>
     );

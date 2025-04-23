@@ -34,7 +34,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
         // Need to disable this if the user is being redirected back from a case study path
         const timeout = setTimeout(() => {
             setStartAnimation(true);
-        }, 6500);
+        }, 1500);
         return () => clearTimeout(timeout);
     });
 
@@ -68,8 +68,7 @@ const LandingPage: React.FunctionComponent<ILandingPageProps> = ({
                         className="landingContent"
                         style={{ y }}
                         initial={{ opacity: 0, y: 50 }} // Start invisible and 50px lower
-                        whileInView={{ opacity: 1, y: 0 }} // Fade in and move up
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }} // Fade in and move up
                         transition={{ duration: 0.5, ease: "easeOut" }}
                     >
                         <FlipLink phrase="justin suh." />
