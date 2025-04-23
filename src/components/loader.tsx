@@ -110,7 +110,6 @@ const Loader: React.FunctionComponent = () => {
                         fontSize: "2rem",
                         fontWeight: "500",
                         fontFamily: "EB Garamond",
-                        background: 'red',
                         zIndex: 10000
                     }}
                 >
@@ -124,7 +123,6 @@ const Loader: React.FunctionComponent = () => {
                         height: "1px",
                         overflow: expanding ? "visible" : "hidden",
                         backgroundColor: "black",
-                        background: 'red',
                         zIndex: 10000
                     }}
                 >
