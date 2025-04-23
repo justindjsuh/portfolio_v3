@@ -17,6 +17,7 @@
 }
 
 .aboutMe {
+    color: var(--text-primary-dark-mode);
     font-size: 5rem;
     line-height: 4rem;
     white-space: nowrap;
